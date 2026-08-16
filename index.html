@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 English Grammar · Class IX · Complete Exercise Bank</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: #faf7f2;
+      color: #1e1e2a;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
+      padding: 2.5rem 2rem;
+      border: 1px solid #ece7e0;
+    }
+    /* header with indian flag */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px dashed #d0c8bc;
+      margin-bottom: 2.5rem;
+    }
+    .flag-india {
+      display: flex;
+      flex-direction: column;
+      width: 72px;
+      height: 48px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+    .flag-india .saffron { background: #FF9933; height: 33.33%; }
+    .flag-india .white { background: white; height: 33.33%; position: relative; }
+    .flag-india .white::after {
+      content: "✧";
+      font-size: 18px;
+      color: #000080;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1;
+      transform: translateY(-2px);
+    }
+    .flag-india .green { background: #138808; height: 33.33%; }
+    .title-group h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(145deg, #1e3c5a, #2b4d6e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .title-group .sub {
+      font-size: 1rem;
+      color: #5f5b55;
+      background: #f0ebe4;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+    .badge-class {
+      margin-left: auto;
+      background: #1e3c5a;
+      color: white;
+      font-weight: 600;
+      padding: 0.4rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+    .section {
+      margin-top: 2.8rem;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e3c5a;
+      border-left: 6px solid #FF9933;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .section h2 small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #4f5b66;
+      background: #eae5de;
+      padding: 0.1rem 0.9rem;
+      border-radius: 30px;
+      margin-left: 0.5rem;
+    }
+    .exercise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.2rem 1.8rem;
+      background: #fcfaf8;
+      padding: 1.2rem 1rem;
+      border-radius: 24px;
+      border: 1px solid #ede8e0;
+    }
+    .exercise-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem 0.8rem;
+      flex-wrap: wrap;
+      padding: 0.2rem 0;
+      border-bottom: 1px dashed #e2dad1;
+    }
+    .exercise-item .num {
+      font-weight: 600;
+      color: #7a6e60;
+      min-width: 28px;
+      font-size: 0.85rem;
+    }
+    .exercise-item .q {
+      font-weight: 500;
+      color: #1e1e2a;
+      flex: 1 1 140px;
+    }
+    .exercise-item .arrow {
+      color: #b0a395;
+      margin: 0 0.1rem;
+    }
+    .exercise-item .blank {
+      background: #f3efe9;
+      padding: 0.1rem 0.9rem;
+      border-radius: 40px;
+      font-family: 'Courier New', monospace;
+      font-weight: 500;
+      color: #a52a2a;
+      border: 1px dashed #bcaea0;
+      min-width: 60px;
+      display: inline-block;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .exercise-item .hint {
+      color: #6b6258;
+      font-size: 0.8rem;
+      background: #efebe6;
+      padding: 0.1rem 0.5rem;
+      border-radius: 16px;
+      opacity: 0.8;
+    }
+    .note {
+      background: #f5f1eb;
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      color: #3d3a35;
+      margin-top: 1.5rem;
+      border: 1px solid #e0d7cd;
+      display: inline-block;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 700px) {
+      body { padding: 1rem 0.5rem; }
+      .container { padding: 1.5rem 1rem; }
+      .header { flex-direction: column; align-items: start; }
+      .badge-class { margin-left: 0; }
+      .two-col { grid-template-columns: 1fr; }
+      .exercise-grid { grid-template-columns: 1fr; }
+    }
+    hr {
+      margin: 2rem 0;
+      border: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #FF9933, #ffffff, #138808);
+      opacity: 0.4;
+    }
+    .page-break {
+      border-top: 4px double #d0c8bc;
+      margin: 2.5rem 0 1rem;
+    }
+    .footer {
+      text-align: right;
+      margin-top: 2rem;
+      color: #7e756a;
+      font-size: 0.9rem;
+      border-top: 1px solid #e5ddd4;
+      padding-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="top">
+
+  <!-- header with Indian flag -->
+  <div class="header">
+    <div class="flag-india">
+      <div class="saffron"></div>
+      <div class="white"></div>
+      <div class="green"></div>
+    </div>
+    <div class="title-group">
+      <h1>English Grammar · Transformation</h1>
+      <div class="sub">Degree · Parts of Speech · Cannot but/help</div>
+    </div>
+    <div class="badge-class">🇮🇳 Class IX</div>
+  </div>
+
+  <!-- ============ DEGREE OF COMPARISON (set 1) ============ -->
+  <div class="section">
+    <h2>📐 Degree of Comparison <small>positive · comparative · superlative</small></h2>
+    <div class="exercise-grid">
+      <div class="exercise-item"><span class="num">1.</span><span class="q">Ravi is as honest as Suresh.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">2.</span><span class="q">Gold is more precious than silver.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+      <div class="exercise-item"><span class="num">3.</span><span class="q">Kolkata is the largest city in West Bengal.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">4.</span><span class="q">Raju is taller than any other boy in his class.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+      <div class="exercise-item"><span class="num">5.</span><span class="q">No other planet is as large as Jupiter.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+      <div class="exercise-item"><span class="num">6.</span><span class="q">Sundarbans is one of the most beautiful forests.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+      <div class="exercise-item"><span class="num">7.</span><span class="q">Very few metals are as useful as iron.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">8.</span><span class="q">Shakespeare was greater than most other dramatists.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+      <div class="exercise-item"><span class="num">9.</span><span class="q">Diamond is not as cheap as glass.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">10.</span><span class="q">Ganga is the holiest river in India.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+    </div>
+  </div>
+
+  <!-- ============ PARTS OF SPEECH (first set) ============ -->
+  <div class="section">
+    <h2>🧩 Parts of Speech <small>adverb · noun · adjective · abstract</small></h2>
+    <div class="exercise-grid">
+      <div class="exercise-item"><span class="num">11.</span><span class="q">He is a careless boy.</span><span class="arrow">→</span><span class="blank">adverb</span></div>
+      <div class="exercise-item"><span class="num">12.</span><span class="q">She accepted the proposal gladly.</span><span class="arrow">→</span><span class="blank">noun</span></div>
+      <div class="exercise-item"><span class="num">13.</span><span class="q">He is a man of wealth.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">14.</span><span class="q">The child is obedient.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
+      <div class="exercise-item"><span class="num">15.</span><span class="q">He speaks truthfully.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">16.</span><span class="q">She admired the painting greatly.</span><span class="arrow">→</span><span class="blank">noun</span></div>
+      <div class="exercise-item"><span class="num">17.</span><span class="q">He is a boy of intelligence.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">18.</span><span class="q">The teacher explained clearly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">19.</span><span class="q">Her kindness impressed everyone.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">20.</span><span class="q">He is a cruel man.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
+    </div>
+  </div>
+
+  <!-- ============ CANNOT BUT / CANNOT HELP ============ -->
+  <div class="section">
+    <h2>🚫 Cannot but / Cannot help <small>transform with gerund/infinitive</small></h2>
+    <div class="exercise-grid">
+      <div class="exercise-item"><span class="num">21.</span><span class="q">We must respect our elders.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">22.</span><span class="q">She must smile at the baby.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+      <div class="exercise-item"><span class="num">23.</span><span class="q">You must forgive him.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">24.</span><span class="q">He must admire her courage.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+      <div class="exercise-item"><span class="num">25.</span><span class="q">I must obey my conscience.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============ SECOND SET : DEGREE ============ -->
+  <div class="section">
+    <h2>📐 Degree of Comparison <small>set 2</small></h2>
+    <div class="exercise-grid">
+      <div class="exercise-item"><span class="num">1.</span><span class="q">Meena is as intelligent as Reena.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">2.</span><span class="q">Silk is costlier than cotton.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+      <div class="exercise-item"><span class="num">3.</span><span class="q">Everest is the highest peak.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">4.</span><span class="q">Akbar was greater than any other Mughal emperor.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+      <div class="exercise-item"><span class="num">5.</span><span class="q">No other student is as regular as Priya.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+      <div class="exercise-item"><span class="num">6.</span><span class="q">Tagore was one of the greatest writers.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+      <div class="exercise-item"><span class="num">7.</span><span class="q">Very few players are as skilful as Messi.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">8.</span><span class="q">Amazon is longer than most other rivers.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+      <div class="exercise-item"><span class="num">9.</span><span class="q">Copper is not as valuable as gold.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">10.</span><span class="q">Japan is one of the most developed countries.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">11.</span><span class="q">No boy runs faster than Arjun.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+      <div class="exercise-item"><span class="num">12.</span><span class="q">Very few cities are as historic as Rome.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+      <div class="exercise-item"><span class="num">13.</span><span class="q">Blue whale is the largest animal.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+      <div class="exercise-item"><span class="num">14.</span><span class="q">Steel is stronger than any other alloy.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+      <div class="exercise-item"><span class="num">15.</span><span class="q">No other subject is as interesting as History.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">16.</span><span class="q">Kalidasa was one of the greatest poets.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+      <div class="exercise-item"><span class="num">17.</span><span class="q">Rita sings better than any other girl.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+    </div>
+  </div>
+
+  <!-- ============ PARTS OF SPEECH (second set) ============ -->
+  <div class="section">
+    <h2>🧩 Parts of Speech <small>set 2 · adverb · noun · adjective · abstract</small></h2>
+    <div class="exercise-grid">
+      <div class="exercise-item"><span class="num">18.</span><span class="q">He is a hard worker.</span><span class="arrow">→</span><span class="blank">adverb</span></div>
+      <div class="exercise-item"><span class="num">19.</span><span class="q">She solved the problem cleverly.</span><span class="arrow">→</span><span class="blank">noun</span></div>
+      <div class="exercise-item"><span class="num">20.</span><span class="q">He is a man of ability.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">21.</span><span class="q">The girl is diligent.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
+      <div class="exercise-item"><span class="num">22.</span><span class="q">He answered correctly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">23.</span><span class="q">They welcomed warmly.</span><span class="arrow">→</span><span class="blank">noun</span></div>
+      <div class="exercise-item"><span class="num">24.</span><span class="q">He is a person of integrity.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">25.</span><span class="q">The manager rejected firmly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">26.</span><span class="q">His generosity won hearts.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">27.</span><span class="q">She is a proud woman.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
+      <div class="exercise-item"><span class="num">28.</span><span class="q">He behaved foolishly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">29.</span><span class="q">She is a girl of great patience.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">30.</span><span class="q">The soldier defended courageously.</span><span class="arrow">→</span><span class="blank">noun</span></div>
+      <div class="exercise-item"><span class="num">31.</span><span class="q">He is an arrogant man.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
+      <div class="exercise-item"><span class="num">32.</span><span class="q">The old man walked feebly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">33.</span><span class="q">He is a boy of remarkable talent.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">34.</span><span class="q">The news spread rapidly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
+      <div class="exercise-item"><span class="num">35.</span><span class="q">Her sincerity is well known.</span><span class="arrow">→</span><span class="blank">adjective (subject-verb)</span></div>
+      <div class="exercise-item"><span class="num">36.</span><span class="q">He is a generous donor.</span><span class="arrow">→</span><span class="blank">adverb</span></div>
+    </div>
+  </div>
+
+  <!-- ============ CANNOT BUT / CANNOT HELP (set 2) ============ -->
+  <div class="section">
+    <h2>🚫 Cannot but / Cannot help <small>set 2</small></h2>
+    <div class="exercise-grid">
+      <div class="exercise-item"><span class="num">37.</span><span class="q">We must help the poor.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">38.</span><span class="q">He must yield to reason.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+      <div class="exercise-item"><span class="num">39.</span><span class="q">She must weep at the tragic story.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+      <div class="exercise-item"><span class="num">40.</span><span class="q">You must appreciate his effort.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">41.</span><span class="q">They must obey the rules.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">42.</span><span class="q">I must trust an old friend.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">43.</span><span class="q">He must confess his fault.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+      <div class="exercise-item"><span class="num">44.</span><span class="q">We must praise the winner.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">45.</span><span class="q">She must sympathize with victims.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+      <div class="exercise-item"><span class="num">46.</span><span class="q">You must respect a wise man's advice.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">47.</span><span class="q">He must love his motherland.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">48.</span><span class="q">They must admire the scenic beauty.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+      <div class="exercise-item"><span class="num">49.</span><span class="q">I must feel proud of my country.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+      <div class="exercise-item"><span class="num">50.</span><span class="q">She must obey the law of nature.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ============ VOICE CHANGE – ACTIVE TO PASSIVE (condensed) ============ -->
+  <div class="section">
+    <h2>🎤 Voice Change · Active → Passive <small>selected from 320 exercises</small></h2>
+    <div class="two-col">
+      <div style="background:#f8f5f0; padding:1rem 1.2rem; border-radius:20px;">
+        <p style="font-weight:600; color:#1e3c5a;">Simple & Continuous</p>
+        <div class="exercise-item"><span class="num">1.</span><span class="q">People speak English worldwide.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">11.</span><span class="q">The boys broke the window.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">21.</span><span class="q">They will announce results.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">31.</span><span class="q">They are building a school.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">41.</span><span class="q">They were repairing the bridge.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">51.</span><span class="q">They have finished the work.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">61.</span><span class="q">They had completed the task.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">71.</span><span class="q">They will have completed by evening.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">81.</span><span class="q">You must follow the rules.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">91.</span><span class="q">They must have completed.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      </div>
+      <div style="background:#f8f5f0; padding:1rem 1.2rem; border-radius:20px;">
+        <p style="font-weight:600; color:#1e3c5a;">Imperative, interrogative, two objects</p>
+        <div class="exercise-item"><span class="num">101.</span><span class="q">Close the door.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">111.</span><span class="q">Do they play football here?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">121.</span><span class="q">Who wrote this poem?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">131.</span><span class="q">The teacher taught us grammar.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">141.</span><span class="q">The work is done by her.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="exercise-item"><span class="num">151.</span><span class="q">They make toys in this factory.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">161.</span><span class="q">They do not play hockey here.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">171.</span><span class="q">Someone has knocked at the door.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">181.</span><span class="q">People say the minister will resign.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="exercise-item"><span class="num">191.</span><span class="q">Someone broke the window last night.</span><span class="arrow">→</span><span class="blank">get-passive</span></div>
+        <div class="exercise-item"><span class="num">201.</span><span class="q">I want someone to complete the work.</span><span class="arrow">→</span><span class="blank">Passive infinitive</span></div>
+      </div>
+    </div>
+    <div style="margin-top:1rem; background:#f0ede7; padding:0.7rem 1.5rem; border-radius:40px; display:inline-block;">
+      ⚡ <strong>Includes:</strong> get-passive, infinitives, gerunds, causatives, reporting verbs &amp; more (full 320 exercises in PDF)
+    </div>
+  </div>
+
+  <!-- ============ MASTER TEST SNIPPET ============ -->
+  <div class="section">
+    <h2>📝 Master Test <small>30 mixed voice changes</small></h2>
+    <div class="exercise-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px,1fr));">
+      <div class="exercise-item"><span class="num">291.</span><span class="q">They serve breakfast at 8 AM.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">292.</span><span class="q">Someone is repairing my watch.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">293.</span><span class="q">The gardener planted the trees.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">294.</span><span class="q">They will complete the bridge next year.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">295.</span><span class="q">The teacher has checked the notebooks.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">296.</span><span class="q">They were cleaning the classroom.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">297.</span><span class="q">Someone had stolen the money.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">298.</span><span class="q">They will have finished by tonight.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">299.</span><span class="q">You must follow these instructions.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">300.</span><span class="q">They can solve the puzzle.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">301.</span><span class="q">Please open the gate.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">302.</span><span class="q">Don’t waste food.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">307.</span><span class="q">They gave me a prize.</span><span class="arrow">→</span><span class="blank">Passive (two objects)</span></div>
+      <div class="exercise-item"><span class="num">309.</span><span class="q">People say the actor is friendly.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">313.</span><span class="q">They made him confess.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+      <div class="exercise-item"><span class="num">317.</span><span class="q">The room needs cleaning.</span><span class="arrow">→</span><span class="blank">Passive (need+gerund)</span></div>
+      <div class="exercise-item"><span class="num">319.</span><span class="q">I will repair my laptop.</span><span class="arrow">→</span><span class="blank">have/get done</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    🇮🇳 Grammar Digital Library · Class IX · Complete set of 320+ voice change, degree, POS, cannot but/help
+  </div>
+</div>
+</body>
+  </html>
