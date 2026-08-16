@@ -3,990 +3,851 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macbeth - Complete Interactive Study Guide</title>
+    <title>Macbeth - Three Witches Game (Soft Colors)</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a0a1e;
-            color: #e0d6e8;
-            padding: 20px;
+            font-family: 'Segoe UI', 'Noto Sans Bengali', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d0b14;
+            color: #c8bcd6;
             min-height: 100vh;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #2d1b33;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 0 60px rgba(128, 0, 255, 0.15);
-        }
-        h1, h2, h3 {
-            color: #d4a0ff;
-            text-shadow: 0 0 20px rgba(180, 100, 255, 0.3);
-        }
-        h1 {
-            font-size: 2.8em;
-            text-align: center;
-            background: linear-gradient(90deg, #d4a0ff, #ff6ec7, #d4a0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
-        }
-        .menu-item {
-            background: #3d2645;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid #5a3a66;
-            text-decoration: none;
-            color: #e0d6e8;
-            font-weight: bold;
-        }
-        .menu-item:hover {
-            transform: scale(1.05);
-            background: #4d3057;
-            border-color: #d4a0ff;
-            box-shadow: 0 0 30px rgba(128, 0, 255, 0.3);
-        }
-        .menu-item.purple { border-color: #7b2fbe; }
-        .menu-item.pink { border-color: #d45c9a; }
-        .menu-item.gold { border-color: #d4a040; }
-        .menu-item.green { border-color: #4caf50; }
-        .menu-item.blue { border-color: #4a8fc9; }
-
-        .section {
-            background: #241a29;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            border-left: 4px solid #d4a0ff;
-            display: none;
-        }
-        .section.active {
-            display: block;
-        }
-
-        .word-meaning {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 20px;
+            background: linear-gradient(145deg, #14101e, #1c1728);
+            border-radius: 28px;
+            padding: 35px 40px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(80, 60, 100, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #b8a8cc;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 10px rgba(80, 60, 120, 0.15);
+        }
+        
+        h1 .highlight {
+            color: #9a8ab0;
+            font-weight: 400;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #887a9a;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ===== SCORE TRACKER ===== */
+        .score-tracker {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 12px 20px;
+            background: rgba(20, 16, 30, 0.6);
+            border-radius: 14px;
+            border: 1px solid rgba(60, 45, 75, 0.3);
+            margin-bottom: 25px;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0;
-            padding: 10px;
-            background: #1a0f1e;
-            border-radius: 10px;
         }
-        .word-meaning span {
-            background: #3d2645;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
+        
+        .score-tracker .stat {
+            text-align: center;
         }
-        .word-meaning .eng { color: #d4a0ff; }
-        .word-meaning .ben { color: #ffb07c; }
-
-        .mcq-question {
-            background: #1a0f1e;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-            border: 1px solid #3d2645;
+        
+        .score-tracker .stat .label {
+            font-size: 0.75em;
+            color: #6a5a7a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .mcq-option {
-            display: block;
-            padding: 10px 15px;
-            margin: 8px 0;
-            background: #2d1b33;
+        
+        .score-tracker .stat .value {
+            font-size: 1.6em;
+            font-weight: 300;
+        }
+        
+        .score-tracker .stat .value.correct {
+            color: #7aaa7a;
+        }
+        
+        .score-tracker .stat .value.wrong {
+            color: #b07070;
+        }
+        
+        .score-tracker .stat .value.total {
+            color: #9a8ab0;
+        }
+        
+        .reset-btn {
+            background: rgba(60, 45, 75, 0.3);
+            border: 1px solid rgba(80, 60, 100, 0.2);
+            color: #9a8ab0;
+            padding: 6px 18px;
             border-radius: 8px;
             cursor: pointer;
+            font-size: 0.8em;
             transition: all 0.3s;
-            border-left: 3px solid transparent;
+            font-family: inherit;
         }
-        .mcq-option:hover { background: #3d2645; }
-        .mcq-option.correct {
-            border-left-color: #4caf50;
-            background: #1e3a22;
+        
+        .reset-btn:hover {
+            background: rgba(60, 45, 75, 0.5);
+            border-color: rgba(100, 80, 130, 0.3);
         }
-        .mcq-option.wrong {
-            border-left-color: #f44336;
-            background: #3a1a1a;
-        }
-        .mcq-option .answer-reveal {
-            display: none;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-        .mcq-option.correct .answer-reveal,
-        .mcq-option.wrong .answer-reveal {
-            display: block;
-        }
-        .mcq-option.correct .answer-reveal { color: #4caf50; }
-        .mcq-option.wrong .answer-reveal { color: #f44336; }
-
-        .witch-game {
+        
+        /* ===== WITCH CARDS ===== */
+        .witch-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin: 20px 0;
         }
+        
         .witch-card {
-            background: #2d1b33;
-            border-radius: 15px;
-            padding: 20px;
+            background: linear-gradient(145deg, #191521, #13101c);
+            border-radius: 18px;
+            padding: 22px 18px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid #5a3a66;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(60, 45, 75, 0.2);
+            position: relative;
         }
+        
         .witch-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(100, 80, 130, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .witch-card .witch-icon {
+            font-size: 3.8em;
+            display: block;
+            margin-bottom: 6px;
+            opacity: 0.85;
+            transition: transform 0.4s ease;
+        }
+        
+        .witch-card:hover .witch-icon {
             transform: scale(1.05);
-            border-color: #d4a0ff;
         }
-        .witch-card .witch-icon { font-size: 4em; }
-        .witch-card .question-box {
+        
+        .witch-card h3 {
+            color: #a898b8;
+            font-size: 1.05em;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        .witch-card .witch-name {
+            color: #6a5a7a;
+            font-size: 0.75em;
+            font-style: italic;
+        }
+        
+        /* ===== QUESTION BOX ===== */
+        .question-box {
             display: none;
-            margin-top: 15px;
-            background: #1a0f1e;
-            padding: 15px;
-            border-radius: 10px;
-        }
-        .witch-card .question-box.show { display: block; }
-
-        .fairy {
-            color: #ffd700;
-            font-size: 1.2em;
-            animation: sparkle 1s infinite alternate;
-        }
-        .ghost {
-            color: #a0a0a0;
-            font-size: 1.2em;
-            animation: fade 1s infinite alternate;
-        }
-
-        @keyframes sparkle {
-            0% { opacity: 0.6; transform: scale(0.95); }
-            100% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 20px #ffd700; }
-        }
-        @keyframes fade {
-            0% { opacity: 0.4; }
-            100% { opacity: 0.8; }
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .gallery-card {
-            background: #1a0f1e;
+            margin-top: 16px;
+            background: rgba(16, 12, 24, 0.8);
+            padding: 16px 18px;
             border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #3d2645;
-            min-height: 150px;
+            border: 1px solid rgba(60, 45, 75, 0.15);
+            animation: fadeIn 0.4s ease;
         }
-        .gallery-card .scene-icon { font-size: 3em; }
-
-        .back-btn {
-            background: #3d2645;
-            border: none;
-            color: #e0d6e8;
-            padding: 10px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            margin: 10px 0;
-            font-size: 1em;
-            transition: all 0.3s;
+        
+        .question-box.show {
+            display: block;
         }
-        .back-btn:hover { background: #5a3a66; }
-
-        .toggle-btn {
-            background: #4d3057;
-            border: none;
-            color: #e0d6e8;
-            padding: 8px 20px;
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .question-box p {
+            font-size: 0.95em;
+            margin-bottom: 12px;
+            color: #b8a8cc;
+            font-weight: 300;
+        }
+        
+        .question-box .options {
+            display: grid;
+            gap: 6px;
+        }
+        
+        .question-box .options button {
+            background: rgba(30, 24, 42, 0.6);
+            border: 1px solid rgba(60, 45, 75, 0.2);
+            color: #b8a8cc;
+            padding: 8px 14px;
             border-radius: 8px;
             cursor: pointer;
-            margin: 5px;
+            transition: all 0.25s ease;
+            font-size: 0.9em;
+            text-align: left;
+            font-family: inherit;
+        }
+        
+        .question-box .options button:hover:not(:disabled) {
+            background: rgba(50, 38, 68, 0.6);
+            border-color: rgba(100, 80, 130, 0.3);
+            transform: translateX(3px);
+        }
+        
+        .question-box .options button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .question-box .result-text {
+            margin-top: 10px;
+            font-size: 0.9em;
+            font-weight: 300;
+        }
+        
+        .question-box .result-text.correct {
+            color: #7aaa7a;
+        }
+        
+        .question-box .result-text.wrong {
+            color: #b07070;
+        }
+        
+        /* ===== BACK BUTTON ===== */
+        .back-btn {
+            background: rgba(40, 30, 55, 0.4);
+            border: 1px solid rgba(60, 45, 75, 0.15);
+            color: #9a8ab0;
+            padding: 10px 28px;
+            border-radius: 10px;
+            cursor: pointer;
             font-size: 0.9em;
             transition: all 0.3s;
+            margin-top: 18px;
+            display: inline-block;
+            font-family: inherit;
         }
-        .toggle-btn:hover { background: #6a4a77; }
-        .toggle-btn.active { background: #7b2fbe; }
-
-        .analysis-box {
-            background: #1a0f1e;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-            border-left: 4px solid #d4a0ff;
+        
+        .back-btn:hover {
+            background: rgba(50, 38, 68, 0.5);
+            border-color: rgba(80, 60, 100, 0.25);
         }
-        .analysis-box h4 { color: #d4a0ff; margin-bottom: 8px; }
-
-        @media (max-width: 768px) {
-            .container { padding: 15px; }
-            h1 { font-size: 2em; }
-            .menu { grid-template-columns: 1fr 1fr; }
-            .witch-game { grid-template-columns: 1fr; }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
+        
+        /* ================================================ */
+        /* ===== FAIRY OVERLAY (Soft Colors) ===== */
+        /* ================================================ */
+        .fairy-container {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #7b2fbe;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 0 30px rgba(128, 0, 255, 0.4);
-            transition: all 0.3s;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
         }
-        .scroll-top:hover { transform: scale(1.1); }
+        
+        .fairy-container.active {
+            display: block;
+            animation: overlayFade 0.5s ease;
+        }
+        
+        @keyframes overlayFade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .fairy-container .fairy {
+            position: absolute;
+            font-size: 3.2em;
+            animation: fairyFloat 3.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(180, 160, 220, 0.15));
+            opacity: 0.85;
+        }
+        
+        @keyframes fairyFloat {
+            0%, 100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            25% {
+                transform: translate(30px, -20px) scale(1.05) rotate(3deg);
+            }
+            50% {
+                transform: translate(60px, 0) scale(1.08) rotate(-3deg);
+            }
+            75% {
+                transform: translate(30px, 20px) scale(1.05) rotate(3deg);
+            }
+        }
+        
+        .fairy-container .sparkle {
+            position: absolute;
+            font-size: 1.2em;
+            animation: sparkleSoft 2s ease-in-out infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes sparkleSoft {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(0.7) rotate(0deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+        
+        .fairy-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(145deg, rgba(30, 24, 42, 0.92), rgba(20, 16, 30, 0.95));
+            color: #c8bcd6;
+            padding: 28px 45px;
+            border-radius: 24px;
+            font-size: 1.6em;
+            font-weight: 300;
+            box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
+            z-index: 10000;
+            animation: messageSoft 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+            text-align: center;
+            border: 1px solid rgba(100, 80, 130, 0.15);
+            pointer-events: auto;
+            max-width: 90%;
+        }
+        
+        .fairy-message .emoji-big {
+            font-size: 2.2em;
+            display: block;
+            margin-bottom: 6px;
+        }
+        
+        .fairy-message .sub {
+            font-size: 0.5em;
+            font-weight: 300;
+            color: #887a9a;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+        
+        @keyframes messageSoft {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: #6a5a7a;
+            font-size: 1.4em;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+            padding: 4px 8px;
+        }
+        
+        .close-btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* ================================================ */
+        /* ===== UGLY WITCHES OVERLAY (Soft Colors) ===== */
+        /* ================================================ */
+        .witches-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+        }
+        
+        .witches-container.active {
+            display: block;
+            animation: overlayFade 0.5s ease;
+        }
+        
+        .witches-container .ugly-witch {
+            position: absolute;
+            font-size: 3.5em;
+            animation: witchDance 2.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 25px rgba(80, 40, 40, 0.15));
+            opacity: 0.8;
+        }
+        
+        @keyframes witchDance {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(-12px, -8px) rotate(-6deg) scale(1.05);
+            }
+            50% {
+                transform: translate(12px, 4px) rotate(6deg) scale(0.95);
+            }
+            75% {
+                transform: translate(-6px, 10px) rotate(-3deg) scale(1.02);
+            }
+        }
+        
+        .witches-container .ugly-witch:nth-child(1) {
+            top: 12%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+        .witches-container .ugly-witch:nth-child(2) {
+            top: 38%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0.4s;
+        }
+        .witches-container .ugly-witch:nth-child(3) {
+            top: 12%;
+            right: 8%;
+            animation-delay: 0.8s;
+        }
+        
+        .witches-container .ugly-witch .witch-label {
+            position: absolute;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.2em;
+            color: #8a6a6a;
+            white-space: nowrap;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(80, 40, 40, 0.1);
+            animation: labelPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes labelPulse {
+            0%, 100% {
+                opacity: 0.4;
+                transform: translateX(-50%) scale(0.95);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+        
+        .witches-container .creepy-element {
+            position: absolute;
+            font-size: 1.4em;
+            animation: creepFloat 3s ease-in-out infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes creepFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translate(0, -10px) rotate(10deg);
+                opacity: 0.5;
+            }
+        }
+        
+        .wrong-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(145deg, rgba(40, 20, 30, 0.92), rgba(20, 14, 24, 0.95));
+            color: #c8a8a8;
+            padding: 28px 45px;
+            border-radius: 24px;
+            font-size: 1.6em;
+            font-weight: 300;
+            box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
+            z-index: 10000;
+            animation: messageSoft 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+            text-align: center;
+            border: 1px solid rgba(100, 60, 60, 0.15);
+            pointer-events: auto;
+            max-width: 90%;
+        }
+        
+        .wrong-message .emoji-big {
+            font-size: 2.2em;
+            display: block;
+            margin-bottom: 6px;
+        }
+        
+        .wrong-message .sub {
+            font-size: 0.5em;
+            font-weight: 300;
+            color: #8a7a7a;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 18px 16px;
+                margin: 10px;
+                border-radius: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .witch-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .fairy-message, .wrong-message {
+                font-size: 1.1em;
+                padding: 20px 24px;
+                width: 92%;
+            }
+            
+            .score-tracker {
+                gap: 16px;
+                padding: 10px 14px;
+            }
+            
+            .fairy-container .fairy {
+                font-size: 2.2em;
+            }
+            
+            .witches-container .ugly-witch {
+                font-size: 2.5em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px 10px;
+            }
+            
+            h1 {
+                font-size: 1.4em;
+            }
+            
+            .witch-card .witch-icon {
+                font-size: 2.8em;
+            }
+            
+            .fairy-message, .wrong-message {
+                font-size: 0.95em;
+                padding: 16px 18px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container" id="app">
-        <h1>🎭 Macbeth</h1>
-        <p style="text-align:center; color:#b09ab8; font-size:1.1em;">Complete Interactive Study Guide</p>
 
-        <!-- MENU -->
-        <div class="menu">
-            <div class="menu-item purple" onclick="showSection('text')">📖 Full Text + Word Meanings</div>
-            <div class="menu-item pink" onclick="showSection('analysis')">📊 Critical Analysis</div>
-            <div class="menu-item gold" onclick="showSection('mcq')">❓ 200 MCQs</div>
-            <div class="menu-item green" onclick="showSection('witches')">🧙 Three Witches Game</div>
-            <div class="menu-item blue" onclick="showSection('gallery')">🎨 Scene Gallery</div>
+<div class="container">
+    <h1>🧙 <span class="highlight">Three Witches</span> Game</h1>
+    <p class="subtitle">🎭 Macbeth · Click a witch to begin the trial</p>
+    
+    <!-- Score Tracker -->
+    <div class="score-tracker">
+        <div class="stat">
+            <div class="label">✨ Correct</div>
+            <div class="value correct" id="correctCount">0</div>
         </div>
-
-        <!-- SECTION: Text -->
-        <div id="section-text" class="section active">
-            <h2>📖 Full Text with Word Meanings</h2>
-            <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
-            
-            <p><em>Click any word to see Bengali meaning highlighted</em></p>
-            
-            <div style="margin:20px 0;">
-                <h3>Page 1</h3>
-                <p><strong>W</strong>hen <span class="word" onclick="showMeaning(this, 'ডাঙ্কন - স্কটল্যান্ডের রাজা')">Duncan</span> was the <span class="word" onclick="showMeaning(this, 'রাজা')">king</span> of <span class="word" onclick="showMeaning(this, 'স্কটল্যান্ড - ইউরোপের একটি দেশ')">Scotland</span>, there lived a <span class="word" onclick="showMeaning(this, 'সাহসী')">brave</span> <span class="word" onclick="showMeaning(this, 'জেনারেল - সেনাপতি')">General</span> who was looked up to with <span class="word" onclick="showMeaning(this, 'উচ্চ')">high</span> <span class="word" onclick="showMeaning(this, 'সম্মান ও প্রশংসা')">esteem</span> throughout Scotland for his great <span class="word" onclick="showMeaning(this, 'বীরত্ব')">valour</span> and <span class="word" onclick="showMeaning(this, 'দক্ষতা')">skill</span> in <span class="word" onclick="showMeaning(this, 'যুদ্ধ')">wars</span>.</p>
-                
-                <p>He was also a <span class="word" onclick="showMeaning(this, 'ঘনিষ্ঠ')">close</span> <span class="word" onclick="showMeaning(this, 'আত্মীয়')">relative</span> of the old king. He was <span class="word" onclick="showMeaning(this, 'ম্যাকবেথ - গ্ল্যামিসের থেইন')">Macbeth</span>, the <span class="word" onclick="showMeaning(this, 'থেইন - স্কটল্যান্ডের রাজকীয় কর্মকর্তা')">Thane</span> of <span class="word" onclick="showMeaning(this, 'গ্ল্যামিস - স্কটল্যান্ডের একটি স্থান')">Glamis</span>.</p>
-                
-                <p>Of <span class="word" onclick="showMeaning(this, 'সাম্প্রতিককালে')">late</span>, he <span class="word" onclick="showMeaning(this, 'পরাজিত করেছিলেন')">defeated</span> a <span class="word" onclick="showMeaning(this, 'বিদ্রোহী')">rebel</span> army <span class="word" onclick="showMeaning(this, 'সহায়তা প্রাপ্ত')">assisted</span> by the <span class="word" onclick="showMeaning(this, 'সৈন্যবাহিনী')">troops</span> of <span class="word" onclick="showMeaning(this, 'নরওয়ে - স্ক্যান্ডিনেভিয়ার একটি দেশ')">Norway</span> in great numbers — he <span class="word" onclick="showMeaning(this, 'আবির্ভূত হয়েছিলেন')">emerged</span> as <span class="word" onclick="showMeaning(this, 'বীরত্বের প্রিয়পাত্র')">"valour's minion"</span> and <span class="word" onclick="showMeaning(this, 'যুদ্ধের দেবীর বর')">"Bellona's bridegroom"</span> — his valour and <span class="word" onclick="showMeaning(this, 'সাহস')">courage</span> <span class="word" onclick="showMeaning(this, 'দাবি করেছিল')">demanded</span> <span class="word" onclick="showMeaning(this, 'প্রশংসা')">praise</span> from <span class="word" onclick="showMeaning(this, 'সকলের কাছ থেকে')">all and sundry</span>.</p>
-
-                <p>The two Scottish Generals, <span class="word" onclick="showMeaning(this, 'ম্যাকবেথ ও ব্যাংকো - দুই স্কটিশ সেনাপতি')">Macbeth and Banquo</span>, were <span class="word" onclick="showMeaning(this, 'ফিরছিলেন')">returning</span> from the great battle. There was <span class="word" onclick="showMeaning(this, 'বজ্রপাত')">thunder</span> and <span class="word" onclick="showMeaning(this, 'বজ্রবিদ্যুৎ')">lightning</span>.</p>
-
-                <p>On the way they were <span class="word" onclick="showMeaning(this, 'থামানো হয়েছিল')">stopped</span> by the <span class="word" onclick="showMeaning(this, 'অদ্ভুত')">strange</span> <span class="word" onclick="showMeaning(this, 'আবির্ভাব')">appearance</span> of three <span class="word" onclick="showMeaning(this, 'মূর্তি')">figures</span> that looked like women, <span class="word" onclick="showMeaning(this, 'ছাড়া')">except</span> that they had <span class="word" onclick="showMeaning(this, 'দাড়ি')">beards</span>, and their <span class="word" onclick="showMeaning(this, 'শুষ্ক')">withered</span> <span class="word" onclick="showMeaning(this, 'চামড়া')">skin</span> and <span class="word" onclick="showMeaning(this, 'বন্য')">wild</span> <span class="word" onclick="showMeaning(this, 'পোশাক')">dresses</span> made them look like <span class="word" onclick="showMeaning(this, 'অলৌকিক')">unearthly</span> <span class="word" onclick="showMeaning(this, 'প্রাণী')">creatures</span>.</p>
-
-                <p>They were <span class="word" onclick="showMeaning(this, 'নাচছিল')">dancing</span>, they were <span class="word" onclick="showMeaning(this, 'গান করছিল')">singing</span>:</p>
-
-                <blockquote style="background:#1a0f1e; padding:15px; border-radius:10px; border-left:4px solid #d4a0ff;">
-                    <p><span class="word" onclick="showMeaning(this, 'সুন্দর কুৎসিত, আর কুৎসিত সুন্দর')">"Fair is foul, and foul is fair</span></p>
-                    <p><span class="word" onclick="showMeaning(this, 'কুয়াশা ও নোংরা বাতাসে ভেসে বেড়াও')">Hover through the fog and filthy air."</span></p>
-                </blockquote>
-
-                <p>As they saw the two Generals, the <span class="word" onclick="showMeaning(this, 'প্রথম')">first</span> <span class="word" onclick="showMeaning(this, 'ডাইনি')">witch</span> <span class="word" onclick="showMeaning(this, 'অভিবাদন জানালেন')">saluted</span> Macbeth with the <span class="word" onclick="showMeaning(this, 'উপাধি')">title</span> of <span class="word" onclick="showMeaning(this, 'গ্ল্যামিসের থেইন')">'Thane of Glamis'</span>. The general was <span class="word" onclick="showMeaning(this, 'সামান্যও না')">scarcely</span> <span class="word" onclick="showMeaning(this, 'চমকে উঠেছিলেন')">startled</span> to find himself known by such creatures.</p>
-
-                <p>The <span class="word" onclick="showMeaning(this, 'দ্বিতীয়')">second</span> witch <span class="word" onclick="showMeaning(this, 'সম্বোধন করলেন')">addressed</span> him as the <span class="word" onclick="showMeaning(this, 'কডরের থেইন')">'Thane of Cawdor'</span> to which he had no <span class="word" onclick="showMeaning(this, 'দাবি')">pretensions</span>; and the <span class="word" onclick="showMeaning(this, 'তৃতীয়')">third</span> told him, <span class="word" onclick="showMeaning(this, 'তুমি আগামীকাল স্কটল্যান্ডের রাজা হবে')">"You will be the king of Scotland hereafter."</span></p>
-
-                <p>Such a <span class="word" onclick="showMeaning(this, 'ভবিষ্যদ্বাণীমূলক')">prophetic</span> <span class="word" onclick="showMeaning(this, 'অভিবাদন')">greeting</span> might well <span class="word" onclick="showMeaning(this, 'বিস্মিত করা')">amaze</span> him for he knew that as long as the king's <span class="word" onclick="showMeaning(this, 'পুত্র')">sons</span> <span class="word" onclick="showMeaning(this, 'বেঁচে ছিল')">survived</span>, he could <span class="word" onclick="showMeaning(this, 'কষ্টে')">scarcely</span> <span class="word" onclick="showMeaning(this, 'আশা করা')">hope</span> to <span class="word" onclick="showMeaning(this, 'উত্তরাধিকারী হওয়া')">succeed</span> to the <span class="word" onclick="showMeaning(this, 'সিংহাসন')">throne</span>.</p>
-
-                <p>By this time, Banquo was <span class="word" onclick="showMeaning(this, 'কৌতূহলী')">curious</span> to know the reason why the witches had little to say about him <span class="word" onclick="showMeaning(this, 'যদিও')">whereas</span> they <span class="word" onclick="showMeaning(this, 'জ্বালিয়েছিল')">kindled</span> <span class="word" onclick="showMeaning(this, 'আশা')">hope</span> in the <span class="word" onclick="showMeaning(this, 'হৃদয়')">heart</span> of his <span class="word" onclick="showMeaning(this, 'প্রিয়তম')">dearest</span> friend.</p>
-
-                <p>So the witches turned towards Banquo and told him in somewhat <span class="word" onclick="showMeaning(this, 'ধাঁধাঁযুক্ত')">riddling</span> terms: to be <span class="word" onclick="showMeaning(this, 'ক্ষুদ্রতর')">lesser</span> than Macbeth and <span class="word" onclick="showMeaning(this, 'মহত্তর')">greater</span>, not so <span class="word" onclick="showMeaning(this, 'সুখী')">happy</span>, but <span class="word" onclick="showMeaning(this, 'অধিক সুখী')">much happier</span>.</p>
-
-                <p>They also <span class="word" onclick="showMeaning(this, 'ভবিষ্যদ্বাণী করলেন')">prophesied</span> that although Banquo would <span class="word" onclick="showMeaning(this, 'কখনো না')">never</span> <span class="word" onclick="showMeaning(this, 'রাজত্ব করা')">reign</span> as the king of Scotland, yet his <span class="word" onclick="showMeaning(this, 'উত্তরাধিকারী')">successors</span> would be the kings. And then they turned into <span class="word" onclick="showMeaning(this, 'শূন্যস্থান')">thin air</span> and <span class="word" onclick="showMeaning(this, 'অদৃশ্য হয়ে গেল')">vanished</span>, by which the Generals <span class="word" onclick="showMeaning(this, 'উপলব্ধি করলেন')">realized</span> the <span class="word" onclick="showMeaning(this, 'অলৌকিক')">weird</span> <span class="word" onclick="showMeaning(this, 'বোনেরা')">sisters</span> to be witches.</p>
-
-                <p>While they stood there <span class="word" onclick="showMeaning(this, 'চিন্তা করা')">pondering</span> on the <span class="word" onclick="showMeaning(this, 'অস্বাভাবিকতা')">strangeness</span> of this <span class="word" onclick="showMeaning(this, 'অভিযান')">adventure</span>, there <span class="word" onclick="showMeaning(this, 'আগমন করলেন')">arrived</span> certain <span class="word" onclick="showMeaning(this, 'দূত')">envoys</span> from the king, who were <span class="word" onclick="showMeaning(this, 'ক্ষমতাপ্রাপ্ত')">empowered</span> to <span class="word" onclick="showMeaning(this, 'প্রদান করা')">confer</span> upon Macbeth the title of the Thane of Cawdor.</p>
-
-                <p>It was an <span class="word" onclick="showMeaning(this, 'ঘটনা')">event</span> so <span class="word" onclick="showMeaning(this, 'অলৌকিকভাবে')">miraculously</span> <span class="word" onclick="showMeaning(this, 'মিলে যাওয়া')">corresponding</span> with the <span class="word" onclick="showMeaning(this, 'ভবিষ্যদ্বাণী')">prediction</span> of the witches that Macbeth stood there <span class="word" onclick="showMeaning(this, 'আবৃত')">wrapped</span> in <span class="word" onclick="showMeaning(this, 'বিস্ময়')">amazement</span>, unable to <span class="word" onclick="showMeaning(this, 'উত্তর দেওয়া')">respond</span> to the</p>
-            </div>
-
-            <div style="margin:20px 0;">
-                <h3>Page 3</h3>
-                <p>She <span class="word" onclick="showMeaning(this, 'ফিরে এলেন')">returned</span> to <span class="word" onclick="showMeaning(this, 'পরামর্শ করা')">confer</span> with her husband. He thought that there were <span class="word" onclick="showMeaning(this, 'দৃঢ়')">strong</span> <span class="word" onclick="showMeaning(this, 'কারণ')">reasons</span> <span class="word" onclick="showMeaning(this, 'বিরুদ্ধে')">against</span> the <span class="word" onclick="showMeaning(this, 'হত্যা')">murder</span>.</p>
-
-                <p>Macbeth was not only a <span class="word" onclick="showMeaning(this, 'প্রজা')">subject</span> but also a <span class="word" onclick="showMeaning(this, 'ঘনিষ্ঠ')">close</span> <span class="word" onclick="showMeaning(this, 'আত্মীয়')">relative</span> to Duncan. Besides, he had been a <span class="word" onclick="showMeaning(this, 'আতিথেয়তাকারী')">host</span> to the king; so his <span class="word" onclick="showMeaning(this, 'কর্তব্য')">duty</span> would be to <span class="word" onclick="showMeaning(this, 'রক্ষা করা')">protect</span> the king from the <span class="word" onclick="showMeaning(this, 'হুমকি')">threat</span> of the <span class="word" onclick="showMeaning(this, 'হত্যাকারী')">murderers</span>, not to <span class="word" onclick="showMeaning(this, 'ধারণ করা')">bear</span> the <span class="word" onclick="showMeaning(this, 'ছুরি')">dagger</span> himself.</p>
-
-                <p>He also <span class="word" onclick="showMeaning(this, 'বিবেচনা করেছিলেন')">considered</span> how <span class="word" onclick="showMeaning(this, 'ন্যায়পরায়ণ')">just</span> and <span class="word" onclick="showMeaning(this, 'দয়ালু')">merciful</span> a king this Duncan had been, how <span class="word" onclick="showMeaning(this, 'নির্দোষ')">clear</span> of <span class="word" onclick="showMeaning(this, 'অপরাধ')">offence</span> to his subjects, how <span class="word" onclick="showMeaning(this, 'স্নেহশীল')">loving</span> to his <span class="word" onclick="showMeaning(this, 'আভিজাত্য')">nobility</span> that his subjects are <span class="word" onclick="showMeaning(this, 'দ্বিগুণ')">doubly</span> <span class="word" onclick="showMeaning(this, 'বাধ্য')">bound</span> to <span class="word" onclick="showMeaning(this, 'প্রতিশোধ নেওয়া')">avenge</span> his death.</p>
-
-                <p>Moreover, by the <span class="word" onclick="showMeaning(this, 'অনুগ্রহ')">favours</span> of the king, Macbeth stood <span class="word" onclick="showMeaning(this, 'উচ্চ')">high</span> in the <span class="word" onclick="showMeaning(this, 'মতামত')">opinion</span> of all sorts of men, and how would those <span class="word" onclick="showMeaning(this, 'সম্মান')">honours</span> be <span class="word" onclick="showMeaning(this, 'কলঙ্কিত')">stained</span> by the <span class="word" onclick="showMeaning(this, 'খ্যাতি')">reputation</span> of so <span class="word" onclick="showMeaning(this, 'জঘন্য')">foul</span> a murder!</p>
-
-                <p>In these <span class="word" onclick="showMeaning(this, 'দ্বন্দ্ব')">conflicts</span> of the <span class="word" onclick="showMeaning(this, 'মন')">mind</span> Lady Macbeth found that her husband had <span class="word" onclick="showMeaning(this, 'সিদ্ধান্ত নেওয়া')">resolved</span> to <span class="word" onclick="showMeaning(this, 'অগ্রসর হওয়া')">proceed</span> no further.</p>
-
-                <p>But she was a woman not easily <span class="word" onclick="showMeaning(this, 'বিচলিত')">shaken</span> from her <span class="word" onclick="showMeaning(this, 'উদ্দেশ্য')">purpose</span>. She began to <span class="word" onclick="showMeaning(this, 'ঢেলে দেওয়া')">pour in</span> at his <span class="word" onclick="showMeaning(this, 'কান')">ears</span> words <span class="word" onclick="showMeaning(this, 'রঙিন')">tinged</span> with a <span class="word" onclick="showMeaning(this, 'জিহ্বার বীরত্ব')">"valour of her tongue"</span> <span class="word" onclick="showMeaning(this, 'প্রবেশ করানো')">infusing</span> a <span class="word" onclick="showMeaning(this, 'অংশ')">portion</span> of her own <span class="word" onclick="showMeaning(this, 'আত্মা')">spirit</span> into his mind, <span class="word" onclick="showMeaning(this, 'দায়িত্ব দেওয়া')">assigning</span> reason upon reason why he should not <span class="word" onclick="showMeaning(this, 'সঙ্কুচিত হওয়া')">shrink</span> from the <span class="word" onclick="showMeaning(this, 'সিদ্ধান্ত')">resolution</span> he had earlier <span class="word" onclick="showMeaning(this, 'গৃহীত')">undertaken</span>, and how the <span class="word" onclick="showMeaning(this, 'কর্ম')">action</span> of one short night would give to all their nights and days to come <span class="word" onclick="showMeaning(this, 'সার্বভৌম')">sovereign</span> power and <span class="word" onclick="showMeaning(this, 'রাজত্ব')">royalty</span>!</p>
-
-                <p>She even <span class="word" onclick="showMeaning(this, 'অভিযুক্ত')">accused</span> him of <span class="word" onclick="showMeaning(this, 'কাপুরুষতা')">cowardice</span> and <span class="word" onclick="showMeaning(this, 'চঞ্চলতা')">fickleness</span> for <span class="word" onclick="showMeaning(this, 'ফিরে যাওয়া')">reverting</span> to his decision. She also told him how <span class="word" onclick="showMeaning(this, 'কার্যকর')">practicable</span> it would be to lay the <span class="word" onclick="showMeaning(this, 'অপরাধ')">guilt</span> of the <span class="word" onclick="showMeaning(this, 'কর্ম')">deed</span> on the <span class="word" onclick="showMeaning(this, 'মাতাল')">drunken</span> <span class="word" onclick="showMeaning(this, 'চাকর')">grooms</span> who were sleeping outside the king's chamber.</p>
-
-                <p>So Macbeth took the <span class="word" onclick="showMeaning(this, 'ছুরি')">dagger</span> in his hand, and softly <span class="word" onclick="showMeaning(this, 'চুরি করে গেলেন')">stole</span> in the dark to the room where Duncan slept. As he <span class="word" onclick="showMeaning(this, 'অগ্রসর হলেন')">advanced</span> towards the <span class="word" onclick="showMeaning(this, 'শয়নকক্ষ')">bed-chamber</span> he <span class="word" onclick="showMeaning(this, 'কল্পনা করলেন')">visualized</span> another dagger hanging in the air with the handle pointed towards him and there were <span class="word" onclick="showMeaning(this, 'ফোঁটা')">drops</span> of blood on the <span class="word" onclick="showMeaning(this, 'অগ্রভাগ')">tip</span> and the <span class="word" onclick="showMeaning(this, 'ফলক')">blade</span> of the dagger.</p>
-
-                <p>Macbeth tried to <span class="word" onclick="showMeaning(this, 'ধরা')">grasp</span> the dagger, but it <span class="word" onclick="showMeaning(this, 'মিলিয়ে গেল')">faded</span> into the air. To his <span class="word" onclick="showMeaning(this, 'উপলব্ধি')">realisation</span> it was only a <span class="word" onclick="showMeaning(this, 'কেবল')">mere</span> <span class="word" onclick="showMeaning(this, 'কল্পনা')">phantasm</span> created from his <span class="word" onclick="showMeaning(this, 'উত্তপ্ত')">hot</span> and <span class="word" onclick="showMeaning(this, 'পীড়িত')">oppressed</span> brain for the business he had in hand.</p>
-
-                <p><span class="word" onclick="showMeaning(this, 'অতিক্রম করা')">Overcoming</span> this <span class="word" onclick="showMeaning(this, 'ভয়')">fear</span>, Macbeth entered Duncan's room, and <span class="word" onclick="showMeaning(this, 'হত্যা করলেন')">slew</span> the <span class="word" onclick="showMeaning(this, 'হতভাগ্য')">hapless</span> king.</p>
-
-                <p>Just as he was about to leave the room, one of the <span class="word" onclick="showMeaning(this, 'চাকর')">grooms</span>, who was sleeping <span class="word" onclick="showMeaning(this, 'সংলগ্ন')">adjacent</span> to the chamber, <span class="word" onclick="showMeaning(this, 'হেসেছিল')">laughed</span> in his sleep, and then <span class="word" onclick="showMeaning(this, 'চিৎকার করে উঠল')">cried out</span>, <span class="word" onclick="showMeaning(this, 'হত্যা')">"Murder"</span> for which both of the grooms <span class="word" onclick="showMeaning(this, 'জেগে উঠল')">woke up</span>; but then, one of them said, <span class="word" onclick="showMeaning(this, 'ঈশ্বর আমাদের মঙ্গল করুন!')">"God bless us!"</span> and the other <span class="word" onclick="showMeaning(this, 'উত্তর দিল')">responded</span>, <span class="word" onclick="showMeaning(this, 'আমেন - ঈশ্বরের ইচ্ছা')">"Amen"</span>, and went off to sleep.</p>
-
-                <p>Macbeth also tried to say "Amen", but the word seemed to be <span class="word" onclick="showMeaning(this, 'আটকে যাওয়া')">stuck</span> in his <span class="word" onclick="showMeaning(this, 'গলা')">throat</span>, and he could not <span class="word" onclick="showMeaning(this, 'উচ্চারণ করা')">utter</span> it. He felt that he heard a voice which said, <span class="word" onclick="showMeaning(this, 'আর ঘুমাবে না; ম্যাকবেথ ঘুমকে হত্যা করে, নির্মল ঘুম, যা জীবনকে পুষ্ট করে। গ্ল্যামিস ঘুমকে হত্যা করেছে, এবং তাই কডর আর ঘুমাবে না। ম্যাকবেথ আর ঘুমাবে না।')">"Sleep no more; Macbeth murders sleep, the innocent sleep, that nourishes life. Glamis has murdered sleep, and therefore Cawdor shall sleep no more. Macbeth shall sleep no more."</span></p>
-
-                <p>Macbeth thus returned to his wife who by now started to think that he had <span class="word" onclick="showMeaning(this, 'ব্যর্থ')">failed</span> in his <span class="word" onclick="showMeaning(this, 'উদ্দেশ্য')">objective</span>. He came in such <span class="word" onclick="showMeaning(this, 'বিক্ষিপ্ত')">distracted</span> a <span class="word" onclick="showMeaning(this, 'অবস্থা')">state</span> that she <span class="word" onclick="showMeaning(this, 'তিরস্কার')">reproached</span> him for his <span class="word" onclick="showMeaning(this, 'অভাব')">want</span> of</p>
-            </div>
-
-            <div style="margin:20px 0;">
-                <h3>Page 5</h3>
-                <p>Macbeth and his wife had their sleep <span class="word" onclick="showMeaning(this, 'প্রভাবিত')">affected</span> with terrible <span class="word" onclick="showMeaning(this, 'স্বপ্ন')">dreams</span>, and the blood of <span class="word" onclick="showMeaning(this, 'ব্যাংকো')">Banquo</span> troubled them not more than the <span class="word" onclick="showMeaning(this, 'পলায়ন')">escape</span> of <span class="word" onclick="showMeaning(this, 'ফ্লিয়েন্স - ব্যাংকোর পুত্র')">Fleance</span>, whom they now <span class="word" onclick="showMeaning(this, 'অভাব ছিল')">lacked</span> as <span class="word" onclick="showMeaning(this, 'পিতা')">father</span> to a line of kings who would keep their <span class="word" onclick="showMeaning(this, 'বংশধর')">posterity</span> on the throne.</p>
-
-                <p>With these <span class="word" onclick="showMeaning(this, 'দুঃখজনক')">miserable</span> thoughts they found no peace, and Macbeth decided to visit the <span class="word" onclick="showMeaning(this, 'ঝোপঝাড়')">heath</span> once more in search of the three <span class="word" onclick="showMeaning(this, 'অলৌকিক')">weird</span> <span class="word" onclick="showMeaning(this, 'বোনেরা')">sisters</span> to know his <span class="word" onclick="showMeaning(this, 'শেষ')">final</span> <span class="word" onclick="showMeaning(this, 'পরিণতি')">outcome</span>.</p>
-
-                <p>The <span class="word" onclick="showMeaning(this, 'শেষ')">final</span> <span class="word" onclick="showMeaning(this, 'স্বপ্ন')">dream</span> in a <span class="word" onclick="showMeaning(this, 'গুহা')">cave</span> near the heath where they were engaged in preparing their <span class="word" onclick="showMeaning(this, 'ভয়ঙ্কর')">dreadful</span> <span class="word" onclick="showMeaning(this, 'মন্ত্র')">chants</span> by which they <span class="word" onclick="showMeaning(this, 'ডেকে আনা')">conjured up</span> <span class="word" onclick="showMeaning(this, 'নারকীয়')">infernal</span> spirits to reveal his <span class="word" onclick="showMeaning(this, 'দুর্বলতা')">frailty</span>.</p>
-
-                <p>Their <span class="word" onclick="showMeaning(this, 'ভয়াবহ')">horrid</span> <span class="word" onclick="showMeaning(this, 'উপাদান')">ingredients</span> were <span class="word" onclick="showMeaning(this, 'ব্যাঙ')">toads</span>, <span class="word" onclick="showMeaning(this, 'বাদুড়')">bats</span>, and <span class="word" onclick="showMeaning(this, 'সাপ')">serpents</span>, the <span class="word" onclick="showMeaning(this, 'চোখ')">eye</span> of a <span class="word" onclick="showMeaning(this, 'জলজন্তু')">newt</span>, the <span class="word" onclick="showMeaning(this, 'জিহ্বা')">tongue</span> of a dog, the <span class="word" onclick="showMeaning(this, 'পা')">leg</span> of a lizard, the <span class="word" onclick="showMeaning(this, 'ডানা')">wing</span> of a night owl, the <span class="word" onclick="showMeaning(this, 'আঁশ')">scale</span> of a dragon, the <span class="word" onclick="showMeaning(this, 'দাঁত')">tooth</span> of a wolf, the <span class="word" onclick="showMeaning(this, 'মমি')">mummy</span> of a witch, the <span class="word" onclick="showMeaning(this, 'মূল')">root</span> of poisonous <span class="word" onclick="showMeaning(this, 'বিষাক্ত গাছ')">henbane</span>, the <span class="word" onclick="showMeaning(this, 'পিত্ত')">gall</span> of a goat, the <span class="word" onclick="showMeaning(this, 'যকৃৎ')">liver</span> of a Jew, and the <span class="word" onclick="showMeaning(this, 'আঙুল')">finger</span> of a dead child.</p>
-
-                <p>All these were set on to <span class="word" onclick="showMeaning(this, 'ফুটানো')">boil</span> in a <span class="word" onclick="showMeaning(this, 'বিশাল')">huge</span> <span class="word" onclick="showMeaning(this, 'দেওয়া')">cauldron</span>, which was <span class="word" onclick="showMeaning(this, 'ঠান্ডা করা')">cooled</span> with <span class="word" onclick="showMeaning(this, 'বানরের')">baboon's</span> blood; to the <span class="word" onclick="showMeaning(this, 'ঔষধ')">potion</span> they <span class="word" onclick="showMeaning(this, 'ঢেলে দিল')">poured in</span> the blood of a <span class="word" onclick="showMeaning(this, 'শুকরী')">sow</span> that had <span class="word" onclick="showMeaning(this, 'খেয়েছিল')">eaten</span> her young, and they threw into the <span class="word" onclick="showMeaning(this, 'শিখা')">flame</span> the <span class="word" onclick="showMeaning(this, 'চর্বি')">grease</span> that had <span class="word" onclick="showMeaning(this, 'মিষ্টি')">sweeten</span> from a <span class="word" onclick="showMeaning(this, 'হত্যাকারীর')">murderer's</span> <span class="word" onclick="showMeaning(this, 'ফাঁসির মঞ্চ')">gibbet</span>.</p>
-
-                <p>By these <span class="word" onclick="showMeaning(this, 'মন্ত্র')">charms</span> they <span class="word" onclick="showMeaning(this, 'আহ্বান করা')">invoked</span> the infernal spirits to answer their questions.</p>
-
-                <p>Macbeth <span class="word" onclick="showMeaning(this, 'দাবি করলেন')">demanded</span> to know from them whether he would have his <span class="word" onclick="showMeaning(this, 'সন্দেহ')">doubts</span> <span class="word" onclick="showMeaning(this, 'সমাধান')">resolved</span> by them or by their <span class="word" onclick="showMeaning(this, 'প্রভু')">masters</span>, the Spirits. He was not <span class="word" onclick="showMeaning(this, 'ভীত')">daunted</span> by the <span class="word" onclick="showMeaning(this, 'অনুষ্ঠান')">ceremonies</span> that he saw and <span class="word" onclick="showMeaning(this, 'সাহসের সাথে')">boldly</span> said, <span class="word" onclick="showMeaning(this, 'তারা কোথায়? আমাকে তাদের দেখতে দিন।')">"Where are they? Let me see them."</span></p>
-
-                <p>So they called the Spirits. There were three of them. The first one looked like an <span class="word" onclick="showMeaning(this, 'সশস্ত্র')">armed</span> <span class="word" onclick="showMeaning(this, 'মাথা')">head</span>, and he called Macbeth by name and told him, <span class="word" onclick="showMeaning(this, 'ফাইফের থেইন থেকে সাবধান থাকো।')">"Beware of the Thane of Fife."</span> Macbeth thanked him for the <span class="word" onclick="showMeaning(this, 'সতর্কতা')">caution</span>. He was <span class="word" onclick="showMeaning(this, 'ঈর্ষান্বিত')">jealous</span> of <span class="word" onclick="showMeaning(this, 'ম্যাকডাফ - ফাইফের থেইন')">Macduff</span>, the Thane of Fife.</p>
-
-                <p>The second Spirit <span class="word" onclick="showMeaning(this, 'উত্থিত হল')">arose</span> in the <span class="word" onclick="showMeaning(this, 'সদৃশ')">likeness</span> of a <span class="word" onclick="showMeaning(this, 'রক্তাক্ত')">bloody</span> child. He called Macbeth by name, and told him to have no fear of death, but to <span class="word" onclick="showMeaning(this, 'হাসা')">laugh</span> and <span class="word" onclick="showMeaning(this, 'অবজ্ঞা করা')">scorn</span> at the power of man born <span class="word" onclick="showMeaning(this, 'স্বাভাবিকভাবে')">naturally</span> of a woman's <span class="word" onclick="showMeaning(this, 'গর্ভ')">womb</span>. He <span class="word" onclick="showMeaning(this, 'উপদেশ দিল')">advised</span> him to be <span class="word" onclick="showMeaning(this, 'সাহসী')">bold</span>, <span class="word" onclick="showMeaning(this, 'রক্তাক্ত')">bloody</span> and <span class="word" onclick="showMeaning(this, 'দৃঢ়প্রতিজ্ঞ')">resolute</span>.</p>
-
-                <p><span class="word" onclick="showMeaning(this, 'তাহলে বাঁচো ম্যাকডাফ')">"Then live Macduff,"</span> <span class="word" onclick="showMeaning(this, 'মন্তব্য করলেন')">remarked</span> the king. <span class="word" onclick="showMeaning(this, 'তোমাকে নিয়ে আমার কী ভয়? কিন্তু তবুও আমি নিশ্চিত করবো। তুমি বাঁচবে না যাতে আমি ফ্যাকাশে হৃদয়ের ভয়কে বলতে পারি যে সে মিথ্যে বলে, এবং বজ্রপাত সত্ত্বেও ঘুমাতে পারি।')">"What need do I fear of you, Macduff? But yet I will make assurance doubly sure. You shall not live so that I may tell the pale-hearted Fear that it lies, and sleep in spite of thunder."</span></p>
-
-                <p>The third spirit <span class="word" onclick="showMeaning(this, 'উত্থিত হল')">arose</span> in the form of a <span class="word" onclick="showMeaning(this, 'মুকুটধারী')">crowned</span> child with a <span class="word" onclick="showMeaning(this, 'গাছ')">tree</span> in his hand. He also called Macbeth by name, and <span class="word" onclick="showMeaning(this, 'সান্ত্বনা দিল')">comforted</span> him against <span class="word" onclick="showMeaning(this, 'ষড়যন্ত্র')">conspiracies</span>, and told him that he should <span class="word" onclick="showMeaning(this, 'কখনো না')">never</span> be <span class="word" onclick="showMeaning(this, 'পরাজিত')">vanquished</span>, until the <span class="word" onclick="showMeaning(this, 'বন')">wood</span> of <span class="word" onclick="showMeaning(this, 'বার্নাম - স্কটল্যান্ডের একটি বন')">Birnam</span> to <span class="word" onclick="showMeaning(this, 'ডুনসিনেন - স্কটল্যান্ডের একটি পাহাড়')">Dunainane</span> Hill would come.</p>
-
-                <p><span class="word" onclick="showMeaning(this, 'কে বনকে স্থানচ্যুত করতে পারে, এবং মাটির সাথে আবদ্ধ শিকড় থেকে সরাতে পারে?')">"Who can unfix the forest, and move it from its earth-bound roots?"</span> said the king. <span class="word" onclick="showMeaning(this, 'আমি দেখছি আমি মানুষের স্বাভাবিক আয়ু বাঁচবো, এবং হিংস্র মৃত্যুতে কাটা পড়বো না। কিন্তু আমার হৃদয় স্পন্দিত হয় একটি বিষয় জানতে: আমাকে বলো, যদি তুমি এতটা বলতে পারো, হ্যামনাসের সন্তানরা কি কখনো এই রাজ্যে রাজত্ব করবে?')">"I see I shall live the usual period of man's life, and not be cut off by a violent death. But my heart throbs to know one thing: tell me, if you can tell me so much, if Hamnus's issue shall ever reign this kingdom?"</span></p>
-            </div>
-
-            <div style="margin:20px 0;">
-                <h3>Page 6</h3>
-                <p>Here the <span class="word" onclick="showMeaning(this, 'দেওয়া')">cauldron</span> <span class="word" onclick="showMeaning(this, 'ডুবে গেল')">sank</span> into the ground, and a <span class="word" onclick="showMeaning(this, 'শব্দ')">noise</span> of music was heard, and eight <span class="word" onclick="showMeaning(this, 'ছায়া')">shadows</span>, like kings, <span class="word" onclick="showMeaning(this, 'পাশ দিয়ে গেল')">passed by</span> Macbeth, and Banquo was the <span class="word" onclick="showMeaning(this, 'শেষ')">last</span> figure, all <span class="word" onclick="showMeaning(this, 'মাখানো')">smeared</span> with blood, and Banquo <span class="word" onclick="showMeaning(this, 'হাসল')">smiled</span> at Macbeth.</p>
-
-                <p>Banquo <span class="word" onclick="showMeaning(this, 'ধারণ করেছিল')">bore</span> a <span class="word" onclick="showMeaning(this, 'আয়না')">glass</span> which showed the figures of many more, and <span class="word" onclick="showMeaning(this, 'ইঙ্গিত করল')">pointed</span> to the images. Macbeth <span class="word" onclick="showMeaning(this, 'উপলব্ধি করলেন')">realized</span> that these were the <span class="word" onclick="showMeaning(this, 'বংশধর')">posterity</span> of Banquo, who would <span class="word" onclick="showMeaning(this, 'রাজত্ব করা')">reign</span> after him in Scotland.</p>
-
-                <p>The three witches <span class="word" onclick="showMeaning(this, 'নাচল')">danced</span> with a sound of soft music, and making a <span class="word" onclick="showMeaning(this, 'প্রদর্শন')">show</span> of <span class="word" onclick="showMeaning(this, 'কর্তব্য')">duty</span> and <span class="word" onclick="showMeaning(this, 'স্বাগত')">welcome</span> to Macbeth, <span class="word" onclick="showMeaning(this, 'অদৃশ্য হয়ে গেল')">vanished</span> in the air.</p>
-
-                <p>The first <span class="word" onclick="showMeaning(this, 'সংবাদ')">news</span> that Macbeth got soon after coming out of the witches' cave was that <span class="word" onclick="showMeaning(this, 'ম্যাকডাফ')">Macduff</span>, the Thane of Fife, had <span class="word" onclick="showMeaning(this, 'পলায়ন করেছিল')">fled</span> to <span class="word" onclick="showMeaning(this, 'ইংল্যান্ড')">England</span>, to join the army which was <span class="word" onclick="showMeaning(this, 'গঠন করা')">forming</span> against him under the <span class="word" onclick="showMeaning(this, 'নেতৃত্ব')">leadership</span> of <span class="word" onclick="showMeaning(this, 'ম্যালকম - ডানকনের পুত্র')">Malcolm</span> to <span class="word" onclick="showMeaning(this, 'স্থানচ্যুত করা')">displace</span> Macbeth, and set Malcolm, the <span class="word" onclick="showMeaning(this, 'সঠিক')">right</span> <span class="word" onclick="showMeaning(this, 'উত্তরাধিকারী')">heir</span>, upon the throne of Scotland.</p>
-
-                <p><span class="word" onclick="showMeaning(this, 'বিদ্ধ')">Stung</span> with <span class="word" onclick="showMeaning(this, 'ক্রোধ')">rage</span>, Macbeth set upon the <span class="word" onclick="showMeaning(this, 'দুর্গ')">castle</span> of Macduff. Macduff's wife and children, whom the Thane had left behind in Scotland, were <span class="word" onclick="showMeaning(this, 'নৃশংসভাবে')">brutally</span> <span class="word" onclick="showMeaning(this, 'হত্যা করা হয়েছিল')">slaughtered</span>.</p>
-
-                <p>These <span class="word" onclick="showMeaning(this, 'নির্দয়')">merciless</span> activities had <span class="word" onclick="showMeaning(this, 'ধীরে ধীরে')">gradually</span> <span class="word" onclick="showMeaning(this, 'বিচ্ছিন্ন')">alienated</span> the <span class="word" onclick="showMeaning(this, 'আভিজাত্য')">nobility</span> from Macbeth.</p>
-
-                <p>Many fled to join Malcolm and Macduff, who were now <span class="word" onclick="showMeaning(this, 'অগ্রসর হচ্ছে')">approaching</span> with a <span class="word" onclick="showMeaning(this, 'শক্তিশালী')">powerful</span> army, which had been <span class="word" onclick="showMeaning(this, 'সংগঠিত')">raised</span> in England, and the rest <span class="word" onclick="showMeaning(this, 'গোপনে')">secretly</span> wished success to their arms, though for fear of Macbeth they could not take <span class="word" onclick="showMeaning(this, 'সক্রিয়')">active</span> part.</p>
-
-                <p>Everybody <span class="word" onclick="showMeaning(this, 'ঘৃণা করত')">hated</span> Macbeth, the <span class="word" onclick="showMeaning(this, 'অত্যাচারী')">tyrant</span>. Nobody <span class="word" onclick="showMeaning(this, 'সম্মান করত')">honoured</span> him, but all <span class="word" onclick="showMeaning(this, 'সন্দেহ করত')">suspected</span> him, and he began to <span class="word" onclick="showMeaning(this, 'হিংসা করা')">envy</span> the <span class="word" onclick="showMeaning(this, 'অবস্থা')">condition</span> of Duncan, who now slept <span class="word" onclick="showMeaning(this, 'গভীরভাবে')">soundly</span> in his grave, against whom <span class="word" onclick="showMeaning(this, 'রাষ্ট্রদ্রোহ')">treason</span> had done its worst.</p>
-
-                <p>Neither <span class="word" onclick="showMeaning(this, 'ইস্পাত')">steel</span> nor <span class="word" onclick="showMeaning(this, 'বিষ')">poison</span>, <span class="word" onclick="showMeaning(this, 'গার্হস্থ্য')">domestic</span> <span class="word" onclick="showMeaning(this, 'বিদ্বেষ')">malice</span> nor <span class="word" onclick="showMeaning(this, 'বিদেশী')">foreign</span> <span class="word" onclick="showMeaning(this, 'সেনাবাহিনী')">levies</span>, could <span class="word" onclick="showMeaning(this, 'ক্ষতি করা')">hurt</span> him any longer.</p>
-
-                <p>Meanwhile the Queen, who had been the <span class="word" onclick="showMeaning(this, 'একমাত্র')">sole</span> <span class="word" onclick="showMeaning(this, 'সহচরী')">partner</span> in his <span class="word" onclick="showMeaning(this, 'দুষ্টতা')">wickedness</span>, in whose <span class="word" onclick="showMeaning(this, 'বুক')">bosom</span> he could sometimes seek a <span class="word" onclick="showMeaning(this, 'ক্ষণিক')">momentary</span> <span class="word" onclick="showMeaning(this, 'বিশ্রাম')">repose</span> from those terrible dreams which <span class="word" onclick="showMeaning(this, 'পীড়িত')">afflicted</span> them both, <span class="word" onclick="showMeaning(this, 'মৃত্যুবরণ করলেন')">passed away</span>.</p>
-
-                <p>Unable to <span class="word" onclick="showMeaning(this, 'সহ্য করা')">bear</span> the <span class="word" onclick="showMeaning(this, 'অনুতাপ')">remorse</span> of <span class="word" onclick="showMeaning(this, 'অপরাধ')">guilt</span> she began to suffer from <span class="word" onclick="showMeaning(this, 'স্বপ্নচারণ')">somnambulism</span> and she <span class="word" onclick="showMeaning(this, 'শেষ পর্যন্ত')">ultimately</span> died. Macbeth was left alone; he grew <span class="word" onclick="showMeaning(this, 'উদাসীন')">careless</span> of life and <span class="word" onclick="showMeaning(this, 'আকাঙ্ক্ষা করত')">longed</span> for death.</p>
-
-                <p>The near approach of Malcolm's army <span class="word" onclick="showMeaning(this, 'জাগ্রত করেছিল')">roused</span> in him what <span class="word" onclick="showMeaning(this, 'অবশিষ্ট ছিল')">remained</span> of his <span class="word" onclick="showMeaning(this, 'প্রাচীন')">ancient</span> courage, and he <span class="word" onclick="showMeaning(this, 'দৃঢ়সংকল্পবদ্ধ')">determined</span> to die with armour on his back.</p>
-
-                <p>The <span class="word" onclick="showMeaning(this, 'খালি')">hollow</span> <span class="word" onclick="showMeaning(this, 'প্রতিশ্রুতি')">promises</span> of the three witches had also filled in him a kind <span class="word" onclick="showMeaning(this, 'মিথ্যা')">false</span> confidence, and he remembered the <span class="word" onclick="showMeaning(this, 'ভবিষ্যদ্বাণী')">prophecies</span> of the spirits that no one born of a woman's womb could kill him.</p>
-
-                <p>He also believed in the <span class="word" onclick="showMeaning(this, 'ভবিষ্যদ্বাণী')">soothsaying</span> that he could never be <span class="word" onclick="showMeaning(this, 'পরাজিত')">vanquished</span> until Birnam wood would come to Dunsinane, which he thought was <span class="word" onclick="showMeaning(this, 'অসম্ভব')">impossible</span>.</p>
-
-                <p>So he <span class="word" onclick="showMeaning(this, 'আত্মগোপন করলেন')">shut himself up</span> in his own castle, which was thought to be <span class="word" onclick="showMeaning(this, 'পুরোপুরি')">absolutely</span> <span class="word" onclick="showMeaning(this, 'অভেদ্য')">impregnable</span>, and waited for Malcolm to <span class="word" onclick="showMeaning(this, 'আক্রমণ করা')">invade</span> it.</p>
-            </div>
-
-            <div style="margin:20px 0;">
-                <h3>Page 7</h3>
-                <p>Finally, a day came, when a <span class="word" onclick="showMeaning(this, 'বার্তাবাহক')">messenger</span> <span class="word" onclick="showMeaning(this, 'নিকটবর্তী হল')">approached</span> him, <span class="word" onclick="showMeaning(this, 'ফ্যাকাশে')">pale</span> and <span class="word" onclick="showMeaning(this, 'কাঁপতে থাকা')">trembling</span> with fear, almost unable to <span class="word" onclick="showMeaning(this, 'রিপোর্ট করা')">report</span> to Macbeth that which he had seen, and yet he <span class="word" onclick="showMeaning(this, 'প্রতিজ্ঞা করল')">averred</span> that, as he stood on the hill for his <span class="word" onclick="showMeaning(this, 'প্রহরা')">watch</span>, he <span class="word" onclick="showMeaning(this, 'দৈবক্রমে')">chanced</span> to see the <span class="word" onclick="showMeaning(this, 'বার্নাম')">Birman</span> and <span class="word" onclick="showMeaning(this, 'উপলব্ধি করল')">perceived</span> the wood to be moving.</p>
-
-                <p><span class="word" onclick="showMeaning(this, 'মিথ্যাবাদী')">"Liar"</span>, <span class="word" onclick="showMeaning(this, 'গর্জন করলেন')">roared</span> Macbeth, <span class="word" onclick="showMeaning(this, 'যদি তুমি মিথ্যে বলো, তোমাকে জীবিত অবস্থায় পরের গাছে ঝুলানো হবে, যতক্ষণ না দুর্ভিক্ষ তোমার জীবন শেষ করে।')">"if you speak false, you shall be hanged alive upon the next tree, till famine ends your life."</span></p>
-
-                <p>By now Macbeth had begun to <span class="word" onclick="showMeaning(this, 'সন্দেহ করা')">doubt</span> the <span class="word" onclick="showMeaning(this, 'দ্ব্যর্থপূর্ণ')">equivocal</span> <span class="word" onclick="showMeaning(this, 'উক্তি')">sayings</span> of the three spirits. He never feared of being vanquished till Birman wood should <span class="word" onclick="showMeaning(this, 'অগ্রসর হওয়া')">advance</span> towards Dunsinane, and now the wood did move.</p>
-
-                <p><span class="word" onclick="showMeaning(this, 'তবুও')">"However,"</span> said Macbeth, <span class="word" onclick="showMeaning(this, 'যদি সে যা বলছে তা সত্যি হয়, তাহলে অস্ত্র নাও এবং বেরিয়ে পড়ো। এখান থেকে পালানোর কোনো উপায় নেই, এখানে থাকারও নেই। আমি সূর্যের প্রতি ক্লান্ত হতে শুরু করেছি, এবং চাই আমার জীবন শেষ হোক।')">"if this which he vouches be true, let us take arms and move out. There is no fleeing from hence, nor staying in here. I begin to be weary of the sun, and wish my life is at an end."</span></p>
-
-                <p>Saying these he <span class="word" onclick="showMeaning(this, 'বহির্গত হলেন')">sallied forth</span> upon the <span class="word" onclick="showMeaning(this, 'অবরোধকারী')">besiegers</span> who had now reached the castle.</p>
-
-                <p>The <span class="word" onclick="showMeaning(this, 'অদ্ভুত')">strange</span> sight of the <span class="word" onclick="showMeaning(this, 'চলমান')">moving</span> wood was easily <span class="word" onclick="showMeaning(this, 'সমাধান করা')">solved</span>. When the besieging army advanced towards the castle through the wood of Birman, Malcolm, like an <span class="word" onclick="showMeaning(this, 'চতুর')">astute</span> general, <span class="word" onclick="showMeaning(this, 'নির্দেশ দিলেন')">instructed</span> all his soldiers to <span class="word" onclick="showMeaning(this, 'কেটে ফেলা')">hew down</span> a <span class="word" onclick="showMeaning(this, 'ডাল')">bough</span> and <span class="word" onclick="showMeaning(this, 'ধারণ করা')">bear</span> it before them so that they could <span class="word" onclick="showMeaning(this, 'গোপন করা')">conceal</span> the actual number of <span class="word" onclick="showMeaning(this, 'আক্রমণকারী')">invaders</span> to Macbeth.</p>
-
-                <p>This <span class="word" onclick="showMeaning(this, 'অগ্রসর হওয়া')">marching</span> of soldiers with boughs in their hands had appeared, from a <span class="word" onclick="showMeaning(this, 'দূরত্ব')">distance</span>, like a moving wood, and the messenger was <span class="word" onclick="showMeaning(this, 'স্পষ্টতই')">evidently</span> frightened.</p>
-
-                <p>Thus the words of the spirits brought to pass, in a <span class="word" onclick="showMeaning(this, 'অর্থ')">sense</span> different from that in which Macbeth understood, and so he lost his confidence.</p>
-
-                <p>A <span class="word" onclick="showMeaning(this, 'উগ্র')">fierce</span> <span class="word" onclick="showMeaning(this, 'সংক্ষিপ্ত যুদ্ধ')">skirmish</span> took place, in which Macbeth <span class="word" onclick="showMeaning(this, 'হত্যা করলেন')">slaughtered</span> all those who <span class="word" onclick="showMeaning(this, 'চ্যালেঞ্জ করেছিল')">challenged</span> him, until he faced Macduff, and remembering the <span class="word" onclick="showMeaning(this, 'সতর্কতা')">caution</span> of the spirit who had <span class="word" onclick="showMeaning(this, 'উপদেশ দিয়েছিল')">counselled</span> him to stay away from the Thane of Fife, he would have turned back, but Macduff who had been <span class="word" onclick="showMeaning(this, 'খোঁজা')">seeking</span> him through the whole fight, <span class="word" onclick="showMeaning(this, 'বিরোধিতা করল')">opposed</span> his turning, and a fierce <span class="word" onclick="showMeaning(this, 'প্রতিযোগিতা')">contest</span> ensued.</p>
-
-                <p>Macduff <span class="word" onclick="showMeaning(this, 'তিরস্কার করল')">reproached</span> him and called him a <span class="word" onclick="showMeaning(this, 'অত্যাচারী')">tyrant</span>, <span class="word" onclick="showMeaning(this, 'হত্যাকারী')">murderer</span>, <span class="word" onclick="showMeaning(this, 'জাহান্নামের কুকুর')">hell-hound</span> and a <span class="word" onclick="showMeaning(this, 'খলনায়ক')">villain</span> for brutally <span class="word" onclick="showMeaning(this, 'হত্যা করা')">slaughtering</span> his wife and his <span class="word" onclick="showMeaning(this, 'নির্দোষ')">innocent</span> children by hired murderers.</p>
-
-                <p>Then Macbeth remembered the words of the spirit, and <span class="word" onclick="showMeaning(this, 'সাহসের সাথে')">boldly</span> <span class="word" onclick="showMeaning(this, 'ঘোষণা করলেন')">proclaimed</span>, <span class="word" onclick="showMeaning(this, 'আমি একটি জাদুময় জীবন ধারণ করি যা স্বাভাবিকভাবে নারীর গর্ভ থেকে জন্ম নেওয়া মানুষের কাছে হারবে না।')">"I bear a charmed life which must not yield to a man born naturally of a woman."</span></p>
-
-                <p>At this Macduff <span class="word" onclick="showMeaning(this, 'তিরস্কার করল')">snubbed</span> him and <span class="word" onclick="showMeaning(this, 'ঘোষণা করল')">declared</span> that he was never, as the <span class="word" onclick="showMeaning(this, 'সাধারণ')">ordinary</span> man is naturally born, but was <span class="word" onclick="showMeaning(this, 'অসময়ে')">untimely</span> taken out from his mother's womb.</p>
-
-                <p>Macbeth lost his <span class="word" onclick="showMeaning(this, 'শক্তি')">strength</span> and <span class="word" onclick="showMeaning(this, 'দৃঢ়তা')">resoluteness</span>. He <span class="word" onclick="showMeaning(this, 'বিলাপ করলেন')">lamented</span>, in future a man should never believe the <span class="word" onclick="showMeaning(this, 'মিথ্যা')">lying</span> <span class="word" onclick="showMeaning(this, 'দ্ব্যর্থপূর্ণ উক্তি')">equivocations</span> of witches and <span class="word" onclick="showMeaning(this, 'ভান করা')">juggling</span> spirits, who <span class="word" onclick="showMeaning(this, 'প্রতারণা করা')">deceive</span> us in words that have <span class="word" onclick="showMeaning(this, 'দ্বৈত')">double</span> meanings; and while they keep their promise <span class="word" onclick="showMeaning(this, 'আক্ষরিকভাবে')">literally</span>, they <span class="word" onclick="showMeaning(this, 'হতাশ করা')">disappoint</span> us</p>
-            </div>
-
-            <div style="margin:20px 0;">
-                <h3>Page 8</h3>
-                <p>by <span class="word" onclick="showMeaning(this, 'প্রদান করা')">providing</span> different meanings. He then <span class="word" onclick="showMeaning(this, 'অস্বীকার করলেন')">refused</span> to fight against Macduff.</p>
-
-                <p>Macduff who <span class="word" onclick="showMeaning(this, 'ঘৃণা করত')">abhorred</span> him, <span class="word" onclick="showMeaning(this, 'অবজ্ঞাপূর্ণভাবে')">scornfully</span> told him that they would <span class="word" onclick="showMeaning(this, 'বন্দী করা')">imprison</span> him and <span class="word" onclick="showMeaning(this, 'প্রদর্শন করা')">demonstrate</span> him to the <span class="word" onclick="showMeaning(this, 'সাধারণ মানুষ')">laity</span> as a tyrant, quite like the way <span class="word" onclick="showMeaning(this, 'রাক্ষস')">monsters</span> are <span class="word" onclick="showMeaning(this, 'প্রদর্শিত')">displayed</span>.</p>
-
-                <p><span class="word" onclick="showMeaning(this, 'কখনো না।')">"Never."</span> said Macbeth. <span class="word" onclick="showMeaning(this, 'আমি তরুণ ম্যালকমের পায়ের সামনে মাটি চুম্বন করে বাঁচবো না।')">"I will not live to kiss the ground before young Malcolm's feet."</span></p>
-
-                <p>His <span class="word" onclick="showMeaning(this, 'বীরত্ব')">valiance</span> returned with <span class="word" onclick="showMeaning(this, 'হতাশা')">despair</span> and he <span class="word" onclick="showMeaning(this, 'আক্রমণ করলেন')">threw</span> upon Macduff who after a great <span class="word" onclick="showMeaning(this, 'সংগ্রাম')">struggle</span> <span class="word" onclick="showMeaning(this, 'পরাজিত করল')">overpowered</span> him and <span class="word" onclick="showMeaning(this, 'ছিন্ন করল')">severed</span> his head and <span class="word" onclick="showMeaning(this, 'উপস্থাপন করল')">presented</span> it to the young and <span class="word" onclick="showMeaning(this, 'বৈধ')">lawful</span> new king.</p>
-
-                <p>Malcolm, then, <span class="word" onclick="showMeaning(this, 'আরোহণ করলেন')">ascended</span> the throne amid <span class="word" onclick="showMeaning(this, 'জয়ধ্বনি')">acclamations</span> of the <span class="word" onclick="showMeaning(this, 'আভিজাত্য')">noblemen</span> and the people of Scotland.</p>
-            </div>
-
-            <!-- Word Notes -->
-            <div style="margin:30px 0;">
-                <h3>📚 Word Notes</h3>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px;">
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Esteem</strong> - সম্মান ও প্রশংসা</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Thane</strong> - স্কটল্যান্ডের রাজকীয় কর্মকর্তা</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Prophesied</strong> - ভবিষ্যদ্বাণী করা</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Envoy</strong> - দূত</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Spurred</strong> - উৎসাহিত করা</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Compunction</strong> - অপরাধবোধ যা ভুল কাজ করতে বাধা দেয়</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Abhorrent</strong> - ঘৃণ্য</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Inordinate</strong> - অতিরিক্ত</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Phantasm</strong> - কল্পনায় যা বিদ্যমান</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Somnambulism</strong> - স্বপ্নচারণ</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Impregnable</strong> - অজেয়, অভেদ্য</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Skirmish</strong> - সংক্ষিপ্ত যুদ্ধ</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Vouches</strong> - নিশ্চিত করা যে কিছু সত্য বা সঠিক</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Reproached</strong> - তিরস্কার করা</div>
-                    <div style="background:#1a0f1e; padding:10px; border-radius:8px;"><strong>Equivocations</strong> - দ্ব্যর্থপূর্ণ ভাষার ব্যবহার</div>
-                </div>
-            </div>
+        <div class="stat">
+            <div class="label">👻 Wrong</div>
+            <div class="value wrong" id="wrongCount">0</div>
         </div>
-
-        <!-- SECTION: Analysis -->
-        <div id="section-analysis" class="section">
-            <h2>📊 Critical Analysis</h2>
-            <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
-
-            <div class="analysis-box">
-                <h4>🎭 Themes and Motifs</h4>
-                
-                <h5>1. Ambition and Its Consequences</h5>
-                <p>The play explores how <strong>unchecked ambition</strong> leads to moral decay and destruction. Macbeth's ambition, once ignited by the witches' prophecies and fueled by Lady Macbeth, transforms him from a noble warrior to a tyrannical murderer.</p>
-
-                <h5>2. Guilt and Conscience</h5>
-                <p>The theme of <strong>guilt</strong> permeates the play:</p>
-                <ul>
-                    <li>Macbeth sees the <strong>dagger</strong> before murdering Duncan</li>
-                    <li>He hears voices saying "Macbeth shall sleep no more"</li>
-                    <li>Lady Macbeth's <strong>sleepwalking</strong> scene reveals her tormented conscience</li>
-                    <li>Both characters are destroyed by their inability to escape guilt</li>
-                </ul>
-
-                <h5>3. Appearance vs. Reality</h5>
-                <p>The witches' famous line <strong>"Fair is foul, and foul is fair"</strong> establishes this theme:</p>
-                <ul>
-                    <li>The witches appear fair but are foul</li>
-                    <li>Macbeth appears loyal but is treasonous</li>
-                    <li>The prophecies appear reassuring but are deceptive</li>
-                </ul>
-
-                <h5>4. The Supernatural</h5>
-                <p>The <strong>three witches</strong> represent:</p>
-                <ul>
-                    <li>The power of fate and destiny</li>
-                    <li>The temptation of evil</li>
-                    <li>The blurring of reality and illusion</li>
-                </ul>
-
-                <h5>5. Manhood and Violence</h5>
-                <p>Lady Macbeth challenges Macbeth's manhood to manipulate him:</p>
-                <ul>
-                    <li><strong>"When you durst do it, then you were a man"</strong></li>
-                    <li>The play questions what true manhood means</li>
-                </ul>
-            </div>
-
-            <div class="analysis-box">
-                <h4>🧙 Character Analysis</h4>
-
-                <h5>Macbeth</h5>
-                <ul>
-                    <li><strong>Tragic Hero</strong> - Starts noble, falls from grace</li>
-                    <li><strong>Tragic Flaw</strong> - Excessive ambition</li>
-                    <li><strong>Character Arc</strong> - From valiant soldier to despised tyrant</li>
-                    <li><strong>Key Quotes:</strong>
-                        <ul>
-                            <li>"I have no spur to prick the sides of my intent, but only vaulting ambition"</li>
-                            <li>"Life is but a walking shadow... a tale told by an idiot, full of sound and fury, signifying nothing"</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <h5>Lady Macbeth</h5>
-                <ul>
-                    <li><strong>Ambitious and Manipulative</strong></li>
-                    <li><strong>Key Quotes:</strong>
-                        <ul>
-                            <li>"Unsex me here"</li>
-                            <li>"A little water clears us of this deed"</li>
-                        </ul>
-                    </li>
-                    <li>Her eventual guilt leads to madness and suicide</li>
-                </ul>
-
-                <h5>The Witches</h5>
-                <ul>
-                    <li><strong>Agents of Fate and Temptation</strong></li>
-                    <li>Their prophecies are <strong>equivocal</strong> (doubly meaningful)</li>
-                    <li>Represent chaos and the supernatural</li>
-                </ul>
-
-                <h5>Banquo</h5>
-                <ul>
-                    <li><strong>Macbeth's Foil</strong> - Noble where Macbeth is corrupt</li>
-                    <li>His descendants will be kings (as prophesied)</li>
-                    <li>Shows how one can resist temptation</li>
-                </ul>
-
-                <h5>Macduff</h5>
-                <ul>
-                    <li><strong>The Righteous Avenger</strong></li>
-                    <li>"Born of woman" prophecy twist</li>
-                    <li>Represents justice and moral order</li>
-                </ul>
-            </div>
-
-            <div class="analysis-box">
-                <h4>📖 Important Symbols</h4>
-                <table style="width:100%; border-collapse:collapse;">
-                    <tr style="background:#3d2645;">
-                        <th style="padding:10px; border:1px solid #5a3a66;">Symbol</th>
-                        <th style="padding:10px; border:1px solid #5a3a66;">Meaning</th>
-                    </tr>
-                    <tr><td style="padding:8px; border:1px solid #3d2645;"><strong>Blood</strong></td><td style="padding:8px; border:1px solid #3d2645;">Guilt, violence, conscience</td></tr>
-                    <tr><td style="padding:8px; border:1px solid #3d2645;"><strong>Dagger</strong></td><td style="padding:8px; border:1px solid #3d2645;">Temptation, impending murder</td></tr>
-                    <tr><td style="padding:8px; border:1px solid #3d2645;"><strong>Sleep</strong></td><td style="padding:8px; border:1px solid #3d2645;">Innocence, peace, sanity</td></tr>
-                    <tr><td style="padding:8px; border:1px solid #3d2645;"><strong>Birnam Wood</strong></td><td style="padding:8px; border:1px solid #3d2645;">False security, deception</td></tr>
-                    <tr><td style="padding:8px; border:1px solid #3d2645;"><strong>Witches' Cauldron</strong></td><td style="padding:8px; border:1px solid #3d2645;">Evil, supernatural, chaos</td></tr>
-                    <tr><td style="padding:8px; border:1px solid #3d2645;"><strong>Crown</strong></td><td style="padding:8px; border:1px solid #3d2645;">Power, ambition, corruption</td></tr>
-                </table>
-            </div>
-
-            <div class="analysis-box">
-                <h4>🎯 Tragic Structure (Aristotelian)</h4>
-                <ol>
-                    <li><strong>Hamartia</strong> - Macbeth's fatal flaw (ambition)</li>
-                    <li><strong>Peripeteia</strong> - Reversal of fortune (Macduff reveals birth)</li>
-                    <li><strong>Anagnorisis</strong> - Recognition (Macbeth realizes prophecies were deceiving)</li>
-                    <li><strong>Catharsis</strong> - Audience feels pity and fear</li>
-                </ol>
-            </div>
+        <div class="stat">
+            <div class="label">🎯 Total</div>
+            <div class="value total" id="totalCount">0</div>
         </div>
-
-        <!-- SECTION: MCQs -->
-        <div id="section-mcq" class="section">
-            <h2>❓ 200 MCQs</h2>
-            <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
-            <p><em>Click on any answer to check if it's correct!</em></p>
-
-            <div id="mcq-container"></div>
+        <div class="stat" style="display:flex;align-items:center;">
+            <button class="reset-btn" onclick="resetGame()">↻ Reset</button>
         </div>
-
-        <!-- SECTION: Witches -->
-        <div id="section-witches" class="section">
-            <h2>🧙 The Three Witches Game</h2>
-            <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
-            <p><em>Click a witch to reveal a question. Get it right → ✨ Fairy! Get it wrong → 👻 Ghost!</em></p>
-
-            <div class="witch-game">
-                <div class="witch-card" onclick="showWitchQuestion(0)">
-                    <div class="witch-icon">🧙</div>
-                    <h3>Witch 1</h3>
-                    <div id="witch-q0" class="question-box">
-                        <p><strong>Who was the King of Scotland at the beginning?</strong></p>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(0,0)">Macbeth</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(0,1)">Malcolm</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(0,2)">Duncan</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(0,3)">Macduff</button>
-                        <div id="witch-result-0" style="margin-top:10px;"></div>
-                    </div>
-                </div>
-
-                <div class="witch-card" onclick="showWitchQuestion(1)">
-                    <div class="witch-icon">🧙</div>
-                    <h3>Witch 2</h3>
-                    <div id="witch-q1" class="question-box">
-                        <p><strong>What prophecy did the third witch give Macbeth?</strong></p>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(1,0)">He will be Thane of Cawdor</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(1,1)">He will be King of Scotland</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(1,2)">He will die in battle</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(1,3)">He will be Thane of Glamis</button>
-                        <div id="witch-result-1" style="margin-top:10px;"></div>
-                    </div>
-                </div>
-
-                <div class="witch-card" onclick="showWitchQuestion(2)">
-                    <div class="witch-icon">🧙</div>
-                    <h3>Witch 3</h3>
-                    <div id="witch-q2" class="question-box">
-                        <p><strong>Who killed Macbeth?</strong></p>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(2,0)">Malcolm</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(2,1)">Macduff</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(2,2)">Banquo</button>
-                        <button class="toggle-btn" onclick="checkWitchAnswer(2,3)">Lady Macbeth</button>
-                        <div id="witch-result-2" style="margin-top:10px;"></div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center; margin:20px 0;">
-                <p>✨ Fairy for correct answer | 👻 Ghost for wrong answer</p>
-            </div>
-        </div>
-
-        <!-- SECTION: Gallery -->
-        <div id="section-gallery" class="section">
-            <h2>🎨 Scene Gallery</h2>
-            <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
-
-            <div class="gallery-grid">
-                <div class="gallery-card">
-                    <div class="scene-icon">🌩️</div>
-                    <h4>Scene 1: The Witches on the Heath</h4>
-                    <p>Three mysterious figures dancing in lightning and thunder</p>
-                    <p style="font-size:0.8em; color:#b09ab8;">Dark purple sky with lightning • Three withered figures in wild dresses • Fog and filthy air</p>
-                </div>
-
-                <div class="gallery-card">
-                    <div class="scene-icon">🗡️</div>
-                    <h4>Scene 2: The Floating Dagger</h4>
-                    <p>Macbeth reaching for a dagger in the air</p>
-                    <p style="font-size:0.8em; color:#b09ab8;">Dark chamber with moonlight • Dagger with blood drops • Macbeth in armor, reaching</p>
-                </div>
-
-                <div class="gallery-card">
-                    <div class="scene-icon">👻</div>
-                    <h4>Scene 3: Banquo's Ghost</h4>
-                    <p>Banquet table with ghostly apparition</p>
-                    <p style="font-size:0.8em; color:#b09ab8;">Grand banquet hall • Ghostly Banquo covered in blood • Macbeth terrified, Lady Macbeth trying to calm him</p>
-                </div>
-
-                <div class="gallery-card">
-                    <div class="scene-icon">🌳</div>
-                    <h4>Scene 4: Birnam Wood Moving</h4>
-                    <p>Soldiers marching with branches</p>
-                    <p style="font-size:0.8em; color:#b09ab8;">Forest with soldiers • Branches moving like a forest • Macbeth watching from castle</p>
-                </div>
-
-                <div class="gallery-card">
-                    <div class="scene-icon">⚔️</div>
-                    <h4>Scene 5: The Final Battle</h4>
-                    <p>Macbeth fighting Macduff</p>
-                    <p style="font-size:0.8em; color:#b09ab8;">Castle walls in background • Macbeth and Macduff fighting • Army of Malcolm in distance</p>
-                </div>
-            </div>
-        </div>
-
-        <button class="scroll-top" onclick="window.scrollTo(0,0)">⬆</button>
     </div>
+    
+    <!-- Witch Cards -->
+    <div class="witch-grid">
+        <!-- Witch 1 -->
+        <div class="witch-card" onclick="showQuestion(0)">
+            <span class="witch-icon">🧙</span>
+            <h3>Witch 1</h3>
+            <span class="witch-name">"Fair is foul"</span>
+            <div id="question-0" class="question-box">
+                <p><strong>Who was the King of Scotland at the beginning of the play?</strong></p>
+                <div class="options">
+                    <button onclick="checkAnswer(0, 0, 'Macbeth')">Macbeth</button>
+                    <button onclick="checkAnswer(0, 1, 'Malcolm')">Malcolm</button>
+                    <button onclick="checkAnswer(0, 2, 'Duncan')">Duncan</button>
+                    <button onclick="checkAnswer(0, 3, 'Macduff')">Macduff</button>
+                </div>
+                <div id="result-0" class="result-text"></div>
+            </div>
+        </div>
+        
+        <!-- Witch 2 -->
+        <div class="witch-card" onclick="showQuestion(1)">
+            <span class="witch-icon">🧙</span>
+            <h3>Witch 2</h3>
+            <span class="witch-name">"Something wicked this way comes"</span>
+            <div id="question-1" class="question-box">
+                <p><strong>What prophecy did the third witch give Macbeth?</strong></p>
+                <div class="options">
+                    <button onclick="checkAnswer(1, 0, 'Thane of Cawdor')">He will be Thane of Cawdor</button>
+                    <button onclick="checkAnswer(1, 1, 'King of Scotland')">He will be King of Scotland</button>
+                    <button onclick="checkAnswer(1, 2, 'Die in battle')">He will die in battle</button>
+                    <button onclick="checkAnswer(1, 3, 'Thane of Glamis')">He will be Thane of Glamis</button>
+                </div>
+                <div id="result-1" class="result-text"></div>
+            </div>
+        </div>
+        
+        <!-- Witch 3 -->
+        <div class="witch-card" onclick="showQuestion(2)">
+            <span class="witch-icon">🧙</span>
+            <h3>Witch 3</h3>
+            <span class="witch-name">"Double, double, toil and trouble"</span>
+            <div id="question-2" class="question-box">
+                <p><strong>Who killed Macbeth in the final battle?</strong></p>
+                <div class="options">
+                    <button onclick="checkAnswer(2, 0, 'Malcolm')">Malcolm</button>
+                    <button onclick="checkAnswer(2, 1, 'Macduff')">Macduff</button>
+                    <button onclick="checkAnswer(2, 2, 'Banquo')">Banquo</button>
+                    <button onclick="checkAnswer(2, 3, 'Lady Macbeth')">Lady Macbeth</button>
+                </div>
+                <div id="result-2" class="result-text"></div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="back-btn" onclick="location.reload()">← Back to Menu</button>
+</div>
 
-    <script>
-        // --- Navigation ---
-        function showSection(id) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            if (id === 'menu') {
-                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-                return;
-            }
-            const target = document.getElementById('section-' + id);
-            if (target) target.classList.add('active');
+<!-- ========================================== -->
+<!-- ===== FAIRY OVERLAY (Soft Version) ===== -->
+<!-- ========================================== -->
+<div id="fairyOverlay" class="fairy-container">
+    <div class="fairy" style="top:20%; left:15%;">🧚</div>
+    <div class="fairy" style="top:28%; right:20%; animation-delay:0.3s;">🧚‍♀️</div>
+    <div class="fairy" style="bottom:28%; left:25%; animation-delay:0.6s;">🧚</div>
+    <div class="fairy" style="bottom:18%; right:18%; animation-delay:0.9s;">🧚‍♂️</div>
+    
+    <div class="sparkle" style="top:12%; left:45%; animation-delay:0.2s;">✦</div>
+    <div class="sparkle" style="top:55%; left:12%; animation-delay:0.5s;">✧</div>
+    <div class="sparkle" style="top:45%; right:12%; animation-delay:0.8s;">✦</div>
+    <div class="sparkle" style="bottom:45%; left:50%; animation-delay:0.3s;">✧</div>
+    <div class="sparkle" style="top:22%; left:72%; animation-delay:0.7s;">✦</div>
+    <div class="sparkle" style="bottom:12%; left:22%; animation-delay:0.4s;">✧</div>
+    
+    <div class="fairy-message">
+        <span class="emoji-big">🧚</span>
+        Perfect!
+        <div class="sub">A gentle fairy appears to bless your wisdom</div>
+        <button class="close-btn" onclick="closeFairy()">✕</button>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- ===== UGLY WITCHES OVERLAY (Soft) ===== -->
+<!-- ========================================== -->
+<div id="witchesOverlay" class="witches-container">
+    <div class="ugly-witch" style="top:15%; left:8%;">
+        🧙
+        <span class="witch-label">"Foul"</span>
+    </div>
+    <div class="ugly-witch" style="top:35%; left:50%; transform:translateX(-50%); animation-delay:0.4s;">
+        🧛
+        <span class="witch-label">"Evil"</span>
+    </div>
+    <div class="ugly-witch" style="top:15%; right:8%; animation-delay:0.8s;">
+        👹
+        <span class="witch-label">"Wrong"</span>
+    </div>
+    
+    <div class="creepy-element" style="top:8%; left:35%; animation-delay:0.2s;">💀</div>
+    <div class="creepy-element" style="top:75%; left:18%; animation-delay:0.6s;">🕷</div>
+    <div class="creepy-element" style="top:65%; right:18%; animation-delay:0.4s;">🦇</div>
+    <div class="creepy-element" style="bottom:12%; left:48%; animation-delay:0.8s;">☠</div>
+    
+    <div class="wrong-message">
+        <span class="emoji-big">👹</span>
+        Not quite...
+        <div class="sub">Three witches gather to test your knowledge</div>
+        <button class="close-btn" onclick="closeWitches()">✕</button>
+    </div>
+</div>
+
+<script>
+    // =============================================
+    // ===== GAME LOGIC =====
+    // =============================================
+    
+    const correctAnswers = {
+        0: 2,  // Duncan
+        1: 1,  // King of Scotland
+        2: 1   // Macduff
+    };
+    
+    let scores = { correct: 0, wrong: 0, total: 0 };
+    let answered = { 0: false, 1: false, 2: false };
+    
+    function showQuestion(index) {
+        if (answered[index]) {
+            document.getElementById('question-' + index).classList.add('show');
+            return;
         }
-
-        // --- Text Word Meanings ---
-        function showMeaning(el, meaning) {
-            // Remove existing tooltip
-            const existing = el.querySelector('.meaning-tip');
-            if (existing) {
-                existing.remove();
-                return;
+        
+        for (let i = 0; i < 3; i++) {
+            if (i !== index) {
+                document.getElementById('question-' + i).classList.remove('show');
             }
-            const tip = document.createElement('span');
-            tip.className = 'meaning-tip';
-            tip.style.cssText = 'display:block; font-size:0.85em; color:#ffb07c; background:#1a0f1e; padding:2px 10px; border-radius:6px; margin-top:4px;';
-            tip.textContent = '📖 ' + meaning;
-            el.appendChild(tip);
         }
-
-        // --- MCQs ---
-        const mcqData = [
-            // Set 1
-            { q: 'Who is the King of Scotland at the beginning of the play?', opts: ['Macbeth', 'Malcolm', 'Duncan', 'Macduff'], ans: 2 },
-            { q: 'What title does Macbeth already hold at the start?', opts: ['Thane of Glamis', 'Thane of Cawdor', 'King of Scotland', 'Thane of Fife'], ans: 0 },
-            { q: 'Who are the three prophetic figures in the play?', opts: ['Angels', 'Witches', 'Fairies', 'Ghosts'], ans: 1 },
-            { q: 'What is the witches\' famous chant?', opts: ['Double, double, toil and trouble', 'Fair is foul, and foul is fair', 'Something wicked this way comes', 'Both A and B'], ans: 3 },
-            { q: 'Who is Banquo?', opts: ["Macbeth's enemy", 'A witch', "Macbeth's friend and fellow general", "Duncan's son"], ans: 2 },
-            { q: 'What does the first witch call Macbeth?', opts: ['Thane of Glamis', 'Thane of Cawdor', 'King of Scotland', 'Thane of Fife'], ans: 0 },
-            { q: 'What does the second witch call Macbeth?', opts: ['Thane of Glamis', 'Thane of Cawdor', 'King of Scotland', 'Thane of Fife'], ans: 1 },
-            { q: 'What does the third witch prophesy for Macbeth?', opts: ['He will die in battle', 'He will be king of Scotland', 'He will be Thane of Cawdor', 'He will be Thane of Glamis'], ans: 1 },
-            { q: 'What does Banquo see in the witches?', opts: ['Nothing', 'They are "withered" with beards', 'Beautiful women', 'His children'], ans: 1 },
-            { q: 'Who kills King Duncan?', opts: ['Banquo', 'Lady Macbeth', 'Macbeth', 'Macduff'], ans: 2 },
-            { q: 'What does Macbeth see before killing Duncan?', opts: ['A floating dagger', 'A crown', 'A ghost', 'A bloody child'], ans: 0 },
-            { q: 'What words does Macbeth hear after killing Duncan?', opts: ['Long live the king', 'Sleep no more', 'Macbeth is dead', 'God save the king'], ans: 1 },
-            { q: 'Who places the daggers back on the guards?', opts: ['Macbeth', 'Banquo', 'Lady Macbeth', 'Macduff'], ans: 2 },
-            { q: 'What do Macbeth and Lady Macbeth do to frame the guards?', opts: ['Kill them', 'Smear them with Duncan\'s blood', 'Hide the daggers', 'Run away'], ans: 1 },
-            { q: 'Who is Malcolm?', opts: ["Duncan's son", "Macbeth's son", "Banquo's son", "Macduff's son"], ans: 0 },
-            { q: 'What title does Macbeth receive after the murder?', opts: ['Thane of Glamis', 'King of Scotland', 'Thane of Fife', 'Duke of Scotland'], ans: 1 },
-            { q: 'Who becomes suspicious of Macbeth?', opts: ['Duncan', 'Malcolm', 'Banquo', 'All of the above'], ans: 3 },
-            { q: 'What does Macbeth order killed?', opts: ['Banquo', 'Macduff', 'Duncan', 'Malcolm'], ans: 0 },
-            { q: 'Who escapes the murder attempt?', opts: ['Banquo', 'Fleance', 'Macduff', 'Malcolm'], ans: 1 },
-            { q: 'What appears at the banquet?', opts: ['The witches', "Banquo's ghost", "Duncan's ghost", 'The floating dagger'], ans: 1 },
-            // Set 2
-            { q: "What is Macbeth's relationship to King Duncan?", opts: ['Son', 'Cousin and general', 'Enemy', 'Servant'], ans: 1 },
-            { q: 'How many witches are there?', opts: ['Three', 'Two', 'Four', 'Seven'], ans: 0 },
-            { q: "Which character is Macbeth's closest ally?", opts: ['Banquo', 'Macduff', 'Duncan', 'Malcolm'], ans: 0 },
-            { q: "Who is the heir to Duncan's throne?", opts: ['Macbeth', 'Malcolm', 'Banquo', 'Macduff'], ans: 1 },
-            { q: 'Who kills Banquo?', opts: ['Murderers hired by Macbeth', 'Macbeth himself', 'Macduff', 'Duncan'], ans: 0 },
-            { q: "What is Lady Macbeth's relationship to Macbeth?", opts: ['Wife', 'Sister', 'Mother', 'Daughter'], ans: 0 },
-            { q: "What is Macduff's title?", opts: ['Thane of Glamis', 'Thane of Cawdor', 'Thane of Fife', 'King of Scotland'], ans: 2 },
-            { q: 'Who is Fleance?', opts: ["Banquo's son", "Macbeth's son", "Duncan's son", "Macduff's son"], ans: 0 },
-            { q: 'Who is Donalbain?', opts: ["Duncan's other son", "Macbeth's brother", 'A witch', 'A nobleman'], ans: 0 },
-            { q: 'Who betrays Macbeth last?', opts: ['Lady Macbeth', 'The witches', 'The army including Macduff', 'Banquo'], ans: 2 },
-            { q: 'Who encourages Macbeth to kill Duncan?', opts: ['Banquo', 'Lady Macbeth', 'The witches', 'Macduff'], ans: 1 },
-            { q: 'Who does Macbeth consult after seeing the ghost?', opts: ['The doctor', 'The witches', 'Macduff', 'Malcolm'], ans: 1 },
-            { q: "What is Hecate's role?", opts: ['Lady Macbeth', 'Queen of the witches', "Macbeth's mother", 'A noblewoman'], ans: 1 },
-            { q: 'Who is Siward?', opts: ["Macbeth's brother", 'A witch', 'An English general fighting Macbeth', "Macduff's son"], ans: 2 },
-            { q: "Who brings news of Lady Macbeth's death?", opts: ['Macduff', 'Malcolm', 'A doctor/servant', 'Banquo'], ans: 2 },
-            { q: 'Who is the "hell-hound" referred to?', opts: ['Banquo', 'Macbeth', 'Macduff', 'Malcolm'], ans: 1 },
-            { q: 'Who does Macbeth call "my dearest partner of greatness"?', opts: ['The witches', 'Lady Macbeth', 'Banquo', 'Duncan'], ans: 1 },
-            { q: 'Who is the "tyrant" in the play?', opts: ['Duncan', 'Malcolm', 'Macbeth', 'Macduff'], ans: 2 },
-            { q: 'Who is the "good king" in the play?', opts: ['Duncan', 'Macbeth', 'Malcolm', 'Macduff'], ans: 0 },
-            { q: 'Who says "Fair is foul, and foul is fair"?', opts: ['The witches', 'Macbeth', 'Lady Macbeth', 'Banquo'], ans: 0 },
-            // Set 3
-            { q: '"Is this a dagger which I see before me?" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Banquo', 'Duncan'], ans: 0 },
-            { q: '"Out, damned spot! Out, I say!" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Macduff', 'The witches'], ans: 1 },
-            { q: '"The milk of human kindness" - Who is described by whom?', opts: ['Macbeth by Lady Macbeth', 'Macbeth by Lady Macbeth', 'Lady Macbeth by Macbeth', 'Duncan by Macbeth'], ans: 1 },
-            { q: '"Life is but a walking shadow" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Macduff', 'Malcolm'], ans: 0 },
-            { q: '"Something wicked this way comes" - Who says this?', opts: ['The witches', 'Macbeth', 'Banquo', 'Macduff'], ans: 0 },
-            { q: '"Double, double, toil and trouble" - Who says this?', opts: ['The witches', 'Macbeth', 'Lady Macbeth', 'Macduff'], ans: 0 },
-            { q: '"I have no spur to prick the sides of my intent, but only vaulting ambition" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Banquo', 'Macduff'], ans: 0 },
-            { q: '"When you durst do it, then you were a man" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Banquo', 'Duncan'], ans: 1 },
-            { q: '"What\'s done cannot be undone" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Macduff', 'Malcolm'], ans: 1 },
-            { q: '"The instruments of darkness tell us truths" - Who says this?', opts: ['Macbeth', 'Banquo', 'Lady Macbeth', 'Duncan'], ans: 1 },
-            { q: '"A little water clears us of this deed" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Macduff', 'Malcolm'], ans: 1 },
-            { q: '"Sleep no more! Macbeth does murder sleep" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'The witches', 'Banquo'], ans: 0 },
-            { q: '"I have no words; my voice is in my sword" - Who says this?', opts: ['Macbeth', 'Macduff', 'Malcolm', 'Banquo'], ans: 1 },
-            { q: '"The raven himself is hoarse that croaks the fatal entrance of Duncan" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Duncan', 'The witches'], ans: 1 },
-            { q: '"Thou shalt be King hereafter" - Who says this to whom?', opts: ['Witches to Banquo', 'Witches to Macbeth', 'Witches to Duncan', 'Lady Macbeth to Macbeth'], ans: 1 },
-            { q: '"What, will these hands ne\'er be clean?" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Macduff', 'Malcolm'], ans: 1 },
-            { q: '"I dare do all that may become a man; who dares do more is none" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Macduff', 'Banquo'], ans: 0 },
-            { q: '"More needs she the divine than the physician" - Who says this?', opts: ['Macbeth', 'Doctor', 'Lady Macbeth', 'Malcolm'], ans: 1 },
-            { q: '"He has kill\'d me, mother: run away" - Who says this?', opts: ['Fleance', "Macduff's son", 'Malcolm', 'Banquo'], ans: 1 },
-            { q: '"It will have blood; they say, blood will have blood" - Who says this?', opts: ['Macbeth', 'Lady Macbeth', 'Macduff', 'Banquo'], ans: 0 },
-            // Set 4 - Symbols
-            { q: 'What does blood symbolize in the play?', opts: ['Joy', 'Guilt', 'Power', 'Wealth'], ans: 1 },
-            { q: 'What does sleep represent?', opts: ['Death', 'Dreams', 'Innocence and peace', 'Wealth'], ans: 2 },
-            { q: 'The dagger symbolizes:', opts: ['Power', 'Temptation', 'Love', 'Wealth'], ans: 1 },
-            { q: 'Birnam Wood moving represents:', opts: ["Nature's power", 'Deception and irony', 'Magic', 'War'], ans: 1 },
-            { q: 'The crown symbolizes:', opts: ['Peace', 'Power and ambition', 'Love', 'Poverty'], ans: 1 },
-            { q: '"Fair is foul, and foul is fair" suggests:', opts: ['Appearance vs reality', 'Good and evil', 'Love and hate', 'Life and death'], ans: 0 },
-            { q: "The witches' cauldron symbolizes:", opts: ['Cooking', 'Evil and chaos', 'Family', 'Nature'], ans: 1 },
-            { q: "Macbeth's visions represent:", opts: ['His intelligence', 'His guilt and paranoia', 'His happiness', 'His friendship'], ans: 1 },
-            { q: 'The theme of ambition is shown through:', opts: ['Banquo', 'Macbeth', 'Duncan', 'Macduff'], ans: 1 },
-            { q: "Banquo's ghost at the banquet represents:", opts: ['Friendship', 'Guilt and consequences', 'Love', 'Wisdom'], ans: 1 },
-            { q: "Lady Macbeth's sleepwalking represents:", opts: ['Her health', 'Her guilt', 'Her ambition', 'Her power'], ans: 1 },
-            { q: 'The theme of masculinity is challenged by:', opts: ['Lady Macbeth', 'Duncan', 'Banquo', 'The witches'], ans: 0 },
-            { q: 'The theme of fate versus free will is shown through:', opts: ["Macbeth's response to prophecies", 'The weather', 'The food', 'The clothes'], ans: 0 },
-            { q: "Macbeth's decline is caused by:", opts: ['His love', 'His ambition', 'His age', 'His poverty'], ans: 1 },
-            { q: 'The "good king" Duncan represents:', opts: ['Divine order', 'Tyranny', 'Chaos', 'War'], ans: 0 },
-            { q: 'Nature and weather reflect:', opts: ['The time of day', 'The political disorder', "The characters' health", 'The seasons'], ans: 1 },
-            { q: "Macduff's vengeance represents:", opts: ['Revenge', 'Justice', 'Ambition', 'Greed'], ans: 1 },
-            { q: "The murder of Macduff's family shows:", opts: ["Macbeth's tyranny", "Macduff's weakness", 'Family values', 'Love'], ans: 0 },
-            { q: "Malcolm's test of Macduff shows:", opts: ["Malcolm's cruelty", "Malcolm's wisdom", "Macduff's ambition", "Macduff's greed"], ans: 1 },
-            { q: "The witches' prophecies are:", opts: ['Always true', 'Equivocal (doubly meaningful)', 'Always false', 'Irrelevant'], ans: 1 },
-            { q: "Fleance's escape symbolizes:", opts: ['Failure', 'Hope and continuation', 'Defeat', 'Victory'], ans: 1 },
-            { q: "Macbeth's final battle shows:", opts: ['His courage despite everything', 'His cowardice', 'His wisdom', 'His love'], ans: 0 },
-            { q: "The play's ending suggests:", opts: ['Order restored', 'Chaos continues', 'More war', 'Nothing changes'], ans: 0 },
-            { q: "Lady Macbeth's death shows:", opts: ['Victory', 'The destructive power of guilt', 'Success', 'Happiness'], ans: 1 },
-            { q: 'The play is ultimately about:', opts: ['Love', 'Ambition and its consequences', 'Friendship', 'Nature'], ans: 1 },
-            // Set 5 - Plot
-            { q: 'What is the first thing that happens in the play?', opts: ['Macbeth kills Duncan', 'The witches meet Macbeth', 'Lady Macbeth reads a letter', 'Banquo dies'], ans: 1 },
-            { q: 'What happens after Macbeth becomes king?', opts: ['He becomes peaceful', 'He becomes paranoid and murderous', 'He abdicates', 'He makes peace with England'], ans: 1 },
-            { q: "What is the correct sequence of Macbeth's titles?", opts: ['Thane of Glamis → Thane of Cawdor → King', 'King → Thane → General', 'General → King → Thane', 'Thane of Fife → Thane of Cawdor → King'], ans: 0 },
-            { q: "When does Macbeth first see Banquo's ghost?", opts: ['Before killing Duncan', 'At the banquet', "At the witches' cave", 'At the final battle'], ans: 1 },
-            { q: 'What happens to Fleance after Banquo is murdered?', opts: ['He is killed', 'He escapes', 'He becomes king', 'He joins Macbeth'], ans: 1 },
-            { q: 'Why does Macbeth visit the witches again?', opts: ['To thank them', 'To seek reassurance and more prophecies', 'To kill them', 'To bring them to court'], ans: 1 },
-            { q: "When does Lady Macbeth die?", opts: ["Before Duncan's murder", 'At the banquet', 'Before the final battle', 'After Macbeth is killed'], ans: 2 },
-            { q: 'What do the three apparitions show Macbeth?', opts: ['His death', 'Future events/warnings', 'His children', 'His kingdom'], ans: 1 },
-            { q: 'What is the correct order of the apparitions?', opts: ['Armed head → Bloody child → Crowned child', 'Crowned child → Bloody child → Armed head', 'Bloody child → Armed head → Crowned child', 'Crowned child → Armed head → Bloody child'], ans: 0 },
-            { q: "When does Macduff learn of his family's murder?", opts: ['Before he flees', 'In England', "After Macbeth's death", 'At the banquet'], ans: 1 },
-            { q: "What does Macduff do after learning of his family's murder?", opts: ['He weeps and does nothing', 'He vows revenge', 'He returns to Scotland alone', 'He kills himself'], ans: 1 },
-            { q: 'When does the Birnam Wood "move"?', opts: ["At the witches' cave", "Before Duncan's murder", 'During the final battle', "After Macbeth's death"], ans: 2 },
-            { q: 'Who brings the news that Birnam Wood is moving?', opts: ['Macduff', 'A messenger', 'Malcolm', 'Siward'], ans: 1 },
-            { q: "What is Macbeth's reaction to Birnam Wood moving?", opts: ['He is happy', 'He ignores it', 'He realizes the prophecies were ambiguous', 'He immediately surrenders'], ans: 2 },
-            { q: "When does Macbeth realize Macduff is not 'born of woman'?", opts: ['During their final battle', 'At the banquet', "At the witches' cave", "Before Duncan's murder"], ans: 0 },
-            { q: 'What is the final action of the play?', opts: ['Macbeth is crowned', 'Malcolm is crowned', 'Lady Macbeth is crowned', 'Macduff is crowned'], ans: 1 },
-            { q: 'How does Macbeth die?', opts: ['He is poisoned', 'He commits suicide', 'Macduff kills him', 'He dies of guilt'], ans: 2 },
-            { q: "What happens to Macbeth's head?", opts: ['It is buried', 'It is presented to Malcolm', 'It is lost in battle', 'It is preserved'], ans: 1 },
-            { q: 'Who is crowned after Macbeth\'s death?', opts: ['Macduff', 'Malcolm', 'Donalbain', 'Fleance'], ans: 1 },
-            { q: 'What does Malcolm say at the end?', opts: ['He will execute everyone', 'He will restore order and call home his thanes', 'He abdicates', 'He declares war on England'], ans: 1 },
-            // Set 6 - Advanced
-            { q: "Aristotle's tragic hero concept applies to Macbeth because:", opts: ['He has a tragic flaw', 'He is poor', 'He is evil from the start', 'He never regrets'], ans: 0 },
-            { q: "Macbeth's tragic flaw is:", opts: ['Love', 'Pride', 'Ambition', 'Jealousy'], ans: 2 },
-            { q: "Lady Macbeth's tragic flaw is:", opts: ['Love', 'Ambition and manipulation', 'Cowardice', 'Kindness'], ans: 1 },
-            { q: "The witches' prophecies are examples of:", opts: ['Simple truth', 'Equivocation', 'Lie', 'Advice'], ans: 1 },
-            { q: "The play's structure follows:", opts: ['Comedy structure', 'Romance structure', 'Tragic structure', 'Satire'], ans: 2 },
-            { q: 'The theme of kingship and divine right is shown through:', opts: ["Duncan's noble rule vs Macbeth's tyranny", "The witches' rule", 'The weather', 'The castle'], ans: 0 },
-            { q: 'The concept of "unnatural" events reflects:', opts: ['The weather', 'The disruption of natural order', 'The time of day', 'The food'], ans: 1 },
-            { q: 'Macduff as a character represents:', opts: ['Ambition', 'Justice and morality', 'Greed', 'Fear'], ans: 1 },
-            { q: 'Banquo serves as a foil to Macbeth because:', opts: ['He resists temptation', 'He is more ambitious', 'He is more cowardly', 'He is richer'], ans: 0 },
-            { q: "The play's setting in Scotland is significant because:", opts: ["It's a happy place", "It's always sunny", 'It was politically turbulent', 'It was peaceful'], ans: 2 },
-            { q: "The play reflects King James I's interests because:", opts: ['He was interested in witches and Scottish history', 'He wrote the play', 'He was Macbeth', 'He was a witch'], ans: 0 },
-            { q: "The Porter's scene provides:", opts: ['Comic relief', 'Tragic relief', 'Horror', 'Romance'], ans: 0 },
-            { q: 'Lady Macbeth\'s "unsex me here" speech shows:', opts: ['Her love', 'Her desire to reject femininity for ambition', 'Her fear', 'Her kindness'], ans: 1 },
-            { q: "Macbeth's soliloquies reveal:", opts: ['His happiness', 'His inner conflict', 'His plans for peace', 'His love'], ans: 1 },
-            { q: 'The "dagger" vision is an example of:', opts: ['Reality', 'Hallucination', 'Magic', 'Dream'], ans: 1 },
-            { q: 'The theme of "unnatural" is shown through:', opts: ["Macbeth's acts", 'The beautiful weather', 'The peaceful kingdom', 'The happy ending'], ans: 0 },
-            { q: '"Blood will have blood" means:', opts: ['Blood is red', 'Violence will lead to more violence', 'Everyone dies', 'Macbeth is a doctor'], ans: 1 },
-            { q: "Macbeth's inability to say 'Amen' shows:", opts: ['His atheism', 'His spiritual alienation', 'His tiredness', 'His forgetfulness'], ans: 1 },
-            { q: "The owl's cry is interpreted as:", opts: ['A sign of love', 'A sign of death', 'A sign of peace', 'A sign of rain'], ans: 1 },
-            { q: '"The sleep of the innocent" refers to:', opts: ['Macbeth', 'Lady Macbeth', 'Duncan', 'The witches'], ans: 2 },
-            { q: 'Macbeth\'s final "tomorrow, and tomorrow, and tomorrow" speech shows:', opts: ['His nihilism and despair', 'His hope', 'His love', 'His ambition'], ans: 0 },
-            { q: "The play's treatment of women (Lady Macbeth and the witches) shows:", opts: ['Women are weak', 'Women can be powerful but are seen as unnatural', "Women don't matter", 'Women are always good'], ans: 1 },
-            { q: 'Macduff killing Macbeth is satisfying because:', opts: ['He is the rightful avenger', 'He is stronger', 'He is richer', 'He is younger'], ans: 0 },
-            { q: "Malcolm's final speech emphasizes:", opts: ['Restoration of order', 'More war', 'Greed', 'Ambition'], ans: 0 },
-            { q: 'The play is ultimately a warning about:', opts: ['Love', 'Unchecked ambition', 'Friendship', 'War'], ans: 1 },
-            // Set 7 - Context
-            { q: 'Who wrote Macbeth?', opts: ['Christopher Marlowe', 'William Shakespeare', 'Ben Jonson', 'John Milton'], ans: 1 },
-            { q: 'When was Macbeth believed to be written?', opts: ['1599', '1603', '1606', '1611'], ans: 2 },
-            { q: 'The play was written during the reign of:', opts: ['Queen Elizabeth I', 'King James I', 'King Henry VIII', 'Queen Victoria'], ans: 1 },
-            { q: 'What historical figure was Macbeth based on?', opts: ['A fictional character', 'A real Scottish king', 'An English king', 'A Roman emperor'], ans: 1 },
-            { q: 'The real Macbeth ruled Scotland in the:', opts: ['11th century', '11th century', '15th century', '8th century'], ans: 0 },
-            { q: "Shakespeare's source for Macbeth was:", opts: ["Homer's Iliad", "Holinshed's Chronicles", 'The Bible', 'Greek mythology'], ans: 1 },
-            { q: 'Which king was fascinated with witchcraft?', opts: ['King James I', 'Queen Elizabeth I', 'King Henry VIII', 'King John'], ans: 0 },
-            { q: 'The play is considered a:', opts: ['Comedy', 'History', 'Tragedy', 'Romance'], ans: 2 },
-            { q: 'The "Scottish Play" is a nickname because:', opts: ["It's set in Scotland", 'Actors consider it bad luck to say "Macbeth"', "It's about Scottish history", 'Shakespeare was Scottish'], ans: 1 },
-            { q: "James I's interest in witches influenced:", opts: ['The witches in the play', 'The love story', 'The food', 'The clothing'], ans: 0 },
-            { q: 'The Gunpowder Plot (1605) may have influenced:', opts: ['The love story', 'The theme of treason', 'The weather', 'The food'], ans: 1 },
-            { q: "The play's length is approximately:", opts: ['About 2-3 hours in performance', '5 hours', '30 minutes', '12 hours'], ans: 0 },
-            { q: 'Macbeth is Shakespeare\'s shortest tragedy:', opts: ['True', 'False'], ans: 0 },
-            { q: 'The witches\' "double, double" chant is one of Shakespeare\'s:', opts: ['Comedic scenes', 'Most famous scenes', 'Romantic scenes', 'Least known scenes'], ans: 1 },
-            { q: 'The play was likely performed for:', opts: ['King James I', 'Queen Elizabeth I', 'The public only', 'The French court'], ans: 0 },
-            { q: "Shakespeare's company, the King's Men, performed the play because:", opts: ['They loved it', 'James I was their patron', 'They were Scottish', 'They had no choice'], ans: 1 },
-            { q: 'The original Globe Theatre was:', opts: ['Built in 1599', 'Built in 1606', 'Built in 1611', 'Not built yet'], ans: 0 },
-            { q: 'The play has been adapted:', opts: ['Many times', 'Only once', 'Never', 'Only as a film'], ans: 0 },
-            { q: 'The "Scottish Play" superstition includes:', opts: ['Not saying the name in the theatre', 'Always saying the name', 'Not performing it', 'Only performing it outside'], ans: 0 },
-            { q: "The play's themes reflect:", opts: ['Renaissance concerns about kingship', 'Modern concerns', 'Roman concerns', 'Greek concerns'], ans: 0 },
-            { q: 'Macbeth is often compared to:', opts: ['Hamlet', 'Othello, King Lear, and Hamlet', 'Romeo', 'Juliet'], ans: 1 },
-            { q: "The play's exploration of evil was influenced by:", opts: ['Religious debates of the time', 'Modern debates', 'Roman debates', 'Greek debates'], ans: 0 },
-            { q: 'The character of Macbeth has been portrayed by:', opts: ['Many famous actors', 'Only Shakespeare', 'Only one actor', 'Only women'], ans: 0 },
-            { q: "The play's popularity has:", opts: ['Endured for centuries', 'Declined', 'Only recently grown', 'Never been popular'], ans: 0 },
-            { q: 'Macbeth is considered one of Shakespeare\'s:', opts: ['Greatest tragedies', 'Weakest plays', 'Comedies', 'Histories'], ans: 0 },
-            // Set 8 - Dramatic Techniques
-            { q: 'The witches appear in what type of weather?', opts: ['Sunshine', 'Thunder and lightning', 'Rain', 'Snow'], ans: 1 },
-            { q: 'The opening scene establishes:', opts: ['Atmosphere of evil and chaos', 'Happiness', 'Peace', 'Romance'], ans: 0 },
-            { q: 'The use of "sound and fury" in Macbeth\'s speech shows:', opts: ['Dramatic monologue', 'Comedy', 'Romance', 'Satire'], ans: 0 },
-            { q: "Banquo's ghost appearing at the banquet is an example of:", opts: ['Dramatic irony and supernatural', 'Comedy', 'Romance', 'Realism'], ans: 0 },
-            { q: "Lady Macbeth's sleepwalking scene is an example of:", opts: ['Psychological realism', 'Comedy', 'Romance', 'Action'], ans: 0 },
-            { q: 'The playwright uses the "play within the play" technique?', opts: ['Yes', 'No, but he uses other techniques', 'Only in Act 1', 'Only in Act 5'], ans: 1 },
-            { q: 'The use of soliloquy in Macbeth reveals:', opts: ["The character's inner thoughts", "The character's plans with others", "The character's love letters", "The character's shopping list"], ans: 0 },
-            { q: "The Porter's scene uses:", opts: ['Prose', 'Verse', 'Poetry', 'Song'], ans: 0 },
-            { q: 'Blank verse is used in Macbeth for:', opts: ['Noble characters', 'Comic characters', 'The witches', 'The Porter'], ans: 0 },
-            { q: 'The imagery of "sleep" is used to create:', opts: ['Contrast between innocence and guilt', 'Comedy', 'Romance', 'Adventure'], ans: 0 },
-            { q: 'The use of "blood" imagery in the play creates:', opts: ['A sense of guilt and violence', 'Peace', 'Love', 'Happiness'], ans: 0 },
-            { q: "Macbeth's meeting with the witches creates:", opts: ['Suspense and foreshadowing', 'Comedy', 'Romance', 'Satire'], ans: 0 },
-            { q: 'The play uses dramatic irony when:', opts: ['We know Macbeth will become king but he doesn\'t know how', 'When everything is obvious', "When there's no suspense", 'When characters are happy'], ans: 0 },
-            { q: 'The "knocking at the gate" scene creates:', opts: ['Tension and irony', 'Comedy', 'Romance', 'Satire'], ans: 0 },
-            { q: "The play's structure follows:", opts: ['Rising action → climax → falling action', 'No structure', 'Comedy structure', 'Romance structure'], ans: 0 },
-            { q: 'The climax of the play is:', opts: ["Duncan's murder", "Banquo's murder", 'The final battle/Macduff killing Macbeth', "Lady Macbeth's death"], ans: 2 },
-            { q: "The play's resolution comes when:", opts: ['Lady Macbeth dies', 'Malcolm is crowned', 'The witches appear', 'Macbeth is haunted'], ans: 1 },
-            { q: 'The witches speak in:', opts: ['Rhymed couplets and chants', 'Prose only', 'Blank verse', 'Sonnets'], ans: 0 },
-            { q: "Macbeth's famous speeches are often in:", opts: ['Blank verse and soliloquy', 'Prose', 'Song', 'Rhyme'], ans: 0 },
-            { q: 'The use of "supernatural" in the play adds:', opts: ['Horror and intrigue', 'Romance', 'Comedy', 'Satire'], ans: 0 },
-            { q: "The play's setting is significant because:", opts: ['Scotland was seen as wild and untamed', 'It was always sunny', 'It was peaceful', 'It was in England'], ans: 0 },
-            { q: 'The imagery of "light" and "darkness" creates:', opts: ['Contrast between good and evil', 'Comedy', 'Romance', 'Satire'], ans: 0 },
-            { q: "The play's ending provides:", opts: ['Closure', 'No resolution', 'More confusion', 'A cliffhanger'], ans: 0 },
-            { q: "The play's themes are conveyed through:", opts: ['Symbolism, imagery, and language', 'Only the plot', 'Only the characters', 'Only the setting'], ans: 0 },
-            { q: 'The final scene of the play is an example of:', opts: ['Tragic resolution and restoration of order', 'Comedy', 'Romance', 'Satire'], ans: 0 }
-        ];
-
-        function loadMCQs() {
-            const container = document.getElementById('mcq-container');
-            let html = '';
-            mcqData.forEach((item, idx) => {
-                html += `<div class="mcq-question"><p><strong>${idx+1}. ${item.q}</strong></p>`;
-                item.opts.forEach((opt, oi) => {
-                    const isCorrect = oi === item.ans;
-                    html += `<div class="mcq-option" onclick="checkMCQ(this, ${isCorrect})">
-                                <span>${String.fromCharCode(65+oi)}. ${opt}</span>
-                                <span class="answer-reveal">${isCorrect ? '✅ Correct!' : '❌ Wrong. Try again!'}</span>
-                             </div>`;
-                });
-                html += `</div>`;
+        
+        const box = document.getElementById('question-' + index);
+        box.classList.toggle('show');
+    }
+    
+    function checkAnswer(witchIndex, optionIndex, optionText) {
+        if (answered[witchIndex]) return;
+        
+        const resultDiv = document.getElementById('result-' + witchIndex);
+        const buttons = document.querySelectorAll('#question-' + witchIndex + ' .options button');
+        
+        buttons.forEach(btn => btn.disabled = true);
+        
+        const isCorrect = optionIndex === correctAnswers[witchIndex];
+        
+        if (isCorrect) {
+            resultDiv.textContent = '✓ Correct!';
+            resultDiv.className = 'result-text correct';
+            scores.correct++;
+            showFairy();
+        } else {
+            const correctText = ['Duncan', 'He will be King of Scotland', 'Macduff'][witchIndex];
+            resultDiv.textContent = '✗ Wrong. Answer: ' + correctText;
+            resultDiv.className = 'result-text wrong';
+            scores.wrong++;
+            showWitches();
+        }
+        
+        scores.total++;
+        updateScore();
+        answered[witchIndex] = true;
+    }
+    
+    function updateScore() {
+        document.getElementById('correctCount').textContent = scores.correct;
+        document.getElementById('wrongCount').textContent = scores.wrong;
+        document.getElementById('totalCount').textContent = scores.total;
+    }
+    
+    function resetGame() {
+        scores = { correct: 0, wrong: 0, total: 0 };
+        answered = { 0: false, 1: false, 2: false };
+        updateScore();
+        
+        for (let i = 0; i < 3; i++) {
+            document.getElementById('question-' + i).classList.remove('show');
+            document.getElementById('result-' + i).textContent = '';
+            document.getElementById('result-' + i).className = 'result-text';
+            document.querySelectorAll('#question-' + i + ' .options button').forEach(btn => {
+                btn.disabled = false;
             });
-            container.innerHTML = html;
         }
-
-        function checkMCQ(el, isCorrect) {
-            const parent = el.closest('.mcq-question');
-            parent.querySelectorAll('.mcq-option').forEach(opt => {
-                opt.style.pointerEvents = 'none';
-            });
-            if (isCorrect) {
-                el.classList.add('correct');
-            } else {
-                el.classList.add('wrong');
-                // Show correct answer
-                parent.querySelectorAll('.mcq-option').forEach(opt => {
-                    if (opt.innerHTML.includes('✅ Correct!')) {
-                        opt.classList.add('correct');
-                    }
-                });
-            }
+        
+        closeFairy();
+        closeWitches();
+    }
+    
+    // ===== FAIRY =====
+    function showFairy() {
+        const overlay = document.getElementById('fairyOverlay');
+        overlay.classList.add('active');
+        overlay.style.display = 'block';
+        setTimeout(closeFairy, 3500);
+    }
+    
+    function closeFairy() {
+        const overlay = document.getElementById('fairyOverlay');
+        overlay.classList.remove('active');
+        overlay.style.display = 'none';
+    }
+    
+    // ===== WITCHES =====
+    function showWitches() {
+        const overlay = document.getElementById('witchesOverlay');
+        overlay.classList.add('active');
+        overlay.style.display = 'block';
+        setTimeout(closeWitches, 3500);
+    }
+    
+    function closeWitches() {
+        const overlay = document.getElementById('witchesOverlay');
+        overlay.classList.remove('active');
+        overlay.style.display = 'none';
+    }
+    
+    // ===== KEYBOARD =====
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeFairy();
+            closeWitches();
         }
+    });
+    
+    // ===== CLICK OUTSIDE =====
+    document.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('fairyOverlay')) closeFairy();
+        if (e.target === document.getElementById('witchesOverlay')) closeWitches();
+    });
+    
+    console.log('🧙 Three Witches Game (Soft Colors)');
+    console.log('✅ Colors are gentle on the eyes');
+</script>
 
-        // --- Witch Game ---
-        const witchAnswers = [
-            { ans: 2 }, // Duncan
-            { ans: 1 }, // King of Scotland
-            { ans: 1 }  // Macduff
-        ];
-
-        function showWitchQuestion(idx) {
-            const box = document.getElementById('witch-q' + idx);
-            box.classList.toggle('show');
-        }
-
-        function checkWitchAnswer(witchIdx, optIdx) {
-            const resultDiv = document.getElementById('witch-result-' + witchIdx);
-            const isCorrect = optIdx === witchAnswers[witchIdx].ans;
-            if (isCorrect) {
-                resultDiv.innerHTML = '<div class="fairy">✨ A Fairy Appears! ✨<br>🧚 Correct! Well done!</div>';
-            } else {
-                resultDiv.innerHTML = '<div class="ghost">👻 A Ghost Appears! 👻<br>💀 Wrong! Try again!</div>';
-            }
-            // Disable buttons
-            const box = document.getElementById('witch-q' + witchIdx);
-            box.querySelectorAll('.toggle-btn').forEach(btn => btn.style.opacity = '0.5');
-        }
-
-        // --- Init ---
-        loadMCQs();
-
-        // Show menu on load
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-
-        console.log('🎭 Macbeth Interactive Study Guide loaded!');
-        console.log('📚 200 MCQs loaded successfully!');
-        console.log('🧙 Three Witches Game ready!');
-    </script>
 </body>
-                   </html>
+    </html>
