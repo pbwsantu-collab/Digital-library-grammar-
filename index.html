@@ -189,7 +189,7 @@
         }
 
         /* ============================================================
-                   TEXT SECTION - Word Meanings
+                   TEXT SECTION - Word Meanings (Bengali in different color)
                    ============================================================ */
         .text-content {
             max-height: 600px;
@@ -230,15 +230,18 @@
             border-bottom-color: rgba(150, 130, 180, 0.4);
         }
 
+        /* Bengali meaning in DIFFERENT COLOR - Soft Golden/Orange */
         .word-meaning {
             display: inline-block;
             font-size: 0.8em;
-            color: #8a7a9a;
-            background: rgba(20, 16, 30, 0.6);
-            padding: 1px 10px;
+            color: #d4a86a;
+            /* Different color for Bengali */
+            background: rgba(40, 30, 20, 0.3);
+            padding: 1px 12px;
             border-radius: 12px;
             margin-left: 6px;
-            border: 1px solid rgba(60, 45, 75, 0.1);
+            border: 1px solid rgba(180, 150, 80, 0.15);
+            font-weight: 400;
         }
 
         .word-notes-grid {
@@ -258,6 +261,11 @@
 
         .word-note strong {
             color: #b8a8cc;
+        }
+
+        .word-note .bengali-meaning {
+            color: #d4a86a;
+            /* Different color for Bengali */
         }
 
         /* ============================================================
@@ -312,7 +320,7 @@
         }
 
         /* ============================================================
-                   MCQ SECTION
+                   MCQ SECTION - With Animations
                    ============================================================ */
         .mcq-container {
             max-height: 550px;
@@ -402,7 +410,7 @@
 
         .mcq-option.disabled {
             cursor: default;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         /* ============================================================
@@ -508,7 +516,7 @@
         }
 
         /* ============================================================
-                   FAIRY OVERLAY
+                   FAIRY OVERLAY (White Fairy)
                    ============================================================ */
         .fairy-overlay {
             position: fixed;
@@ -528,43 +536,50 @@
 
         .fairy-overlay .fairy {
             position: absolute;
-            font-size: 2.8em;
+            font-size: 3em;
             animation: fairyFly 3.5s ease-in-out infinite;
-            opacity: 0.8;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+        }
+
+        /* White Fairy - using light/white emoji variants */
+        .fairy-overlay .fairy-white {
+            filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5)) brightness(1.2);
         }
 
         @keyframes fairyFly {
             0%,
             100% {
-                transform: translate(0, 0) scale(1);
+                transform: translate(0, 0) scale(1) rotate(0deg);
             }
             25% {
-                transform: translate(30px, -20px) scale(1.05);
+                transform: translate(40px, -25px) scale(1.08) rotate(5deg);
             }
             50% {
-                transform: translate(60px, 0) scale(1.08);
+                transform: translate(80px, 0) scale(1.12) rotate(-5deg);
             }
             75% {
-                transform: translate(30px, 20px) scale(1.05);
+                transform: translate(40px, 25px) scale(1.08) rotate(5deg);
             }
         }
 
         .fairy-overlay .sparkle {
             position: absolute;
-            font-size: 1.2em;
+            font-size: 1.4em;
             animation: sparkleAnim 2s ease-in-out infinite;
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
         @keyframes sparkleAnim {
             0%,
             100% {
                 opacity: 0.1;
-                transform: scale(0.7);
+                transform: scale(0.6) rotate(0deg);
             }
             50% {
-                opacity: 0.6;
-                transform: scale(1.3);
+                opacity: 0.8;
+                transform: scale(1.4) rotate(180deg);
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
             }
         }
 
@@ -573,8 +588,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(145deg, rgba(30, 24, 42, 0.92), rgba(20, 16, 30, 0.95));
-            color: #c8bcd6;
+            background: linear-gradient(145deg, rgba(30, 28, 45, 0.92), rgba(20, 18, 35, 0.95));
+            color: #d4c8e0;
             padding: 24px 40px;
             border-radius: 24px;
             font-size: 1.4em;
@@ -582,19 +597,19 @@
             box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
             z-index: 10000;
             text-align: center;
-            border: 1px solid rgba(100, 80, 130, 0.1);
+            border: 1px solid rgba(200, 200, 255, 0.1);
             pointer-events: auto;
             max-width: 90%;
             animation: fadeSection 0.4s ease;
         }
 
         .fairy-msg .big {
-            font-size: 2em;
+            font-size: 2.4em;
             display: block;
         }
         .fairy-msg .sub {
             font-size: 0.5em;
-            color: #887a9a;
+            color: #9a8aaa;
             margin-top: 4px;
         }
 
@@ -619,9 +634,10 @@
 
         .witches-overlay .uw {
             position: absolute;
-            font-size: 3.2em;
+            font-size: 3.5em;
             animation: witchDance 2.5s ease-in-out infinite;
-            opacity: 0.75;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 30px rgba(100, 50, 50, 0.2));
         }
 
         @keyframes witchDance {
@@ -630,23 +646,23 @@
                 transform: translate(0, 0) rotate(0deg) scale(1);
             }
             25% {
-                transform: translate(-10px, -8px) rotate(-5deg) scale(1.04);
+                transform: translate(-12px, -10px) rotate(-6deg) scale(1.06);
             }
             50% {
-                transform: translate(10px, 4px) rotate(5deg) scale(0.96);
+                transform: translate(12px, 5px) rotate(6deg) scale(0.94);
             }
             75% {
-                transform: translate(-5px, 10px) rotate(-3deg) scale(1.02);
+                transform: translate(-6px, 12px) rotate(-4deg) scale(1.03);
             }
         }
 
         .witches-overlay .uw .label {
             position: absolute;
-            bottom: -22px;
+            bottom: -26px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 0.2em;
-            color: #8a6a6a;
+            color: #8a5a5a;
             white-space: nowrap;
             font-weight: 300;
             letter-spacing: 1px;
@@ -665,7 +681,7 @@
 
         .witches-overlay .creep {
             position: absolute;
-            font-size: 1.3em;
+            font-size: 1.5em;
             animation: creepFloat 3s ease-in-out infinite;
             opacity: 0.25;
         }
@@ -676,7 +692,7 @@
                 transform: translate(0, 0) rotate(0deg);
             }
             50% {
-                transform: translate(0, -10px) rotate(8deg);
+                transform: translate(0, -12px) rotate(10deg);
             }
         }
 
@@ -701,7 +717,7 @@
         }
 
         .wrong-msg .big {
-            font-size: 2em;
+            font-size: 2.4em;
             display: block;
         }
         .wrong-msg .sub {
@@ -834,10 +850,10 @@
             }
 
             .fairy-overlay .fairy {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             .witches-overlay .uw {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
 
             .gallery-grid {
@@ -896,7 +912,7 @@
                 </div>
                 <div class="menu-item gold" onclick="showSection('mcq')">
                     <span class="icon">❓</span>
-                    200 MCQs
+                    200 MCQs<br><small style="color:#6a5a7a;font-size:0.7em;">With Animations!</small>
                 </div>
                 <div class="menu-item green" onclick="showSection('witches')">
                     <span class="icon">🧙</span>
@@ -910,12 +926,15 @@
         </div>
 
         <!-- ============================================================
-        SECTION: TEXT (100% Word Meanings)
+        SECTION: TEXT (100% Word Meanings - Bengali in different color)
         ============================================================ -->
         <div id="section-text" class="section">
             <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
             <h2 class="section-title">📖 Full Text with Word Meanings</h2>
-            <p style="color:#6a5a7a;font-size:0.85em;margin-bottom:15px;">Click any <span style="color:#b8a8cc;border-bottom:1px dashed rgba(100,80,130,0.25);">highlighted word</span> to see Bengali meaning</p>
+            <p style="color:#6a5a7a;font-size:0.85em;margin-bottom:15px;">
+                Click any <span style="color:#b8a8cc;border-bottom:1px dashed rgba(100,80,130,0.25);">highlighted word</span> to see Bengali meaning
+                <span style="color:#d4a86a;">(Bengali in golden color)</span>
+            </p>
 
             <div class="text-content" id="textContent">
                 <!-- Page 1 -->
@@ -943,21 +962,21 @@
 
                 <p><strong>Word Notes</strong></p>
                 <div class="word-notes-grid">
-                    <div class="word-note"><strong>Esteem</strong> — সম্মান ও প্রশংসা</div>
-                    <div class="word-note"><strong>Thane</strong> — স্কটল্যান্ডের রাজকীয় কর্মকর্তা</div>
-                    <div class="word-note"><strong>Prophesied</strong> — ভবিষ্যদ্বাণী করা</div>
-                    <div class="word-note"><strong>Envoy</strong> — দূত</div>
-                    <div class="word-note"><strong>Spurred</strong> — উৎসাহিত করা</div>
-                    <div class="word-note"><strong>Compunction</strong> — অপরাধবোধ যা ভুল কাজ করতে বাধা দেয়</div>
-                    <div class="word-note"><strong>Abhorrent</strong> — ঘৃণ্য</div>
-                    <div class="word-note"><strong>Inordinate</strong> — অতিরিক্ত</div>
-                    <div class="word-note"><strong>Phantasm</strong> — কল্পনায় যা বিদ্যমান</div>
-                    <div class="word-note"><strong>Somnambulism</strong> — স্বপ্নচারণ</div>
-                    <div class="word-note"><strong>Impregnable</strong> — অজেয়, অভেদ্য</div>
-                    <div class="word-note"><strong>Skirmish</strong> — সংক্ষিপ্ত যুদ্ধ</div>
-                    <div class="word-note"><strong>Vouches</strong> — নিশ্চিত করা</div>
-                    <div class="word-note"><strong>Reproached</strong> — তিরস্কার করা</div>
-                    <div class="word-note"><strong>Equivocations</strong> — দ্ব্যর্থপূর্ণ ভাষার ব্যবহার</div>
+                    <div class="word-note"><strong>Esteem</strong> — <span class="bengali-meaning">সম্মান ও প্রশংসা</span></div>
+                    <div class="word-note"><strong>Thane</strong> — <span class="bengali-meaning">স্কটল্যান্ডের রাজকীয় কর্মকর্তা</span></div>
+                    <div class="word-note"><strong>Prophesied</strong> — <span class="bengali-meaning">ভবিষ্যদ্বাণী করা</span></div>
+                    <div class="word-note"><strong>Envoy</strong> — <span class="bengali-meaning">দূত</span></div>
+                    <div class="word-note"><strong>Spurred</strong> — <span class="bengali-meaning">উৎসাহিত করা</span></div>
+                    <div class="word-note"><strong>Compunction</strong> — <span class="bengali-meaning">অপরাধবোধ যা ভুল কাজ করতে বাধা দেয়</span></div>
+                    <div class="word-note"><strong>Abhorrent</strong> — <span class="bengali-meaning">ঘৃণ্য</span></div>
+                    <div class="word-note"><strong>Inordinate</strong> — <span class="bengali-meaning">অতিরিক্ত</span></div>
+                    <div class="word-note"><strong>Phantasm</strong> — <span class="bengali-meaning">কল্পনায় যা বিদ্যমান</span></div>
+                    <div class="word-note"><strong>Somnambulism</strong> — <span class="bengali-meaning">স্বপ্নচারণ</span></div>
+                    <div class="word-note"><strong>Impregnable</strong> — <span class="bengali-meaning">অজেয়, অভেদ্য</span></div>
+                    <div class="word-note"><strong>Skirmish</strong> — <span class="bengali-meaning">সংক্ষিপ্ত যুদ্ধ</span></div>
+                    <div class="word-note"><strong>Vouches</strong> — <span class="bengali-meaning">নিশ্চিত করা</span></div>
+                    <div class="word-note"><strong>Reproached</strong> — <span class="bengali-meaning">তিরস্কার করা</span></div>
+                    <div class="word-note"><strong>Equivocations</strong> — <span class="bengali-meaning">দ্ব্যর্থপূর্ণ ভাষার ব্যবহার</span></div>
                 </div>
             </div>
         </div>
@@ -1009,12 +1028,22 @@
         </div>
 
         <!-- ============================================================
-        SECTION: 200 MCQs
+        SECTION: 200 MCQs (With Animations - Fairy/Witches)
         ============================================================ -->
         <div id="section-mcq" class="section">
             <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
             <h2 class="section-title">❓ 200 MCQs</h2>
-            <p style="color:#6a5a7a;font-size:0.85em;margin-bottom:15px;">Click any option to check your answer</p>
+            <p style="color:#6a5a7a;font-size:0.85em;margin-bottom:15px;">
+                Click any option → <span style="color:#7aaa7a;">✅ Correct: White Fairy appears 🧚</span> 
+                | <span style="color:#b07070;">❌ Wrong: 3 Ugly Witches appear 👹</span>
+            </p>
+
+            <div style="display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-bottom:15px;padding:10px;background:rgba(20,16,30,0.3);border-radius:12px;border:1px solid rgba(60,45,75,0.08);">
+                <div><span style="color:#7aaa7a;">✅ Correct:</span> <span id="mcqCorrect">0</span></div>
+                <div><span style="color:#b07070;">❌ Wrong:</span> <span id="mcqWrong">0</span></div>
+                <div><span style="color:#9a8ab0;">🎯 Total:</span> <span id="mcqTotal">0</span></div>
+                <button onclick="resetMCQGame()" style="background:rgba(40,30,55,0.4);border:1px solid rgba(60,45,75,0.15);color:#9a8ab0;padding:4px 16px;border-radius:8px;cursor:pointer;font-family:inherit;">↻ Reset</button>
+            </div>
 
             <div class="mcq-container" id="mcqContainer">
                 <!-- MCQs will be loaded by JavaScript -->
@@ -1028,7 +1057,7 @@
             <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
             <h2 class="section-title">🧙 Three Witches Game</h2>
             <p style="color:#6a5a7a;font-size:0.85em;margin-bottom:15px;">
-                ✅ Correct → 🧚 Fairy appears &nbsp;|&nbsp; ❌ Wrong → 🧙🧙🧙 Three witches appear
+                ✅ Correct → 🧚 White Fairy appears &nbsp;|&nbsp; ❌ Wrong → 👹👹👹 Three ugly witches appear
             </p>
 
             <div style="display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;padding:12px;background:rgba(20,16,30,0.3);border-radius:12px;border:1px solid rgba(60,45,75,0.08);">
@@ -1144,24 +1173,26 @@
         </div>
 
         <!-- ============================================================
-        FAIRY OVERLAY
+        WHITE FAIRY OVERLAY
         ============================================================ -->
         <div id="fairyOverlay" class="fairy-overlay">
-            <div class="fairy" style="top:15%;left:12%;">🧚</div>
-            <div class="fairy" style="top:25%;right:18%;animation-delay:0.3s;">🧚‍♀️</div>
-            <div class="fairy" style="bottom:25%;left:22%;animation-delay:0.6s;">🧚</div>
-            <div class="fairy" style="bottom:15%;right:15%;animation-delay:0.9s;">🧚‍♂️</div>
-            <div class="sparkle" style="top:10%;left:45%;animation-delay:0.2s;">✦</div>
-            <div class="sparkle" style="top:55%;left:10%;animation-delay:0.5s;">✧</div>
-            <div class="sparkle" style="top:45%;right:10%;animation-delay:0.8s;">✦</div>
+            <!-- White Fairies with glow effect -->
+            <div class="fairy fairy-white" style="top:12%;left:10%;">🧚</div>
+            <div class="fairy fairy-white" style="top:22%;right:15%;animation-delay:0.3s;">🧚‍♀️</div>
+            <div class="fairy fairy-white" style="bottom:22%;left:18%;animation-delay:0.6s;">🧚</div>
+            <div class="fairy fairy-white" style="bottom:12%;right:12%;animation-delay:0.9s;">🧚‍♂️</div>
+            
+            <div class="sparkle" style="top:8%;left:45%;animation-delay:0.2s;">✦</div>
+            <div class="sparkle" style="top:55%;left:8%;animation-delay:0.5s;">✧</div>
+            <div class="sparkle" style="top:45%;right:8%;animation-delay:0.8s;">✦</div>
             <div class="sparkle" style="bottom:40%;left:48%;animation-delay:0.3s;">✧</div>
-            <div class="sparkle" style="top:20%;left:70%;animation-delay:0.7s;">✦</div>
-            <div class="sparkle" style="bottom:10%;left:25%;animation-delay:0.4s;">✧</div>
+            <div class="sparkle" style="top:18%;left:72%;animation-delay:0.7s;">✦</div>
+            <div class="sparkle" style="bottom:8%;left:22%;animation-delay:0.4s;">✧</div>
 
             <div class="fairy-msg">
                 <span class="big">🧚</span>
                 Perfect!
-                <div class="sub">A beautiful fairy appears to bless your wisdom</div>
+                <div class="sub">A beautiful white fairy appears to bless your wisdom ✨</div>
                 <button class="close-overlay" onclick="closeFairy()">✕</button>
             </div>
         </div>
@@ -1170,7 +1201,7 @@
         UGLY WITCHES OVERLAY
         ============================================================ -->
         <div id="witchesOverlay" class="witches-overlay">
-            <div class="uw" style="top:12%;left:8%;">
+            <div class="uw" style="top:10%;left:6%;">
                 🧙
                 <span class="label">"Foul"</span>
             </div>
@@ -1178,14 +1209,14 @@
                 🧛
                 <span class="label">"Evil"</span>
             </div>
-            <div class="uw" style="top:12%;right:8%;animation-delay:0.8s;">
+            <div class="uw" style="top:10%;right:6%;animation-delay:0.8s;">
                 👹
                 <span class="label">"Wrong"</span>
             </div>
-            <div class="creep" style="top:5%;left:35%;animation-delay:0.2s;">💀</div>
-            <div class="creep" style="top:75%;left:15%;animation-delay:0.6s;">🕷</div>
-            <div class="creep" style="top:65%;right:15%;animation-delay:0.4s;">🦇</div>
-            <div class="creep" style="bottom:10%;left:48%;animation-delay:0.8s;">☠</div>
+            <div class="creep" style="top:3%;left:35%;animation-delay:0.2s;">💀</div>
+            <div class="creep" style="top:75%;left:12%;animation-delay:0.6s;">🕷</div>
+            <div class="creep" style="top:65%;right:12%;animation-delay:0.4s;">🦇</div>
+            <div class="creep" style="bottom:8%;left:48%;animation-delay:0.8s;">☠</div>
 
             <div class="wrong-msg">
                 <span class="big">👹</span>
@@ -1202,17 +1233,9 @@
         // NAVIGATION
         // ============================================================
         function showSection(sectionId) {
-            // Hide all sections
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-
-            // Show menu
             document.getElementById('menuPage').style.display = 'block';
-
-            if (sectionId === 'menu') {
-                return;
-            }
-
-            // Show target section
+            if (sectionId === 'menu') return;
             const target = document.getElementById('section-' + sectionId);
             if (target) {
                 target.classList.add('active');
@@ -1221,28 +1244,20 @@
         }
 
         // ============================================================
-        // TEXT - Word Meanings
+        // TEXT - Word Meanings (Bengali in different color)
         // ============================================================
         function showMeaning(el, meaning) {
-            // Remove existing meaning
             const existing = el.querySelector('.word-meaning');
-            if (existing) {
-                existing.remove();
-                return;
-            }
+            if (existing) { existing.remove(); return; }
             const span = document.createElement('span');
             span.className = 'word-meaning';
             span.textContent = '📖 ' + meaning;
             el.appendChild(span);
-
-            // Auto-hide after 5 seconds
-            setTimeout(() => {
-                if (span.parentNode) span.remove();
-            }, 5000);
+            setTimeout(() => { if (span.parentNode) span.remove(); }, 5000);
         }
 
         // ============================================================
-        // MCQs - 200 Questions
+        // MCQs - 200 Questions with Animations
         // ============================================================
         const mcqData = [
             { q: 'Who is the King of Scotland at the beginning?', opts: ['Macbeth', 'Malcolm', 'Duncan', 'Macduff'],
@@ -1730,15 +1745,18 @@
                 ], ans: 0 }
         ];
 
+        let mcqScores = { correct: 0, wrong: 0, total: 0 };
+        let mcqAnswered = {};
+
         function loadMCQs() {
             const container = document.getElementById('mcqContainer');
             let html = '';
             mcqData.forEach((item, idx) => {
-                html += `<div class="mcq-item">
+                html += `<div class="mcq-item" id="mcq-${idx}">
                             <div class="q"><span class="num">${idx+1}.</span> ${item.q}</div>`;
                 item.opts.forEach((opt, oi) => {
                     const isCorrect = oi === item.ans;
-                    html += `<button class="mcq-option" onclick="checkMCQ(this, ${isCorrect})">
+                    html += `<button class="mcq-option" onclick="checkMCQ(this, ${isCorrect}, ${idx})">
                                 ${String.fromCharCode(65+oi)}. ${opt}
                                 <span class="feedback">${isCorrect ? '✅ Correct!' : '❌'}</span>
                              </button>`;
@@ -1746,31 +1764,61 @@
                 html += `</div>`;
             });
             container.innerHTML = html;
+            updateMCQScore();
         }
 
-        function checkMCQ(el, isCorrect) {
+        function checkMCQ(el, isCorrect, idx) {
+            if (mcqAnswered[idx]) return;
+
             const parent = el.closest('.mcq-item');
             parent.querySelectorAll('.mcq-option').forEach(btn => btn.classList.add('disabled'));
 
+            mcqAnswered[idx] = true;
+
             if (isCorrect) {
                 el.classList.add('correct');
+                mcqScores.correct++;
+                showFairy();
             } else {
                 el.classList.add('wrong');
+                mcqScores.wrong++;
+                // Show correct answer
                 parent.querySelectorAll('.mcq-option').forEach(btn => {
                     if (btn.textContent.includes('✅')) {
                         btn.classList.add('correct');
                     }
                 });
+                showWitches();
             }
+
+            mcqScores.total++;
+            updateMCQScore();
+        }
+
+        function updateMCQScore() {
+            document.getElementById('mcqCorrect').textContent = mcqScores.correct;
+            document.getElementById('mcqWrong').textContent = mcqScores.wrong;
+            document.getElementById('mcqTotal').textContent = mcqScores.total;
+        }
+
+        function resetMCQGame() {
+            mcqScores = { correct: 0, wrong: 0, total: 0 };
+            mcqAnswered = {};
+            updateMCQScore();
+            document.querySelectorAll('.mcq-option').forEach(btn => {
+                btn.classList.remove('correct', 'wrong', 'disabled');
+            });
+            closeFairy();
+            closeWitches();
         }
 
         // ============================================================
         // THREE WITCHES GAME
         // ============================================================
         const witchCorrectAnswers = {
-            0: 2, // Duncan
-            1: 1, // King of Scotland
-            2: 1 // Macduff
+            0: 2,
+            1: 1,
+            2: 1
         };
 
         let witchScores = { correct: 0, wrong: 0, total: 0 };
@@ -1841,7 +1889,7 @@
         }
 
         // ============================================================
-        // FAIRY OVERLAY
+        // FAIRY OVERLAY (White Fairy)
         // ============================================================
         function showFairy() {
             const overlay = document.getElementById('fairyOverlay');
@@ -1889,11 +1937,13 @@
         updateWitchScore();
 
         console.log('🎭 Macbeth Complete Study Guide loaded!');
-        console.log('✅ 100% word meanings');
+        console.log('✅ 100% word meanings - Bengali in golden color');
         console.log('📊 Critical analysis');
-        console.log('❓ ' + mcqData.length + ' MCQs loaded');
+        console.log('❓ ' + mcqData.length + ' MCQs with animations');
         console.log('🧙 Three Witches Game ready');
         console.log('🎨 Scene Gallery ready');
+        console.log('🧚 White Fairy appears on correct answer');
+        console.log('👹👹👹 3 Ugly Witches appear on wrong answer');
     </script>
 
 </body>
