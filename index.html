@@ -1,417 +1,772 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📚 English Grammar · Class IX · Complete Exercise Bank</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-      background: #faf7f2;
-      color: #1e1e2a;
-      padding: 2rem 1.5rem;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
-      padding: 2.5rem 2rem;
-      border: 1px solid #ece7e0;
-    }
-    /* header with indian flag */
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      padding-bottom: 1.5rem;
-      border-bottom: 2px dashed #d0c8bc;
-      margin-bottom: 2.5rem;
-    }
-    .flag-india {
-      display: flex;
-      flex-direction: column;
-      width: 72px;
-      height: 48px;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      flex-shrink: 0;
-    }
-    .flag-india .saffron { background: #FF9933; height: 33.33%; }
-    .flag-india .white { background: white; height: 33.33%; position: relative; }
-    .flag-india .white::after {
-      content: "✧";
-      font-size: 18px;
-      color: #000080;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      line-height: 1;
-      transform: translateY(-2px);
-    }
-    .flag-india .green { background: #138808; height: 33.33%; }
-    .title-group h1 {
-      font-size: 2.1rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      background: linear-gradient(145deg, #1e3c5a, #2b4d6e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .title-group .sub {
-      font-size: 1rem;
-      color: #5f5b55;
-      background: #f0ebe4;
-      display: inline-block;
-      padding: 0.2rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 500;
-      margin-top: 4px;
-    }
-    .badge-class {
-      margin-left: auto;
-      background: #1e3c5a;
-      color: white;
-      font-weight: 600;
-      padding: 0.4rem 1.4rem;
-      border-radius: 40px;
-      font-size: 0.95rem;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
-    }
-    .section {
-      margin-top: 2.8rem;
-    }
-    .section h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #1e3c5a;
-      border-left: 6px solid #FF9933;
-      padding-left: 1rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .section h2 small {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #4f5b66;
-      background: #eae5de;
-      padding: 0.1rem 0.9rem;
-      border-radius: 30px;
-      margin-left: 0.5rem;
-    }
-    .exercise-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.2rem 1.8rem;
-      background: #fcfaf8;
-      padding: 1.2rem 1rem;
-      border-radius: 24px;
-      border: 1px solid #ede8e0;
-    }
-    .exercise-item {
-      display: flex;
-      align-items: baseline;
-      gap: 0.4rem 0.8rem;
-      flex-wrap: wrap;
-      padding: 0.2rem 0;
-      border-bottom: 1px dashed #e2dad1;
-    }
-    .exercise-item .num {
-      font-weight: 600;
-      color: #7a6e60;
-      min-width: 28px;
-      font-size: 0.85rem;
-    }
-    .exercise-item .q {
-      font-weight: 500;
-      color: #1e1e2a;
-      flex: 1 1 140px;
-    }
-    .exercise-item .arrow {
-      color: #b0a395;
-      margin: 0 0.1rem;
-    }
-    .exercise-item .blank {
-      background: #f3efe9;
-      padding: 0.1rem 0.9rem;
-      border-radius: 40px;
-      font-family: 'Courier New', monospace;
-      font-weight: 500;
-      color: #a52a2a;
-      border: 1px dashed #bcaea0;
-      min-width: 60px;
-      display: inline-block;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    .exercise-item .hint {
-      color: #6b6258;
-      font-size: 0.8rem;
-      background: #efebe6;
-      padding: 0.1rem 0.5rem;
-      border-radius: 16px;
-      opacity: 0.8;
-    }
-    .note {
-      background: #f5f1eb;
-      padding: 0.8rem 1.5rem;
-      border-radius: 60px;
-      font-size: 0.95rem;
-      color: #3d3a35;
-      margin-top: 1.5rem;
-      border: 1px solid #e0d7cd;
-      display: inline-block;
-    }
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    @media (max-width: 700px) {
-      body { padding: 1rem 0.5rem; }
-      .container { padding: 1.5rem 1rem; }
-      .header { flex-direction: column; align-items: start; }
-      .badge-class { margin-left: 0; }
-      .two-col { grid-template-columns: 1fr; }
-      .exercise-grid { grid-template-columns: 1fr; }
-    }
-    hr {
-      margin: 2rem 0;
-      border: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #FF9933, #ffffff, #138808);
-      opacity: 0.4;
-    }
-    .page-break {
-      border-top: 4px double #d0c8bc;
-      margin: 2.5rem 0 1rem;
-    }
-    .footer {
-      text-align: right;
-      margin-top: 2rem;
-      color: #7e756a;
-      font-size: 0.9rem;
-      border-top: 1px solid #e5ddd4;
-      padding-top: 1.5rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Grammar - All 320+ Questions</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f0eb;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #FF9933;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #1e3c5a;
+        }
+        .header .sub {
+            color: #666;
+            font-size: 16px;
+        }
+        .flag {
+            display: inline-block;
+            width: 80px;
+            height: 50px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .flag .saffron { background: #FF9933; height: 33.33%; }
+        .flag .white { background: white; height: 33.33%; }
+        .flag .green { background: #138808; height: 33.33%; }
+        .section {
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        .section h2 {
+            background: #1e3c5a;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .section h3 {
+            background: #e8e0d8;
+            padding: 8px 15px;
+            border-radius: 6px;
+            margin: 20px 0 10px;
+            color: #1e3c5a;
+            font-size: 16px;
+        }
+        .question {
+            padding: 6px 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .question .num {
+            font-weight: 700;
+            color: #1e3c5a;
+            min-width: 35px;
+            font-size: 14px;
+        }
+        .question .q {
+            flex: 1;
+            font-size: 14px;
+        }
+        .question .arrow {
+            color: #999;
+            margin: 0 4px;
+        }
+        .question .blank {
+            background: #f0ebe4;
+            padding: 2px 12px;
+            border-radius: 20px;
+            border: 1px dashed #aaa;
+            font-size: 13px;
+            color: #c0392b;
+            min-width: 80px;
+            text-align: center;
+        }
+        .page-break {
+            page-break-before: always;
+            border-top: 2px dashed #ccc;
+            margin: 30px 0;
+        }
+        @media print {
+            .question { break-inside: avoid; }
+            .section { break-inside: avoid; }
+            body { background: white; padding: 10px; }
+            .container { box-shadow: none; }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #138808;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-<div class="container" id="top">
+<div class="container">
 
-  <!-- header with Indian flag -->
-  <div class="header">
-    <div class="flag-india">
-      <div class="saffron"></div>
-      <div class="white"></div>
-      <div class="green"></div>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="flag">
+            <div class="saffron"></div>
+            <div class="white"></div>
+            <div class="green"></div>
+        </div>
+        <h1>📚 ENGLISH GRAMMAR - COMPLETE EXERCISE BANK</h1>
+        <div class="sub">Class IX · 320+ Questions · Degree · Parts of Speech · Voice Change</div>
     </div>
-    <div class="title-group">
-      <h1>English Grammar · Transformation</h1>
-      <div class="sub">Degree · Parts of Speech · Cannot but/help</div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: DEGREE OF COMPARISON - SET 1 -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>📐 DEGREE OF COMPARISON - SET 1</h2>
+        
+        <div class="question"><span class="num">1.</span><span class="q">Ravi is as honest as Suresh.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">2.</span><span class="q">Gold is more precious than silver.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+        <div class="question"><span class="num">3.</span><span class="q">Kolkata is the largest city in West Bengal.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">4.</span><span class="q">Raju is taller than any other boy in his class.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+        <div class="question"><span class="num">5.</span><span class="q">No other planet in the solar system is as large as Jupiter.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+        <div class="question"><span class="num">6.</span><span class="q">The Sundarbans is one of the most beautiful forests in India.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+        <div class="question"><span class="num">7.</span><span class="q">Very few metals are as useful as iron.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">8.</span><span class="q">Shakespeare was greater than most other dramatists.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+        <div class="question"><span class="num">9.</span><span class="q">Diamond is not as cheap as glass.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">10.</span><span class="q">The Ganga is the holiest river in India.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
     </div>
-    <div class="badge-class">🇮🇳 Class IX</div>
-  </div>
 
-  <!-- ============ DEGREE OF COMPARISON (set 1) ============ -->
-  <div class="section">
-    <h2>📐 Degree of Comparison <small>positive · comparative · superlative</small></h2>
-    <div class="exercise-grid">
-      <div class="exercise-item"><span class="num">1.</span><span class="q">Ravi is as honest as Suresh.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">2.</span><span class="q">Gold is more precious than silver.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
-      <div class="exercise-item"><span class="num">3.</span><span class="q">Kolkata is the largest city in West Bengal.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">4.</span><span class="q">Raju is taller than any other boy in his class.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
-      <div class="exercise-item"><span class="num">5.</span><span class="q">No other planet is as large as Jupiter.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
-      <div class="exercise-item"><span class="num">6.</span><span class="q">Sundarbans is one of the most beautiful forests.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
-      <div class="exercise-item"><span class="num">7.</span><span class="q">Very few metals are as useful as iron.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">8.</span><span class="q">Shakespeare was greater than most other dramatists.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
-      <div class="exercise-item"><span class="num">9.</span><span class="q">Diamond is not as cheap as glass.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">10.</span><span class="q">Ganga is the holiest river in India.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+    <!-- ============================================================ -->
+    <!-- SECTION 2: PARTS OF SPEECH - SET 1 -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🧩 PARTS OF SPEECH - SET 1</h2>
+        
+        <div class="question"><span class="num">11.</span><span class="q">He is a careless boy.</span><span class="arrow">→</span><span class="blank">Adverb</span></div>
+        <div class="question"><span class="num">12.</span><span class="q">She accepted the proposal gladly.</span><span class="arrow">→</span><span class="blank">Noun</span></div>
+        <div class="question"><span class="num">13.</span><span class="q">He is a man of wealth.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">14.</span><span class="q">The child is obedient.</span><span class="arrow">→</span><span class="blank">Abstract Noun</span></div>
+        <div class="question"><span class="num">15.</span><span class="q">He speaks truthfully.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">16.</span><span class="q">She admired the painting greatly.</span><span class="arrow">→</span><span class="blank">Noun</span></div>
+        <div class="question"><span class="num">17.</span><span class="q">He is a boy of intelligence.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">18.</span><span class="q">The teacher explained the lesson clearly.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">19.</span><span class="q">Her kindness impressed everyone.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">20.</span><span class="q">He is a cruel man.</span><span class="arrow">→</span><span class="blank">Abstract Noun</span></div>
     </div>
-  </div>
 
-  <!-- ============ PARTS OF SPEECH (first set) ============ -->
-  <div class="section">
-    <h2>🧩 Parts of Speech <small>adverb · noun · adjective · abstract</small></h2>
-    <div class="exercise-grid">
-      <div class="exercise-item"><span class="num">11.</span><span class="q">He is a careless boy.</span><span class="arrow">→</span><span class="blank">adverb</span></div>
-      <div class="exercise-item"><span class="num">12.</span><span class="q">She accepted the proposal gladly.</span><span class="arrow">→</span><span class="blank">noun</span></div>
-      <div class="exercise-item"><span class="num">13.</span><span class="q">He is a man of wealth.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">14.</span><span class="q">The child is obedient.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
-      <div class="exercise-item"><span class="num">15.</span><span class="q">He speaks truthfully.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">16.</span><span class="q">She admired the painting greatly.</span><span class="arrow">→</span><span class="blank">noun</span></div>
-      <div class="exercise-item"><span class="num">17.</span><span class="q">He is a boy of intelligence.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">18.</span><span class="q">The teacher explained clearly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">19.</span><span class="q">Her kindness impressed everyone.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">20.</span><span class="q">He is a cruel man.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
+    <!-- ============================================================ -->
+    <!-- SECTION 3: CANNOT BUT / CANNOT HELP - SET 1 -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🚫 CANNOT BUT / CANNOT HELP - SET 1</h2>
+        
+        <div class="question"><span class="num">21.</span><span class="q">We must respect our elders.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">22.</span><span class="q">She must smile at the baby.</span><span class="arrow">→</span><span class="blank">Cannot help</span></div>
+        <div class="question"><span class="num">23.</span><span class="q">You must forgive him for his mistake.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">24.</span><span class="q">He must admire her courage.</span><span class="arrow">→</span><span class="blank">Cannot help</span></div>
+        <div class="question"><span class="num">25.</span><span class="q">I must obey my conscience.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
     </div>
-  </div>
 
-  <!-- ============ CANNOT BUT / CANNOT HELP ============ -->
-  <div class="section">
-    <h2>🚫 Cannot but / Cannot help <small>transform with gerund/infinitive</small></h2>
-    <div class="exercise-grid">
-      <div class="exercise-item"><span class="num">21.</span><span class="q">We must respect our elders.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">22.</span><span class="q">She must smile at the baby.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
-      <div class="exercise-item"><span class="num">23.</span><span class="q">You must forgive him.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">24.</span><span class="q">He must admire her courage.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
-      <div class="exercise-item"><span class="num">25.</span><span class="q">I must obey my conscience.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
+    <!-- ============================================================ -->
+    <!-- SECTION 4: DEGREE OF COMPARISON - SET 2 -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>📐 DEGREE OF COMPARISON - SET 2</h2>
+        
+        <div class="question"><span class="num">1.</span><span class="q">Meena is as intelligent as Reena.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">2.</span><span class="q">Silk is costlier than cotton.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+        <div class="question"><span class="num">3.</span><span class="q">Mount Everest is the highest peak in the world.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">4.</span><span class="q">Akbar was greater than any other Mughal emperor.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+        <div class="question"><span class="num">5.</span><span class="q">No other student in the school is as regular as Priya.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+        <div class="question"><span class="num">6.</span><span class="q">Rabindranath Tagore was one of the greatest writers of India.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+        <div class="question"><span class="num">7.</span><span class="q">Very few players are as skilful as Messi.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">8.</span><span class="q">The Amazon is longer than most other rivers in South America.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+        <div class="question"><span class="num">9.</span><span class="q">Copper is not as valuable as gold.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">10.</span><span class="q">Japan is one of the most developed countries in Asia.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">11.</span><span class="q">No boy in the team runs faster than Arjun.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+        <div class="question"><span class="num">12.</span><span class="q">Very few cities are as historic as Rome.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+        <div class="question"><span class="num">13.</span><span class="q">The blue whale is the largest animal on earth.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
+        <div class="question"><span class="num">14.</span><span class="q">Steel is stronger than any other alloy.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+        <div class="question"><span class="num">15.</span><span class="q">No other subject is as interesting as History to him.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">16.</span><span class="q">Kalidasa was one of the greatest poets of ancient India.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
+        <div class="question"><span class="num">17.</span><span class="q">Rita sings better than any other girl in her class.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
     </div>
-  </div>
 
-  <hr>
-
-  <!-- ============ SECOND SET : DEGREE ============ -->
-  <div class="section">
-    <h2>📐 Degree of Comparison <small>set 2</small></h2>
-    <div class="exercise-grid">
-      <div class="exercise-item"><span class="num">1.</span><span class="q">Meena is as intelligent as Reena.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">2.</span><span class="q">Silk is costlier than cotton.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
-      <div class="exercise-item"><span class="num">3.</span><span class="q">Everest is the highest peak.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">4.</span><span class="q">Akbar was greater than any other Mughal emperor.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
-      <div class="exercise-item"><span class="num">5.</span><span class="q">No other student is as regular as Priya.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
-      <div class="exercise-item"><span class="num">6.</span><span class="q">Tagore was one of the greatest writers.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
-      <div class="exercise-item"><span class="num">7.</span><span class="q">Very few players are as skilful as Messi.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">8.</span><span class="q">Amazon is longer than most other rivers.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
-      <div class="exercise-item"><span class="num">9.</span><span class="q">Copper is not as valuable as gold.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">10.</span><span class="q">Japan is one of the most developed countries.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">11.</span><span class="q">No boy runs faster than Arjun.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
-      <div class="exercise-item"><span class="num">12.</span><span class="q">Very few cities are as historic as Rome.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
-      <div class="exercise-item"><span class="num">13.</span><span class="q">Blue whale is the largest animal.</span><span class="arrow">→</span><span class="blank">Positive</span></div>
-      <div class="exercise-item"><span class="num">14.</span><span class="q">Steel is stronger than any other alloy.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
-      <div class="exercise-item"><span class="num">15.</span><span class="q">No other subject is as interesting as History.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">16.</span><span class="q">Kalidasa was one of the greatest poets.</span><span class="arrow">→</span><span class="blank">Comparative</span></div>
-      <div class="exercise-item"><span class="num">17.</span><span class="q">Rita sings better than any other girl.</span><span class="arrow">→</span><span class="blank">Superlative</span></div>
+    <!-- ============================================================ -->
+    <!-- SECTION 5: PARTS OF SPEECH - SET 2 -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🧩 PARTS OF SPEECH - SET 2</h2>
+        
+        <div class="question"><span class="num">18.</span><span class="q">He is a hard worker.</span><span class="arrow">→</span><span class="blank">Adverb</span></div>
+        <div class="question"><span class="num">19.</span><span class="q">She solved the problem cleverly.</span><span class="arrow">→</span><span class="blank">Noun</span></div>
+        <div class="question"><span class="num">20.</span><span class="q">He is a man of ability.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">21.</span><span class="q">The girl is diligent.</span><span class="arrow">→</span><span class="blank">Abstract Noun</span></div>
+        <div class="question"><span class="num">22.</span><span class="q">He answered the question correctly.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">23.</span><span class="q">They welcomed the guests warmly.</span><span class="arrow">→</span><span class="blank">Noun</span></div>
+        <div class="question"><span class="num">24.</span><span class="q">He is a person of integrity.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">25.</span><span class="q">The manager rejected the proposal firmly.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">26.</span><span class="q">His generosity won everyone's heart.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">27.</span><span class="q">She is a proud woman.</span><span class="arrow">→</span><span class="blank">Abstract Noun</span></div>
+        <div class="question"><span class="num">28.</span><span class="q">He behaved foolishly.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">29.</span><span class="q">She is a girl of great patience.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">30.</span><span class="q">The soldier defended the fort courageously.</span><span class="arrow">→</span><span class="blank">Noun</span></div>
+        <div class="question"><span class="num">31.</span><span class="q">He is an arrogant man.</span><span class="arrow">→</span><span class="blank">Abstract Noun</span></div>
+        <div class="question"><span class="num">32.</span><span class="q">The old man walked feebly.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">33.</span><span class="q">He is a boy of remarkable talent.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">34.</span><span class="q">The news spread rapidly.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">35.</span><span class="q">Her sincerity is well known.</span><span class="arrow">→</span><span class="blank">Adjective</span></div>
+        <div class="question"><span class="num">36.</span><span class="q">He is a generous donor.</span><span class="arrow">→</span><span class="blank">Adverb</span></div>
     </div>
-  </div>
 
-  <!-- ============ PARTS OF SPEECH (second set) ============ -->
-  <div class="section">
-    <h2>🧩 Parts of Speech <small>set 2 · adverb · noun · adjective · abstract</small></h2>
-    <div class="exercise-grid">
-      <div class="exercise-item"><span class="num">18.</span><span class="q">He is a hard worker.</span><span class="arrow">→</span><span class="blank">adverb</span></div>
-      <div class="exercise-item"><span class="num">19.</span><span class="q">She solved the problem cleverly.</span><span class="arrow">→</span><span class="blank">noun</span></div>
-      <div class="exercise-item"><span class="num">20.</span><span class="q">He is a man of ability.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">21.</span><span class="q">The girl is diligent.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
-      <div class="exercise-item"><span class="num">22.</span><span class="q">He answered correctly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">23.</span><span class="q">They welcomed warmly.</span><span class="arrow">→</span><span class="blank">noun</span></div>
-      <div class="exercise-item"><span class="num">24.</span><span class="q">He is a person of integrity.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">25.</span><span class="q">The manager rejected firmly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">26.</span><span class="q">His generosity won hearts.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">27.</span><span class="q">She is a proud woman.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
-      <div class="exercise-item"><span class="num">28.</span><span class="q">He behaved foolishly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">29.</span><span class="q">She is a girl of great patience.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">30.</span><span class="q">The soldier defended courageously.</span><span class="arrow">→</span><span class="blank">noun</span></div>
-      <div class="exercise-item"><span class="num">31.</span><span class="q">He is an arrogant man.</span><span class="arrow">→</span><span class="blank">abstract noun</span></div>
-      <div class="exercise-item"><span class="num">32.</span><span class="q">The old man walked feebly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">33.</span><span class="q">He is a boy of remarkable talent.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">34.</span><span class="q">The news spread rapidly.</span><span class="arrow">→</span><span class="blank">adjective</span></div>
-      <div class="exercise-item"><span class="num">35.</span><span class="q">Her sincerity is well known.</span><span class="arrow">→</span><span class="blank">adjective (subject-verb)</span></div>
-      <div class="exercise-item"><span class="num">36.</span><span class="q">He is a generous donor.</span><span class="arrow">→</span><span class="blank">adverb</span></div>
+    <!-- ============================================================ -->
+    <!-- SECTION 6: CANNOT BUT / CANNOT HELP - SET 2 -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🚫 CANNOT BUT / CANNOT HELP - SET 2</h2>
+        
+        <div class="question"><span class="num">37.</span><span class="q">We must help the poor.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">38.</span><span class="q">He must yield to reason.</span><span class="arrow">→</span><span class="blank">Cannot help</span></div>
+        <div class="question"><span class="num">39.</span><span class="q">She must weep at the tragic story.</span><span class="arrow">→</span><span class="blank">Cannot help</span></div>
+        <div class="question"><span class="num">40.</span><span class="q">You must appreciate his effort.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">41.</span><span class="q">They must obey the rules of the game.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">42.</span><span class="q">I must trust an old friend.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">43.</span><span class="q">He must confess his fault.</span><span class="arrow">→</span><span class="blank">Cannot help</span></div>
+        <div class="question"><span class="num">44.</span><span class="q">We must praise the winner.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">45.</span><span class="q">She must sympathize with the victims.</span><span class="arrow">→</span><span class="blank">Cannot help</span></div>
+        <div class="question"><span class="num">46.</span><span class="q">You must respect a wise man's advice.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">47.</span><span class="q">He must love his motherland.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">48.</span><span class="q">They must admire the scenic beauty.</span><span class="arrow">→</span><span class="blank">Cannot help</span></div>
+        <div class="question"><span class="num">49.</span><span class="q">I must feel proud of my country.</span><span class="arrow">→</span><span class="blank">Cannot but</span></div>
+        <div class="question"><span class="num">50.</span><span class="q">She must obey the law of nature.</span><span class="arrow">→</span><span class="blank">Cannot help</span></div>
     </div>
-  </div>
 
-  <!-- ============ CANNOT BUT / CANNOT HELP (set 2) ============ -->
-  <div class="section">
-    <h2>🚫 Cannot but / Cannot help <small>set 2</small></h2>
-    <div class="exercise-grid">
-      <div class="exercise-item"><span class="num">37.</span><span class="q">We must help the poor.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">38.</span><span class="q">He must yield to reason.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
-      <div class="exercise-item"><span class="num">39.</span><span class="q">She must weep at the tragic story.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
-      <div class="exercise-item"><span class="num">40.</span><span class="q">You must appreciate his effort.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">41.</span><span class="q">They must obey the rules.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">42.</span><span class="q">I must trust an old friend.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">43.</span><span class="q">He must confess his fault.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
-      <div class="exercise-item"><span class="num">44.</span><span class="q">We must praise the winner.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">45.</span><span class="q">She must sympathize with victims.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
-      <div class="exercise-item"><span class="num">46.</span><span class="q">You must respect a wise man's advice.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">47.</span><span class="q">He must love his motherland.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">48.</span><span class="q">They must admire the scenic beauty.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
-      <div class="exercise-item"><span class="num">49.</span><span class="q">I must feel proud of my country.</span><span class="arrow">→</span><span class="blank">cannot but</span></div>
-      <div class="exercise-item"><span class="num">50.</span><span class="q">She must obey the law of nature.</span><span class="arrow">→</span><span class="blank">cannot help</span></div>
+    <!-- ============================================================ -->
+    <!-- SECTION 7: VOICE CHANGE - SIMPLE PRESENT -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - SIMPLE PRESENT</h2>
+        
+        <div class="question"><span class="num">1.</span><span class="q">People speak English all over the world.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">2.</span><span class="q">The teacher checks the homework every day.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">3.</span><span class="q">They clean the classrooms daily.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">4.</span><span class="q">The shopkeeper sells fresh vegetables.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">5.</span><span class="q">Someone repairs bicycles here.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">6.</span><span class="q">The gardener waters the plants every morning.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">7.</span><span class="q">They play cricket on Sundays.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">8.</span><span class="q">My mother cooks dinner.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">9.</span><span class="q">The company produces cars in this factory.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">10.</span><span class="q">The police catch thieves.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
     </div>
-  </div>
 
-  <div class="page-break"></div>
-
-  <!-- ============ VOICE CHANGE – ACTIVE TO PASSIVE (condensed) ============ -->
-  <div class="section">
-    <h2>🎤 Voice Change · Active → Passive <small>selected from 320 exercises</small></h2>
-    <div class="two-col">
-      <div style="background:#f8f5f0; padding:1rem 1.2rem; border-radius:20px;">
-        <p style="font-weight:600; color:#1e3c5a;">Simple & Continuous</p>
-        <div class="exercise-item"><span class="num">1.</span><span class="q">People speak English worldwide.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">11.</span><span class="q">The boys broke the window.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">21.</span><span class="q">They will announce results.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">31.</span><span class="q">They are building a school.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">41.</span><span class="q">They were repairing the bridge.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">51.</span><span class="q">They have finished the work.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">61.</span><span class="q">They had completed the task.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">71.</span><span class="q">They will have completed by evening.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">81.</span><span class="q">You must follow the rules.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">91.</span><span class="q">They must have completed.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      </div>
-      <div style="background:#f8f5f0; padding:1rem 1.2rem; border-radius:20px;">
-        <p style="font-weight:600; color:#1e3c5a;">Imperative, interrogative, two objects</p>
-        <div class="exercise-item"><span class="num">101.</span><span class="q">Close the door.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">111.</span><span class="q">Do they play football here?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">121.</span><span class="q">Who wrote this poem?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">131.</span><span class="q">The teacher taught us grammar.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">141.</span><span class="q">The work is done by her.</span><span class="arrow">→</span><span class="blank">Active</span></div>
-        <div class="exercise-item"><span class="num">151.</span><span class="q">They make toys in this factory.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">161.</span><span class="q">They do not play hockey here.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">171.</span><span class="q">Someone has knocked at the door.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">181.</span><span class="q">People say the minister will resign.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-        <div class="exercise-item"><span class="num">191.</span><span class="q">Someone broke the window last night.</span><span class="arrow">→</span><span class="blank">get-passive</span></div>
-        <div class="exercise-item"><span class="num">201.</span><span class="q">I want someone to complete the work.</span><span class="arrow">→</span><span class="blank">Passive infinitive</span></div>
-      </div>
+    <!-- ============================================================ -->
+    <!-- SECTION 8: VOICE CHANGE - SIMPLE PAST -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - SIMPLE PAST</h2>
+        
+        <div class="question"><span class="num">11.</span><span class="q">The boys broke the window.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">12.</span><span class="q">They completed the project last week.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">13.</span><span class="q">Someone stole my wallet yesterday.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">14.</span><span class="q">The coach selected the team.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">15.</span><span class="q">The workers built this bridge in 2019.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">16.</span><span class="q">The storm damaged many houses.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">17.</span><span class="q">She wrote a letter.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">18.</span><span class="q">They solved the problem quickly.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">19.</span><span class="q">The principal praised the students.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">20.</span><span class="q">The doctor examined the patient.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
     </div>
-    <div style="margin-top:1rem; background:#f0ede7; padding:0.7rem 1.5rem; border-radius:40px; display:inline-block;">
-      ⚡ <strong>Includes:</strong> get-passive, infinitives, gerunds, causatives, reporting verbs &amp; more (full 320 exercises in PDF)
-    </div>
-  </div>
 
-  <!-- ============ MASTER TEST SNIPPET ============ -->
-  <div class="section">
-    <h2>📝 Master Test <small>30 mixed voice changes</small></h2>
-    <div class="exercise-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px,1fr));">
-      <div class="exercise-item"><span class="num">291.</span><span class="q">They serve breakfast at 8 AM.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">292.</span><span class="q">Someone is repairing my watch.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">293.</span><span class="q">The gardener planted the trees.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">294.</span><span class="q">They will complete the bridge next year.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">295.</span><span class="q">The teacher has checked the notebooks.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">296.</span><span class="q">They were cleaning the classroom.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">297.</span><span class="q">Someone had stolen the money.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">298.</span><span class="q">They will have finished by tonight.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">299.</span><span class="q">You must follow these instructions.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">300.</span><span class="q">They can solve the puzzle.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">301.</span><span class="q">Please open the gate.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">302.</span><span class="q">Don’t waste food.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">307.</span><span class="q">They gave me a prize.</span><span class="arrow">→</span><span class="blank">Passive (two objects)</span></div>
-      <div class="exercise-item"><span class="num">309.</span><span class="q">People say the actor is friendly.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">313.</span><span class="q">They made him confess.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
-      <div class="exercise-item"><span class="num">317.</span><span class="q">The room needs cleaning.</span><span class="arrow">→</span><span class="blank">Passive (need+gerund)</span></div>
-      <div class="exercise-item"><span class="num">319.</span><span class="q">I will repair my laptop.</span><span class="arrow">→</span><span class="blank">have/get done</span></div>
+    <!-- ============================================================ -->
+    <!-- SECTION 9: VOICE CHANGE - SIMPLE FUTURE -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - SIMPLE FUTURE</h2>
+        
+        <div class="question"><span class="num">21.</span><span class="q">They will announce the results tomorrow.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">22.</span><span class="q">The manager will approve your leave.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">23.</span><span class="q">Someone will invite you to the function.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">24.</span><span class="q">The police will arrest the criminal soon.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">25.</span><span class="q">They will complete the work by Friday.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">26.</span><span class="q">The company will launch a new product.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">27.</span><span class="q">She will send the documents today.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">28.</span><span class="q">We will organize the event next month.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">29.</span><span class="q">The committee will select the winner.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">30.</span><span class="q">They will publish the report.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
     </div>
-  </div>
 
-  <div class="footer">
-    🇮🇳 Grammar Digital Library · Class IX · Complete set of 320+ voice change, degree, POS, cannot but/help
-  </div>
+    <!-- ============================================================ -->
+    <!-- SECTION 10: VOICE CHANGE - PRESENT CONTINUOUS -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - PRESENT CONTINUOUS</h2>
+        
+        <div class="question"><span class="num">31.</span><span class="q">They are building a new school.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">32.</span><span class="q">The chef is preparing the meal.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">33.</span><span class="q">Someone is watching you.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">34.</span><span class="q">The workers are repairing the road.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">35.</span><span class="q">She is teaching English.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">36.</span><span class="q">They are painting the house.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">37.</span><span class="q">The students are writing the test.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">38.</span><span class="q">The nurse is looking after the baby.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">39.</span><span class="q">The team is playing the match.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">40.</span><span class="q">The company is installing new machines.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 11: VOICE CHANGE - PAST CONTINUOUS -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - PAST CONTINUOUS</h2>
+        
+        <div class="question"><span class="num">41.</span><span class="q">They were repairing the bridge.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">42.</span><span class="q">The children were making a noise.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">43.</span><span class="q">Someone was following me.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">44.</span><span class="q">The workers were digging a well.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">45.</span><span class="q">She was writing a story.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">46.</span><span class="q">They were decorating the hall.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">47.</span><span class="q">The police were questioning the suspect.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">48.</span><span class="q">The chef was cooking dinner.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">49.</span><span class="q">The students were preparing a chart.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">50.</span><span class="q">He was driving the car.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 12: VOICE CHANGE - PRESENT PERFECT -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - PRESENT PERFECT</h2>
+        
+        <div class="question"><span class="num">51.</span><span class="q">They have finished the work.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">52.</span><span class="q">Someone has broken the glass.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">53.</span><span class="q">She has written a poem.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">54.</span><span class="q">The company has delivered the goods.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">55.</span><span class="q">They have solved the case.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">56.</span><span class="q">The teacher has corrected the papers.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">57.</span><span class="q">We have prepared the timetable.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">58.</span><span class="q">The police have caught the thief.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">59.</span><span class="q">He has repaired the computer.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">60.</span><span class="q">They have informed the students.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 13: VOICE CHANGE - PAST PERFECT -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - PAST PERFECT</h2>
+        
+        <div class="question"><span class="num">61.</span><span class="q">They had completed the task before noon.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">62.</span><span class="q">Someone had stolen the jewels.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">63.</span><span class="q">She had cooked the food.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">64.</span><span class="q">The team had won the match.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">65.</span><span class="q">They had closed the shop.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">66.</span><span class="q">The teacher had explained the lesson.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">67.</span><span class="q">We had finished the project.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">68.</span><span class="q">The storm had destroyed the crops.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">69.</span><span class="q">He had written the report.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">70.</span><span class="q">They had invited the guests.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 14: VOICE CHANGE - FUTURE PERFECT -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - FUTURE PERFECT</h2>
+        
+        <div class="question"><span class="num">71.</span><span class="q">They will have completed the work by evening.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">72.</span><span class="q">She will have finished the book by Monday.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">73.</span><span class="q">The company will have launched the product by August.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">74.</span><span class="q">They will have repaired the road by next week.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">75.</span><span class="q">Someone will have informed you by then.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">76.</span><span class="q">We will have prepared the schedule by tomorrow.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">77.</span><span class="q">The police will have arrested the accused by noon.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">78.</span><span class="q">They will have announced the results by Friday.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">79.</span><span class="q">He will have submitted the form by 5 PM.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">80.</span><span class="q">They will have cleaned the hall by morning.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 15: VOICE CHANGE - MODAL VERBS -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - MODAL VERBS</h2>
+        
+        <div class="question"><span class="num">81.</span><span class="q">You must follow the rules.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">82.</span><span class="q">They can solve this puzzle easily.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">83.</span><span class="q">We should help the poor.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">84.</span><span class="q">He may complete the work today.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">85.</span><span class="q">You ought to respect your elders.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">86.</span><span class="q">They might change the plan.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">87.</span><span class="q">We can finish the assignment tonight.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">88.</span><span class="q">She should inform the teacher.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">89.</span><span class="q">They must obey the traffic laws.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">90.</span><span class="q">You could answer the question.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 16: VOICE CHANGE - MODALS + PERFECT -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - MODALS + PERFECT</h2>
+        
+        <div class="question"><span class="num">91.</span><span class="q">They must have completed the work.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">92.</span><span class="q">Someone may have stolen the laptop.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">93.</span><span class="q">You should have submitted the form.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">94.</span><span class="q">They might have changed the schedule.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">95.</span><span class="q">She must have informed the manager.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">96.</span><span class="q">We could have solved the problem.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">97.</span><span class="q">They should have followed the instructions.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">98.</span><span class="q">Someone may have opened the door.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">99.</span><span class="q">He must have repaired the machine.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">100.</span><span class="q">They might have announced the result.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 17: VOICE CHANGE - IMPERATIVES -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - IMPERATIVES</h2>
+        
+        <div class="question"><span class="num">101.</span><span class="q">Close the door.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">102.</span><span class="q">Do not waste time.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">103.</span><span class="q">Please help the poor.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">104.</span><span class="q">Bring me a glass of water.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">105.</span><span class="q">Keep the room clean.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">106.</span><span class="q">Don't touch the wire.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">107.</span><span class="q">Finish the homework today.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">108.</span><span class="q">Write your name clearly.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">109.</span><span class="q">Open the window.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">110.</span><span class="q">Don't make a noise.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 18: VOICE CHANGE - INTERROGATIVES -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - INTERROGATIVES</h2>
+        
+        <div class="question"><span class="num">111.</span><span class="q">Do they play football here?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">112.</span><span class="q">Did she write the letter?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">113.</span><span class="q">Are you watching the match?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">114.</span><span class="q">Was he driving the car?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">115.</span><span class="q">Have they completed the work?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">116.</span><span class="q">Had you finished the project?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">117.</span><span class="q">Will they announce the result?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">118.</span><span class="q">Can you solve this sum?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">119.</span><span class="q">Should we follow the rules?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">120.</span><span class="q">Must he obey the order?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 19: VOICE CHANGE - WH-QUESTIONS -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - WH-QUESTIONS</h2>
+        
+        <div class="question"><span class="num">121.</span><span class="q">Who wrote this poem?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">122.</span><span class="q">What did they announce yesterday?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">123.</span><span class="q">When did she complete the task?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">124.</span><span class="q">Why did they cancel the meeting?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">125.</span><span class="q">How did they solve the problem?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">126.</span><span class="q">Where do people grow rice?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">127.</span><span class="q">Who is teaching you English?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">128.</span><span class="q">What have they chosen for the prize?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">129.</span><span class="q">When will they deliver the goods?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">130.</span><span class="q">How can you finish this work quickly?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 20: VOICE CHANGE - TWO OBJECTS -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VOICE CHANGE - TWO OBJECTS</h2>
+        
+        <div class="question"><span class="num">131.</span><span class="q">The teacher taught us grammar.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">132.</span><span class="q">She gave me a gift.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">133.</span><span class="q">They sent him an email.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">134.</span><span class="q">My father bought me a bicycle.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">135.</span><span class="q">The manager offered her a job.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">136.</span><span class="q">He showed us the way.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">137.</span><span class="q">They promised me a reward.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">138.</span><span class="q">She told him the truth.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">139.</span><span class="q">The coach taught the players new skills.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">140.</span><span class="q">They handed the customer a receipt.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 21: PASSIVE TO ACTIVE -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 PASSIVE TO ACTIVE</h2>
+        
+        <div class="question"><span class="num">141.</span><span class="q">The work is done by her.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">142.</span><span class="q">The letter was written by him.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">143.</span><span class="q">The match will be played by the team.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">144.</span><span class="q">The road is being repaired by the workers.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">145.</span><span class="q">The task has been completed by them.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">146.</span><span class="q">The jewels had been stolen by someone.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">147.</span><span class="q">The rules must be followed by everyone.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">148.</span><span class="q">The project was finished by us.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">149.</span><span class="q">A new school is being built by them.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+        <div class="question"><span class="num">150.</span><span class="q">The report will have been submitted by him.</span><span class="arrow">→</span><span class="blank">Active</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 22: MIXED PRACTICE -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 MIXED PRACTICE</h2>
+        
+        <div class="question"><span class="num">151.</span><span class="q">They make toys in this factory.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">152.</span><span class="q">She is cleaning the room.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">153.</span><span class="q">The police arrested the thief.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">154.</span><span class="q">They will finish the work soon.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">155.</span><span class="q">Someone has opened the window.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">156.</span><span class="q">They were arranging the chairs.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">157.</span><span class="q">We had completed the course.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">158.</span><span class="q">They can solve the sum.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">159.</span><span class="q">You must obey the rule.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">160.</span><span class="q">They will have announced the result.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 23: NEGATIVES -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 NEGATIVES</h2>
+        
+        <div class="question"><span class="num">161.</span><span class="q">They do not play hockey here.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">162.</span><span class="q">She did not complete the work.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">163.</span><span class="q">They will not accept your request.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">164.</span><span class="q">He is not writing the letter.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">165.</span><span class="q">They were not watching the movie.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">166.</span><span class="q">We have not finished the task.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">167.</span><span class="q">Someone had not informed me.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">168.</span><span class="q">They cannot solve this problem.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">169.</span><span class="q">You must not break the rules.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">170.</span><span class="q">They should not waste water.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 24: REPORTING VERBS -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 REPORTING VERBS</h2>
+        
+        <div class="question"><span class="num">181.</span><span class="q">People say that the minister will resign.</span><span class="arrow">→</span><span class="blank">It is said</span></div>
+        <div class="question"><span class="num">182.</span><span class="q">Everyone knows that the sun rises in the east.</span><span class="arrow">→</span><span class="blank">It is known</span></div>
+        <div class="question"><span class="num">183.</span><span class="q">People believe that the story is true.</span><span class="arrow">→</span><span class="blank">It is believed</span></div>
+        <div class="question"><span class="num">184.</span><span class="q">They think that she is very talented.</span><span class="arrow">→</span><span class="blank">It is thought</span></div>
+        <div class="question"><span class="num">185.</span><span class="q">People report that the bridge has collapsed.</span><span class="arrow">→</span><span class="blank">It is reported</span></div>
+        <div class="question"><span class="num">186.</span><span class="q">People expect that prices will rise.</span><span class="arrow">→</span><span class="blank">It is expected</span></div>
+        <div class="question"><span class="num">187.</span><span class="q">They claim that the product is safe.</span><span class="arrow">→</span><span class="blank">It is claimed</span></div>
+        <div class="question"><span class="num">188.</span><span class="q">People suppose that he has left the city.</span><span class="arrow">→</span><span class="blank">It is supposed</span></div>
+        <div class="question"><span class="num">189.</span><span class="q">They understand that the exam is difficult.</span><span class="arrow">→</span><span class="blank">It is understood</span></div>
+        <div class="question"><span class="num">190.</span><span class="q">People fear that the storm will return.</span><span class="arrow">→</span><span class="blank">It is feared</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 25: PASSIVE WITH "GET" -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 PASSIVE WITH "GET"</h2>
+        
+        <div class="question"><span class="num">191.</span><span class="q">Someone broke the window last night.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">192.</span><span class="q">They caught him at the station.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">193.</span><span class="q">Someone has hurt her feelings.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">194.</span><span class="q">They will punish the students.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">195.</span><span class="q">Someone stole my phone.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">196.</span><span class="q">They repaired the road quickly.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">197.</span><span class="q">Someone damaged the car.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">198.</span><span class="q">They invite him often.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">199.</span><span class="q">Someone has cleaned the room.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+        <div class="question"><span class="num">200.</span><span class="q">They delayed the flight.</span><span class="arrow">→</span><span class="blank">Get passive</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 26: PASSIVE OF INFINITIVES -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 PASSIVE OF INFINITIVES</h2>
+        
+        <div class="question"><span class="num">201.</span><span class="q">I want someone to complete the work.</span><span class="arrow">→</span><span class="blank">to be completed</span></div>
+        <div class="question"><span class="num">202.</span><span class="q">They expect us to finish the task.</span><span class="arrow">→</span><span class="blank">to be finished</span></div>
+        <div class="question"><span class="num">203.</span><span class="q">She asked him to write the report.</span><span class="arrow">→</span><span class="blank">to be written</span></div>
+        <div class="question"><span class="num">204.</span><span class="q">The teacher told the students to solve the sums.</span><span class="arrow">→</span><span class="blank">to be solved</span></div>
+        <div class="question"><span class="num">205.</span><span class="q">We need someone to repair the computer.</span><span class="arrow">→</span><span class="blank">to be repaired</span></div>
+        <div class="question"><span class="num">206.</span><span class="q">They advised me to follow the rules.</span><span class="arrow">→</span><span class="blank">to be followed</span></div>
+        <div class="question"><span class="num">207.</span><span class="q">The manager wants you to attend the meeting.</span><span class="arrow">→</span><span class="blank">to be attended</span></div>
+        <div class="question"><span class="num">208.</span><span class="q">They invited her to join the club.</span><span class="arrow">→</span><span class="blank">to be invited</span></div>
+        <div class="question"><span class="num">209.</span><span class="q">The doctor ordered him to take rest.</span><span class="arrow">→</span><span class="blank">to be taken</span></div>
+        <div class="question"><span class="num">210.</span><span class="q">I would like someone to wash the car.</span><span class="arrow">→</span><span class="blank">to be washed</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 27: PASSIVE OF GERUNDS -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 PASSIVE OF GERUNDS</h2>
+        
+        <div class="question"><span class="num">211.</span><span class="q">People like watching movies.</span><span class="arrow">→</span><span class="blank">being watched</span></div>
+        <div class="question"><span class="num">212.</span><span class="q">I hate people disturbing me.</span><span class="arrow">→</span><span class="blank">being disturbed</span></div>
+        <div class="question"><span class="num">213.</span><span class="q">They insisted on completing the work.</span><span class="arrow">→</span><span class="blank">being completed</span></div>
+        <div class="question"><span class="num">214.</span><span class="q">We enjoyed them singing songs.</span><span class="arrow">→</span><span class="blank">being sung</span></div>
+        <div class="question"><span class="num">215.</span><span class="q">She suggested cleaning the room.</span><span class="arrow">→</span><span class="blank">being cleaned</span></div>
+        <div class="question"><span class="num">216.</span><span class="q">They stopped him from entering the building.</span><span class="arrow">→</span><span class="blank">being entered</span></div>
+        <div class="question"><span class="num">217.</span><span class="q">I remember someone calling my name.</span><span class="arrow">→</span><span class="blank">being called</span></div>
+        <div class="question"><span class="num">218.</span><span class="q">We object to them wasting water.</span><span class="arrow">→</span><span class="blank">being wasted</span></div>
+        <div class="question"><span class="num">219.</span><span class="q">They prevented us from crossing the road.</span><span class="arrow">→</span><span class="blank">being crossed</span></div>
+        <div class="question"><span class="num">220.</span><span class="q">She likes people praising her.</span><span class="arrow">→</span><span class="blank">being praised</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 28: PASSIVE WITH PREPOSITIONS -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 PASSIVE WITH PREPOSITIONS</h2>
+        
+        <div class="question"><span class="num">221.</span><span class="q">They look after the children.</span><span class="arrow">→</span><span class="blank">are looked after</span></div>
+        <div class="question"><span class="num">222.</span><span class="q">People talk about the new movie.</span><span class="arrow">→</span><span class="blank">is talked about</span></div>
+        <div class="question"><span class="num">223.</span><span class="q">Someone knocked at the door.</span><span class="arrow">→</span><span class="blank">was knocked at</span></div>
+        <div class="question"><span class="num">224.</span><span class="q">The students laughed at him.</span><span class="arrow">→</span><span class="blank">was laughed at</span></div>
+        <div class="question"><span class="num">225.</span><span class="q">They will look into the matter.</span><span class="arrow">→</span><span class="blank">will be looked into</span></div>
+        <div class="question"><span class="num">226.</span><span class="q">People depend on him.</span><span class="arrow">→</span><span class="blank">is depended on</span></div>
+        <div class="question"><span class="num">227.</span><span class="q">Everyone listened to the speech.</span><span class="arrow">→</span><span class="blank">was listened to</span></div>
+        <div class="question"><span class="num">228.</span><span class="q">They sent for the doctor.</span><span class="arrow">→</span><span class="blank">was sent for</span></div>
+        <div class="question"><span class="num">229.</span><span class="q">People refer to this book often.</span><span class="arrow">→</span><span class="blank">is referred to</span></div>
+        <div class="question"><span class="num">230.</span><span class="q">They will take care of the patient.</span><span class="arrow">→</span><span class="blank">will be taken care of</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 29: CAUSATIVES -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 CAUSATIVES (let/make/help)</h2>
+        
+        <div class="question"><span class="num">231.</span><span class="q">They made him do the work.</span><span class="arrow">→</span><span class="blank">was made to do</span></div>
+        <div class="question"><span class="num">232.</span><span class="q">The teacher let the students leave early.</span><span class="arrow">→</span><span class="blank">were let leave</span></div>
+        <div class="question"><span class="num">233.</span><span class="q">They helped me complete the project.</span><span class="arrow">→</span><span class="blank">was helped to complete</span></div>
+        <div class="question"><span class="num">234.</span><span class="q">The manager made her apologize.</span><span class="arrow">→</span><span class="blank">was made to apologize</span></div>
+        <div class="question"><span class="num">235.</span><span class="q">They did not let him enter.</span><span class="arrow">→</span><span class="blank">was not let enter</span></div>
+        <div class="question"><span class="num">236.</span><span class="q">The coach made the players practice daily.</span><span class="arrow">→</span><span class="blank">were made to practice</span></div>
+        <div class="question"><span class="num">237.</span><span class="q">She helped him solve the problem.</span><span class="arrow">→</span><span class="blank">was helped to solve</span></div>
+        <div class="question"><span class="num">238.</span><span class="q">They let us use the hall.</span><span class="arrow">→</span><span class="blank">were let use</span></div>
+        <div class="question"><span class="num">239.</span><span class="q">They made me wait for two hours.</span><span class="arrow">→</span><span class="blank">was made to wait</span></div>
+        <div class="question"><span class="num">240.</span><span class="q">The teacher helped the child read.</span><span class="arrow">→</span><span class="blank">was helped to read</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 30: VERBS OF PERCEPTION -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 VERBS OF PERCEPTION</h2>
+        
+        <div class="question"><span class="num">241.</span><span class="q">They saw him steal the bag.</span><span class="arrow">→</span><span class="blank">was seen to steal</span></div>
+        <div class="question"><span class="num">242.</span><span class="q">People heard her sing a song.</span><span class="arrow">→</span><span class="blank">was heard to sing</span></div>
+        <div class="question"><span class="num">243.</span><span class="q">We watched them play football.</span><span class="arrow">→</span><span class="blank">were watched to play</span></div>
+        <div class="question"><span class="num">244.</span><span class="q">They noticed him enter the room.</span><span class="arrow">→</span><span class="blank">was noticed to enter</span></div>
+        <div class="question"><span class="num">245.</span><span class="q">Someone heard the baby cry.</span><span class="arrow">→</span><span class="blank">was heard to cry</span></div>
+        <div class="question"><span class="num">246.</span><span class="q">They saw her cross the road.</span><span class="arrow">→</span><span class="blank">was seen to cross</span></div>
+        <div class="question"><span class="num">247.</span><span class="q">We felt the ground shake.</span><span class="arrow">→</span><span class="blank">was felt to shake</span></div>
+        <div class="question"><span class="num">248.</span><span class="q">People watched the players win.</span><span class="arrow">→</span><span class="blank">were watched to win</span></div>
+        <div class="question"><span class="num">249.</span><span class="q">They heard him deliver a speech.</span><span class="arrow">→</span><span class="blank">was heard to deliver</span></div>
+        <div class="question"><span class="num">250.</span><span class="q">We saw the thief run away.</span><span class="arrow">→</span><span class="blank">was seen to run</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 31: NEED/REQUIRE/WANT -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 NEED/REQUIRE/WANT + GERUND</h2>
+        
+        <div class="question"><span class="num">251.</span><span class="q">The house needs painting.</span><span class="arrow">→</span><span class="blank">needs to be painted</span></div>
+        <div class="question"><span class="num">252.</span><span class="q">Your hair requires cutting.</span><span class="arrow">→</span><span class="blank">requires to be cut</span></div>
+        <div class="question"><span class="num">253.</span><span class="q">The car needs repairing.</span><span class="arrow">→</span><span class="blank">needs to be repaired</span></div>
+        <div class="question"><span class="num">254.</span><span class="q">This shirt wants washing.</span><span class="arrow">→</span><span class="blank">wants to be washed</span></div>
+        <div class="question"><span class="num">255.</span><span class="q">The room needs cleaning.</span><span class="arrow">→</span><span class="blank">needs to be cleaned</span></div>
+        <div class="question"><span class="num">256.</span><span class="q">The bike needs servicing.</span><span class="arrow">→</span><span class="blank">needs to be serviced</span></div>
+        <div class="question"><span class="num">257.</span><span class="q">The floor requires polishing.</span><span class="arrow">→</span><span class="blank">requires to be polished</span></div>
+        <div class="question"><span class="num">258.</span><span class="q">The machine needs oiling.</span><span class="arrow">→</span><span class="blank">needs to be oiled</span></div>
+        <div class="question"><span class="num">259.</span><span class="q">The books need binding.</span><span class="arrow">→</span><span class="blank">need to be bound</span></div>
+        <div class="question"><span class="num">260.</span><span class="q">The garden needs watering.</span><span class="arrow">→</span><span class="blank">needs to be watered</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 32: HAVE/GET SOMETHING DONE -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>🎤 HAVE/GET SOMETHING DONE</h2>
+        
+        <div class="question"><span class="num">261.</span><span class="q">I repaired my phone.</span><span class="arrow">→</span><span class="blank">had my phone repaired</span></div>
+        <div class="question"><span class="num">262.</span><span class="q">She washed her car.</span><span class="arrow">→</span><span class="blank">had her car washed</span></div>
+        <div class="question"><span class="num">263.</span><span class="q">They painted their house.</span><span class="arrow">→</span><span class="blank">had their house painted</span></div>
+        <div class="question"><span class="num">264.</span><span class="q">He cut his hair.</span><span class="arrow">→</span><span class="blank">had his hair cut</span></div>
+        <div class="question"><span class="num">265.</span><span class="q">We cleaned the room.</span><span class="arrow">→</span><span class="blank">had the room cleaned</span></div>
+        <div class="question"><span class="num">266.</span><span class="q">I will service my bike.</span><span class="arrow">→</span><span class="blank">will have my bike serviced</span></div>
+        <div class="question"><span class="num">267.</span><span class="q">She is stitching her dress.</span><span class="arrow">→</span><span class="blank">is having her dress stitched</span></div>
+        <div class="question"><span class="num">268.</span><span class="q">They had completed the work.</span><span class="arrow">→</span><span class="blank">had had the work completed</span></div>
+        <div class="question"><span class="num">269.</span><span class="q">He will install the software.</span><span class="arrow">→</span><span class="blank">will have the software installed</span></div>
+        <div class="question"><span class="num">270.</span><span class="q">We have repaired the roof.</span><span class="arrow">→</span><span class="blank">have had the roof repaired</span></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 33: MASTER TEST -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <h2>📝 MASTER TEST - 30 QUESTIONS</h2>
+        
+        <div class="question"><span class="num">291.</span><span class="q">They serve breakfast at 8 AM.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">292.</span><span class="q">Someone is repairing my watch.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">293.</span><span class="q">The gardener planted the trees.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">294.</span><span class="q">They will complete the bridge next year.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">295.</span><span class="q">The teacher has checked the notebooks.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">296.</span><span class="q">They were cleaning the classroom.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">297.</span><span class="q">Someone had stolen the money.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">298.</span><span class="q">They will have finished the work by tonight.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">299.</span><span class="q">You must follow these instructions.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">300.</span><span class="q">They can solve the puzzle.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">301.</span><span class="q">Please open the gate.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">302.</span><span class="q">Don't waste food.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">303.</span><span class="q">Did she write the application?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">304.</span><span class="q">Have they announced the results?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">305.</span><span class="q">Who broke the chair?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">306.</span><span class="q">What are they building?</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">307.</span><span class="q">They gave me a prize.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">308.</span><span class="q">The coach taught us new drills.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+        <div class="question"><span class="num">309.</span><span class="q">People say that the actor is friendly.</span><span class="arrow">→</span><span class="blank">It is said</span></div>
+        <div class="question"><span class="num">310.</span><span class="q">They believe that the plan will succeed.</span><span class="arrow">→</span><span class="blank">It is believed</span></div>
+        <div class="question"><span class="num">311.</span><span class="q">They look after the old people.</span><span class="arrow">→</span><span class="blank">are looked after</span></div>
+        <div class="question"><span class="num">312.</span><span class="q">The students laughed at him.</span><span class="arrow">→</span><span class="blank">was laughed at</span></div>
+        <div class="question"><span class="num">313.</span><span class="q">They made him confess the truth.</span><span class="arrow">→</span><span class="blank">was made to confess</span></div>
+        <div class="question"><span class="num">314.</span><span class="q">They did not allow her to enter.</span><span class="arrow">→</span><span class="blank">was not allowed to enter</span></div>
+        <div class="question"><span class="num">315.</span><span class="q">They saw him climb the wall.</span><span class="arrow">→</span><span class="blank">was seen to climb</span></div>
+        <div class="question"><span class="num">316.</span><span class="q">People heard her sing.</span><span class="arrow">→</span><span class="blank">was heard to sing</span></div>
+        <div class="question"><span class="num">317.</span><span class="q">The room needs cleaning.</span><span class="arrow">→</span><span class="blank">needs to be cleaned</span></div>
+        <div class="question"><span class="num">318.</span><span class="q">The car requires servicing.</span><span class="arrow">→</span><span class="blank">requires to be serviced</span></div>
+        <div class="question"><span class="num">319.</span><span class="q">I will repair my laptop.</span><span class="arrow">→</span><span class="blank">will have my laptop repaired</span></div>
+        <div class="question"><span class="num">320.</span><span class="q">They are installing solar panels.</span><span class="arrow">→</span><span class="blank">Passive</span></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>🇮🇳 Complete Grammar Exercise Bank · Class IX · 320+ Questions</p>
+        <p style="font-size:12px; margin-top:5px;">All questions from original upload · Printable PDF ready</p>
+    </div>
+
 </div>
 </body>
-  </html>
+                                                           </html>
